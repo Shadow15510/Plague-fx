@@ -2,14 +2,20 @@
  Nom : Plague
  Version : - dev-
  Dernière modification : 26 Juillet 2019
+ 
+ Liste des choses à faire :
+    - Optimiser 'Display' en limitant le nombre d'arguments
  */
 
 #include <gint/display.h>
 #include <gint/keyboard.h>
 #include <gint/std/stdio.h>
 
+
+
+
 //display : affiche l'écran de la calculatrice avec les données en rapport avec l'écran
-void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn);
+void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn, const int *contagion, const int *severite, const int *letalite);
 
 //floor : renvoie la partie entière d'une variable
 double floor(double x);
@@ -30,8 +36,8 @@ int main(void)
     
     dfont(&font_plague);//On change la police pour la police custom
     
-    int fond = 1, fin = 0, key = 0;//variables diverses
-    int recherche = 25, adn = 888;//variables pour la maladie
+    int fond = 1, fin = 0, key = 0;//variables diverses pour le jeu
+    int recherche = 25, adn = 0, contagion = 10, severite = 20, letalite = 15;//variables pour la maladie
     
 	dclear(C_WHITE);
     dimage(0, 0, &img_titre);
@@ -41,7 +47,7 @@ int main(void)
     
     while (fin == 0)
     {
-        display(&img_fonds, &fond, &recherche, &adn);
+        display(&img_fonds, &fond, &recherche, &adn, &contagion, &severite, &letalite);
         key = getkey().key;
         switch (key)
         {
@@ -61,7 +67,7 @@ int main(void)
 }
 
 
-void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn)
+void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn, const int *contagion, const int *severite, const int *letalite)
 {
     int variable;
     char string[100];
@@ -71,14 +77,30 @@ void display(const image_t *img_fonds, const int *fond, const int *recherche, co
     switch (*fond) // affichage supplémentaires dépendant des fonds.
     {
         case 2:// monde avec la barre en dessous
-            //recherche (max = 74 pxl) en % => 74 * (recherche / 100)
-            variable = 74 * *recherche/100;
+            //recherche (jauge = 74 pxl) donc : 74 * (recherche / 100) pour le pourcentage
+            variable = 74 * *recherche / 100;
             sprintf(string, "%d", *adn);
             dtext(9, 58, string, C_BLACK, C_NONE);
             dline(51, 60, 51 + variable, 60, C_BLACK);
             dline(51, 59, 51 + variable, 59, C_BLACK);
             break;
         case 3://Menu de modification de la maladie
+            // toutes les jauges = 68 pxl.
+            sprintf(string, "%d", *adn);
+            dtext(100, 30, string, C_BLACK, C_NONE);
+            
+            variable = 68 * *contagion / 25;
+            dline(10, 20, 10 + variable, 20, C_BLACK);
+            dline(10, 19, 10 + variable, 20, C_BLACK);
+            
+            /*variable = 68 * *severite / 20;
+            dline(10, 20, 10 + variable, 20, C_BLACK);
+            dline(10, 19, 10 + variable, 20, C_BLACK);
+            
+            variable = 68 * *letalite / 25;
+            dline(10, 20, 10 + variable, 20, C_BLACK);
+            dline(10, 19, 10 + variable, 20, C_BLACK);*/
+            
             break;
         case 4://Menu info
             dtext(46, 25, "TOUX", C_BLACK, C_NONE);
