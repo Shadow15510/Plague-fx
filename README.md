@@ -1,1 +1,3 @@
 # Plague inc
+
+Plague inc est un jeu de stratégie où le but est de réduire l'humanité à néant…
