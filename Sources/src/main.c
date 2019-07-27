@@ -1,10 +1,9 @@
 /*
  Nom : Plague
  Version : - dev-
- Dernière modification : 26 Juillet 2019
+ Dernière modification : 27 Juillet 2019
  
  Liste des choses à faire :
-    - Optimiser 'Display' en limitant le nombre d'arguments
  */
 
 #include <gint/display.h>
@@ -12,13 +11,18 @@
 #include <gint/std/stdio.h>
 
 
+//display_barre : affiche les infos de la barre en dessous du monde
+void display_barre(const int *adn, const int *recherche);
 
+//display_menu : affiche les données sur l'écran menu du jeu à partir duquel on peut modifier la maladie
+void display_menu(const int *adn, const int *contagion, const int *severite, const int *letalite);
 
-//display : affiche l'écran de la calculatrice avec les données en rapport avec l'écran
-void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn, const int *contagion, const int *severite, const int *letalite);
+//display_info : affiche les infos sur la maladie selectionnée
+void display_info(void);
 
 //floor : renvoie la partie entière d'une variable
 double floor(double x);
+
 
 int main(void)
 {
@@ -37,7 +41,7 @@ int main(void)
     dfont(&font_plague);//On change la police pour la police custom
     
     int fond = 1, fin = 0, key = 0;//variables diverses pour le jeu
-    int recherche = 25, adn = 0, contagion = 10, severite = 20, letalite = 15;//variables pour la maladie
+    int recherche = 25, adn = 0, contagion = 0, severite = 0, letalite = 0;//variables pour la maladie
     
 	dclear(C_WHITE);
     dimage(0, 0, &img_titre);
@@ -47,18 +51,37 @@ int main(void)
     
     while (fin == 0)
     {
-        display(&img_fonds, &fond, &recherche, &adn, &contagion, &severite, &letalite);
+        dclear(C_WHITE);
+        dsubimage(0, 0, &img_fonds, 0, 64 * (fond - 1) + (fond - 1), 128, 64, 0);
+        
+        switch (fond)// affichage supplémentaires dépendant des fonds.
+        {
+            case 2:
+                display_barre(&adn, &recherche);// monde avec la barre en dessous
+                break;
+            case 3:
+                display_menu(&adn, &contagion, &severite, &letalite);//Menu de modification de la maladie
+                break;
+            case 4:
+                display_info();//Menu info
+                break;
+        }
+        
+        dupdate();
         key = getkey().key;
+        
         switch (key)
         {
-            case KEY_LEFT:
-                if(fond > 1) fond -= 1;
+            case KEY_OPTN:
+                if (fond == 1) fond = 2;
+                else if (fond == 2) fond = 1;
                 break;
-            case KEY_RIGHT:
-                if (fond < 5) fond += 1;
+            case KEY_VARS:
+                fond = 3;
                 break;
             case KEY_EXIT:
-                fin = 1;
+                if (fond != 1) fond = 1;
+                else fin = 1;
                 break;
         }
         
@@ -67,49 +90,47 @@ int main(void)
 }
 
 
-void display(const image_t *img_fonds, const int *fond, const int *recherche, const int *adn, const int *contagion, const int *severite, const int *letalite)
+void display_barre(const int *adn, const int *recherche)
 {
+    //recherche (jauge = 74 pxl) donc : 74 * (recherche / 100) pour le pourcentage
     int variable;
     char string[100];
-    dclear(C_WHITE);
-    dsubimage(0, 0, &(*img_fonds), 0, 64 * (*fond - 1) + (*fond - 1), 128, 64, 0);
-    
-    switch (*fond) // affichage supplémentaires dépendant des fonds.
-    {
-        case 2:// monde avec la barre en dessous
-            //recherche (jauge = 74 pxl) donc : 74 * (recherche / 100) pour le pourcentage
-            variable = 74 * *recherche / 100;
-            sprintf(string, "%d", *adn);
-            dtext(9, 58, string, C_BLACK, C_NONE);
-            dline(51, 60, 51 + variable, 60, C_BLACK);
-            dline(51, 59, 51 + variable, 59, C_BLACK);
-            break;
-        case 3://Menu de modification de la maladie
-            // toutes les jauges = 68 pxl.
-            sprintf(string, "%d", *adn);
-            dtext(100, 30, string, C_BLACK, C_NONE);
-            
-            variable = 68 * *contagion / 25;
-            dline(10, 20, 10 + variable, 20, C_BLACK);
-            dline(10, 19, 10 + variable, 20, C_BLACK);
-            
-            /*variable = 68 * *severite / 20;
-            dline(10, 20, 10 + variable, 20, C_BLACK);
-            dline(10, 19, 10 + variable, 20, C_BLACK);
-            
-            variable = 68 * *letalite / 25;
-            dline(10, 20, 10 + variable, 20, C_BLACK);
-            dline(10, 19, 10 + variable, 20, C_BLACK);*/
-            
-            break;
-        case 4://Menu info
-            dtext(46, 25, "TOUX", C_BLACK, C_NONE);
-            dtext(73, 33, "0123", C_BLACK, C_NONE);
-            break;
-            
-    }
-    dupdate();
+    variable = 74 * *recherche / 100;
+    sprintf(string, "%d", *adn);
+    dtext(9, 58, string, C_BLACK, C_NONE);
+    dline(51, 60, 51 + variable, 60, C_BLACK);
+    dline(51, 59, 51 + variable, 59, C_BLACK);
 }
+
+
+void display_menu(const int *adn, const int *contagion, const int *severite, const int *letalite)
+{
+    // toutes les jauges font 68 pxl de long.
+    int variable;
+    char string[100];
+    sprintf(string, "%d", *adn);
+    dtext(102, 37, string, C_BLACK, C_NONE);
+    
+    variable = 68 * *contagion / 25;
+    dline(57, 48, 57 + variable, 48, C_BLACK);
+    dline(57, 49, 57 + variable, 49, C_BLACK);
+    
+    variable = 68 * *severite / 20;
+    dline(57, 54, 57 + variable, 54, C_BLACK);
+    dline(57, 55, 57 + variable, 55, C_BLACK);
+    
+    variable = 68 * *letalite / 25;
+    dline(57, 60, 57 + variable, 60, C_BLACK);
+    dline(57, 61, 57 + variable, 61, C_BLACK);
+}
+
+
+void display_info(void)
+{
+    dtext(46, 25, "TOUX", C_BLACK, C_NONE);
+    dtext(73, 33, "0123", C_BLACK, C_NONE);
+}
+
 
 double floor(double x)
 {
