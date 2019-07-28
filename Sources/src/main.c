@@ -1,7 +1,7 @@
 /*
  Nom : Plague
  Version : - dev-
- Dernière modification : 27 Juillet 2019
+ Dernière modification : 28 Juillet 2019
  
  Liste des choses à faire :
  */
@@ -9,6 +9,7 @@
 #include <gint/display.h>
 #include <gint/keyboard.h>
 #include <gint/std/stdio.h>
+#include <gint/std/string.h>
 
 
 //display_barre : affiche les infos de la barre en dessous du monde
@@ -18,10 +19,13 @@ void display_barre(const int *adn, const int *recherche);
 void display_menu(const int *adn, const int *contagion, const int *severite, const int *letalite);
 
 //display_info : affiche les infos sur la maladie selectionnée
-void display_info(void);
+void display_info(const char *nom, const int adn, const int conta, const int leta, const int sev);
 
 //floor : renvoie la partie entière d'une variable
 double floor(double x);
+
+//copy : copie le contenu de src en écrasant dest
+char *copy(char *dest, const char *src);
 
 
 int main(void)
@@ -41,7 +45,8 @@ int main(void)
     dfont(&font_plague);//On change la police pour la police custom
     
     int fond = 1, fin = 0, key = 0;//variables diverses pour le jeu
-    int recherche = 25, adn = 0, contagion = 0, severite = 0, letalite = 0;//variables pour la maladie
+    int recherche = 25, adn = 0, contagion = 0, severite = 0, letalite = 0 , cout, conta, leta, sev;//variables pour la maladie
+    char nom[20];
     
 	dclear(C_WHITE);
     dimage(0, 0, &img_titre);
@@ -63,7 +68,12 @@ int main(void)
                 display_menu(&adn, &contagion, &severite, &letalite);//Menu de modification de la maladie
                 break;
             case 4:
-                display_info();//Menu info
+                copy(nom, "TOUX");
+                cout = 0;
+                conta = 0;
+                leta = 0;
+                sev = 0;
+                display_info(nom, cout, conta, leta, sev);//Menu info
                 break;
         }
         
@@ -78,6 +88,9 @@ int main(void)
                 break;
             case KEY_VARS:
                 fond = 3;
+                break;
+            case KEY_1:
+                fond = 4;
                 break;
             case KEY_EXIT:
                 if (fond != 1) fond = 1;
@@ -125,14 +138,35 @@ void display_menu(const int *adn, const int *contagion, const int *severite, con
 }
 
 
-void display_info(void)
+void display_info(const char *nom, const int adn, const int conta, const int leta, const int sev)
 {
-    dtext(46, 25, "TOUX", C_BLACK, C_NONE);
-    dtext(73, 33, "0123", C_BLACK, C_NONE);
+    char string[100];
+
+    dtext(47, 25, nom, C_BLACK, C_NONE);
+    sprintf(string, "%d", adn);
+    dtext(73, 33, string, C_BLACK, C_NONE);
+    
+    sprintf(string, "%d", conta);
+    dtext(81, 41, string, C_BLACK, C_NONE);
+    
+    sprintf(string, "%d", leta);
+    dtext(74, 49, string, C_BLACK, C_NONE);
+    
+    sprintf(string, "%d", sev);
+    dtext(75, 57, string, C_BLACK, C_NONE);
 }
 
 
 double floor(double x)
 {
     return (int)x;
+}
+
+
+char *copy(char *dest, const char *src)
+{
+    unsigned int i;
+    for (i =0 ; i <= strlen(src) ; i++) dest[i] = src[i];
+    dest[strlen(src) + 1] = '\0';
+    return dest;
 }

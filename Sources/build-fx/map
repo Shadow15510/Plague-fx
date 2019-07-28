@@ -6,7 +6,7 @@ Archive member included to satisfy reference by file (symbol)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o) (_tlb_mapped_memory)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
                               build-fx/src/main.o (_dimage)
-/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
                               build-fx/src/main.o (_dtext)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
                               build-fx/src/main.o (_dupdate)
@@ -15,19 +15,21 @@ Archive member included to satisfy reference by file (symbol)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o) (_bopti_render_clip)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
-                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o) (_topti_asm_text)
+                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o) (_topti_asm_text)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
                               build-fx/src/main.o (_getkey)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
                               build-fx/src/main.o (_dfont)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
                               build-fx/src/main.o (_dline)
+/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
+                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o) (_memset)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
                               build-fx/src/main.o (_sprintf)
+/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(string.c.o)
+                              build-fx/src/main.o (_strlen)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o) (_t6k11_display)
-/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(font5x7.png.o)
-                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o) (_gint_font5x7)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o) (_hw_detect)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
@@ -41,7 +43,9 @@ Archive member included to satisfy reference by file (symbol)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o) (___os_version)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
-                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o) (_bopti_asm_mono)
+                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o) (_bopti_asm_mono)
+/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o) (_topti_render)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o) (_dhline)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
@@ -52,12 +56,12 @@ Archive member included to satisfy reference by file (symbol)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o) (_waitevent)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o) (_iokbd_scan)
-/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
-                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o) (_memcpy)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o) (_timer_setup)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o) (_inth_tmu)
+/Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(font5x7.png.o)
+                              /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o) (_gint_font5x7)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
                               /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o) (_gint_intlevel)
 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
@@ -89,23 +93,25 @@ Discarded input sections
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(mmu.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
- .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+ .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+ .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
+ .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(string.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
+ .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
- .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
  .comment       0x0000000000000000       0x12 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
@@ -193,290 +199,296 @@ LOAD build-fx/assets/img/trans.png.o
 LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a
 LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
                 0x0000000000300000                _brom = 0x300000
-                0x0000000000005fec                _srom = ((((0x200 + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.gint.drivers)) + SIZEOF (.gint.blocks))
+                0x00000000000061a8                _srom = ((((0x200 + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.gint.drivers)) + SIZEOF (.gint.blocks))
 
-.pretext        0x0000000000300200      0x888
+.pretext        0x0000000000300200      0x89c
  *(.pretext.entry)
  .pretext.entry
                 0x0000000000300200      0x1cc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
                 0x0000000000300200                _start
  *(.pretext)
- .pretext       0x00000000003003cc      0x31c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
-                0x000000000030046e                _topti_render
-                0x00000000003006a8                _dtext
- *fill*         0x00000000003006e8        0x8 
- .pretext       0x00000000003006f0      0x130 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
-                0x0000000000300800                _topti_asm_text
- .pretext       0x0000000000300820      0x110 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
-                0x0000000000300820                _dfont
-                0x0000000000300838                _charset_size
-                0x0000000000300864                _charset_decode
-                0x00000000003008d2                _topti_offset
- .pretext       0x0000000000300930       0xd0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
-                0x0000000000300930                _hw_detect
- .pretext       0x0000000000300a00       0x88 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
-                0x0000000000300a00                ___os_version
-                0x0000000000300a0c                _malloc
-                0x0000000000300a18                _free
-                0x0000000000300a24                _calloc
-                0x0000000000300a30                _realloc
-                0x0000000000300a3c                _BFile_Remove
-                0x0000000000300a48                _BFile_Create
-                0x0000000000300a54                _BFile_Open
-                0x0000000000300a60                _BFile_Close
-                0x0000000000300a6c                _BFile_Write
-                0x0000000000300a78                _BFile_Read
-                0x0000000000300a88                _btors = .
+ .pretext       0x00000000003003cc       0x4c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
+                0x00000000003003cc                _dtext
+ *fill*         0x0000000000300418        0x8 
+ .pretext       0x0000000000300420      0x130 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
+                0x0000000000300530                _topti_asm_text
+ .pretext       0x0000000000300550      0x110 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                0x0000000000300550                _dfont
+                0x0000000000300568                _charset_size
+                0x0000000000300594                _charset_decode
+                0x0000000000300602                _topti_offset
+ .pretext       0x0000000000300660       0xd0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
+                0x0000000000300660                _hw_detect
+ .pretext       0x0000000000300730       0x88 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
+                0x0000000000300730                ___os_version
+                0x000000000030073c                _malloc
+                0x0000000000300748                _free
+                0x0000000000300754                _calloc
+                0x0000000000300760                _realloc
+                0x000000000030076c                _BFile_Remove
+                0x0000000000300778                _BFile_Create
+                0x0000000000300784                _BFile_Open
+                0x0000000000300790                _BFile_Close
+                0x000000000030079c                _BFile_Write
+                0x00000000003007a8                _BFile_Read
+ .pretext       0x00000000003007b8      0x2e4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                0x000000000030085a                _topti_render
+                0x0000000000300a9c                _btors = .
  *(.ctors .ctors.*)
-                0x0000000000300a88                _mtors = .
+                0x0000000000300a9c                _mtors = .
  *(.dtors .dtors.*)
-                0x0000000000300a88                _etors = .
+                0x0000000000300a9c                _etors = .
 
-.text           0x0000000000300a88     0x3300
+.text           0x0000000000300aa0     0x34c0
  *(.text .text.*)
- .text          0x0000000000300a88      0x1e0 build-fx/src/main.o
-                0x0000000000300a88                _display_barre
-                0x0000000000300b08                _display_menu
-                0x0000000000300c0c                _display_info
-                0x0000000000300c48                _floor
- .text.startup  0x0000000000300c68      0x118 build-fx/src/main.o
-                0x0000000000300c68                _main
- .text          0x0000000000300d80        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
- .text          0x0000000000300d80      0x1f4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(mmu.c.o)
-                0x0000000000300d80                _tlb_addr
-                0x0000000000300d94                _tlb_data
-                0x0000000000300da8                _tlb_mapped_memory
-                0x0000000000300e7c                _utlb_addr
-                0x0000000000300e8c                _utlb_data
-                0x0000000000300e9c                _utlb_mapped_memory
- .text          0x0000000000300f74       0x54 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
-                0x0000000000300f74                _dimage
-                0x0000000000300fa8                _dsubimage
- .text          0x0000000000300fc8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
- .text          0x0000000000300fc8       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
-                0x0000000000300fc8                _dupdate
-                0x0000000000300fe0                _dupdate_noint
- .text          0x0000000000300fec       0x4c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
-                0x0000000000300fec                _dclear
- .text          0x0000000000301038      0x3ac /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
-                0x0000000000301038                _bopti_grid
-                0x000000000030118e                _bopti_render
-                0x0000000000301294                _bopti_render_clip
-                0x000000000030139c                _bopti_render_noclip
- .text          0x00000000003013e4        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
- .text          0x00000000003013e4      0x218 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
-                0x00000000003015a8                _getkey
-                0x00000000003015b4                _getkey_opt
-                0x00000000003015c0                _getkey_repeat
- .text          0x00000000003015fc       0x9c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
-                0x00000000003015fc                _dsize
- .text          0x0000000000301698      0x124 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
-                0x0000000000301698                _dline
- .text          0x00000000003017bc      0xbf4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
-                0x00000000003020e8                _kprint_opt
-                0x0000000000302212                _kprint
-                0x00000000003022ec                _kvsprint
-                0x0000000000302330                _sprintf
-                0x0000000000302358                _vsprintf
-                0x0000000000302378                _snprintf
-                0x0000000000302398                _vsnprintf
- .text          0x00000000003023b0      0x1dc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
-                0x0000000000302448                _t6k11_display
-                0x0000000000302520                _t6k11_contrast
-                0x000000000030254c                _t6k11_backlight
- .text          0x000000000030258c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
- .text          0x000000000030258c      0x170 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
-                0x0000000000302640                _gint_install
-                0x00000000003026e4                _gint_unload
- .text          0x00000000003026fc       0x2c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(vbr.s.o)
-                0x00000000003026fc                _gint_setvbr
- .text          0x0000000000302728        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
- .text          0x0000000000302728        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
- .text          0x0000000000302728        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
- .text          0x0000000000302728       0x60 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
-                0x0000000000302728                _bopti_asm_mono
-                0x000000000030274e                _bopti_asm_mono_alpha
-                0x0000000000302780                _bopti_asm_gray
-                0x0000000000302784                _bopti_asm_gray_alpha
- .text          0x0000000000302788      0x13c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
-                0x0000000000302788                _dhline
-                0x0000000000302840                _dvline
- .text          0x00000000003028c4       0x54 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
-                0x00000000003028c4                _dpixel
- .text          0x0000000000302918       0x8c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
-                0x0000000000302918                _masks
- .text          0x00000000003029a4      0x2d4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
-                0x0000000000302b6c                _pollevent
-                0x0000000000302c40                _waitevent
- .text          0x0000000000302c78      0x124 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
-                0x0000000000302c84                _iokbd_row
-                0x0000000000302d6c                _iokbd_scan
- .text          0x0000000000302d9c       0xd6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
-                0x0000000000302d9c                _memcpy
-                0x0000000000302e50                __memmove
-                0x0000000000302e54                __memcmp
-                0x0000000000302e58                _memset
- *fill*         0x0000000000302e72        0x2 
- .text          0x0000000000302e74      0x574 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
-                0x0000000000303198                _timer_setup
-                0x000000000030322c                _timer_delay
-                0x000000000030328c                _timer_start
-                0x00000000003032c0                _timer_reload
-                0x00000000003032e0                _timer_pause
-                0x0000000000303314                _timer_stop
-                0x0000000000303370                _timer_timeout
-                0x000000000030337c                _timer_address
-                0x00000000003033b8                _timer_clear
- .text          0x00000000003033e8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
- .text          0x00000000003033e8       0x74 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
-                0x00000000003033e8                _gint_intlevel
-                0x0000000000303438                _gint_inthandler
- .text          0x000000000030345c      0x150 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
-                0x00000000003035a0                _clock_freq
- .text          0x00000000003035ac       0x78 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_movmem.o)
-                0x00000000003035ac                ___movmem
-                0x00000000003035ac                ___movstr
-                0x00000000003035e0                ___movmemSI64
-                0x00000000003035e0                ___movstrSI64
-                0x00000000003035e4                ___movmemSI60
-                0x00000000003035e4                ___movstrSI60
-                0x00000000003035e8                ___movstrSI56
-                0x00000000003035e8                ___movmemSI56
-                0x00000000003035ec                ___movmemSI52
-                0x00000000003035ec                ___movstrSI52
-                0x00000000003035f0                ___movstrSI48
-                0x00000000003035f0                ___movmemSI48
-                0x00000000003035f4                ___movmemSI44
-                0x00000000003035f4                ___movstrSI44
-                0x00000000003035f8                ___movstrSI40
-                0x00000000003035f8                ___movmemSI40
-                0x00000000003035fc                ___movstrSI36
-                0x00000000003035fc                ___movmemSI36
-                0x0000000000303600                ___movstrSI32
-                0x0000000000303600                ___movmemSI32
-                0x0000000000303604                ___movmemSI28
-                0x0000000000303604                ___movstrSI28
-                0x0000000000303608                ___movmemSI24
-                0x0000000000303608                ___movstrSI24
-                0x000000000030360c                ___movmemSI20
-                0x000000000030360c                ___movstrSI20
-                0x0000000000303610                ___movstrSI16
-                0x0000000000303610                ___movmemSI16
-                0x0000000000303614                ___movmemSI12
-                0x0000000000303614                ___movstrSI12
-                0x0000000000303618                ___movstrSI8
-                0x0000000000303618                ___movmemSI8
-                0x000000000030361c                ___movstrSI4
-                0x000000000030361c                ___movmemSI4
- .text          0x0000000000303624      0x1ec /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivdi3.o)
-                0x0000000000303624                ___udivdi3
- .text          0x0000000000303810       0x98 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_si_to_df.o)
-                0x0000000000303810                ___floatsidf
- .text          0x00000000003038a8       0x94 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_df_to_si.o)
-                0x00000000003038a8                ___fixdfsi
- .text          0x000000000030393c       0x6c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivsi3.o)
-                0x000000000030395e                ___udivsi3
- .text          0x00000000003039a8       0x60 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udiv_qrnnd_16.o)
-                0x00000000003039a8                ___udiv_qrnnd_16
- .text          0x0000000000303a08        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
- .text          0x0000000000303a08       0x58 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clzsi2.o)
-                0x0000000000303a08                ___clzsi2
- .text          0x0000000000303a60      0x25c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_pack_df.o)
-                0x0000000000303a60                ___pack_d
- .text          0x0000000000303cbc       0xcc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_unpack_df.o)
-                0x0000000000303cbc                ___unpack_d
+ .text          0x0000000000300aa0      0x298 build-fx/src/main.o
+                0x0000000000300aa0                _display_barre
+                0x0000000000300b20                _display_menu
+                0x0000000000300c24                _display_info
+                0x0000000000300cd4                _floor
+                0x0000000000300cf4                _copy
+ .text.startup  0x0000000000300d38      0x158 build-fx/src/main.o
+                0x0000000000300d38                _main
+ .text          0x0000000000300e90        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
+ .text          0x0000000000300e90      0x1f4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(mmu.c.o)
+                0x0000000000300e90                _tlb_addr
+                0x0000000000300ea4                _tlb_data
+                0x0000000000300eb8                _tlb_mapped_memory
+                0x0000000000300f8c                _utlb_addr
+                0x0000000000300f9c                _utlb_data
+                0x0000000000300fac                _utlb_mapped_memory
+ .text          0x0000000000301084       0xc8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
+                0x0000000000301084                _dimage
+                0x00000000003010d8                _dsubimage
+ .text          0x000000000030114c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
+ .text          0x000000000030114c       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
+                0x000000000030114c                _dupdate
+                0x0000000000301164                _dupdate_noint
+ .text          0x0000000000301170       0x4c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
+                0x0000000000301170                _dclear
+ .text          0x00000000003011bc      0x3e0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
+                0x00000000003011bc                _bopti_grid
+                0x0000000000301330                _bopti_render
+                0x000000000030142c                _bopti_render_clip
+                0x0000000000301544                _bopti_render_noclip
+ .text          0x000000000030159c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
+ .text          0x000000000030159c      0x218 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
+                0x0000000000301760                _getkey
+                0x000000000030176c                _getkey_opt
+                0x0000000000301778                _getkey_repeat
+ .text          0x00000000003017b4       0x9c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                0x00000000003017b4                _dsize
+ .text          0x0000000000301850      0x124 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+                0x0000000000301850                _dline
+ .text          0x0000000000301974       0xd6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
+                0x0000000000301974                _memcpy
+                0x0000000000301a28                __memmove
+                0x0000000000301a2c                __memcmp
+                0x0000000000301a30                _memset
+ *fill*         0x0000000000301a4a        0x2 
+ .text          0x0000000000301a4c      0xbf4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
+                0x0000000000302378                _kprint_opt
+                0x00000000003024a2                _kprint
+                0x000000000030257c                _kvsprint
+                0x00000000003025c0                _sprintf
+                0x00000000003025e8                _vsprintf
+                0x0000000000302608                _snprintf
+                0x0000000000302628                _vsnprintf
+ .text          0x0000000000302640       0x26 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(string.c.o)
+                0x0000000000302640                _strlen
+                0x0000000000302650                _strncpy
+ *fill*         0x0000000000302666        0x2 
+ .text          0x0000000000302668      0x1dc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
+                0x0000000000302700                _t6k11_display
+                0x00000000003027d8                _t6k11_contrast
+                0x0000000000302804                _t6k11_backlight
+ .text          0x0000000000302844        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
+ .text          0x0000000000302844      0x170 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
+                0x00000000003028f8                _gint_install
+                0x000000000030299c                _gint_unload
+ .text          0x00000000003029b4       0x2c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(vbr.s.o)
+                0x00000000003029b4                _gint_setvbr
+ .text          0x00000000003029e0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
+ .text          0x00000000003029e0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
+ .text          0x00000000003029e0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
+ .text          0x00000000003029e0       0x58 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
+                0x00000000003029e0                _bopti_asm_mono
+                0x0000000000302a06                _bopti_asm_mono_alpha
+ .text          0x0000000000302a38        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+ .text          0x0000000000302a38      0x13c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+                0x0000000000302a38                _dhline
+                0x0000000000302af0                _dvline
+ .text          0x0000000000302b74       0x54 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
+                0x0000000000302b74                _dpixel
+ .text          0x0000000000302bc8       0x8c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
+                0x0000000000302bc8                _masks
+ .text          0x0000000000302c54      0x2d4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
+                0x0000000000302e1c                _pollevent
+                0x0000000000302ef0                _waitevent
+ .text          0x0000000000302f28      0x124 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
+                0x0000000000302f34                _iokbd_row
+                0x000000000030301c                _iokbd_scan
+ .text          0x000000000030304c      0x574 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
+                0x0000000000303370                _timer_setup
+                0x0000000000303404                _timer_delay
+                0x0000000000303464                _timer_start
+                0x0000000000303498                _timer_reload
+                0x00000000003034b8                _timer_pause
+                0x00000000003034ec                _timer_stop
+                0x0000000000303548                _timer_timeout
+                0x0000000000303554                _timer_address
+                0x0000000000303590                _timer_clear
+ .text          0x00000000003035c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
+ .text          0x00000000003035c0       0x74 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
+                0x00000000003035c0                _gint_intlevel
+                0x0000000000303610                _gint_inthandler
+ .text          0x0000000000303634      0x150 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
+                0x0000000000303778                _clock_freq
+ .text          0x0000000000303784       0x78 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_movmem.o)
+                0x0000000000303784                ___movmem
+                0x0000000000303784                ___movstr
+                0x00000000003037b8                ___movmemSI64
+                0x00000000003037b8                ___movstrSI64
+                0x00000000003037bc                ___movmemSI60
+                0x00000000003037bc                ___movstrSI60
+                0x00000000003037c0                ___movstrSI56
+                0x00000000003037c0                ___movmemSI56
+                0x00000000003037c4                ___movmemSI52
+                0x00000000003037c4                ___movstrSI52
+                0x00000000003037c8                ___movstrSI48
+                0x00000000003037c8                ___movmemSI48
+                0x00000000003037cc                ___movmemSI44
+                0x00000000003037cc                ___movstrSI44
+                0x00000000003037d0                ___movstrSI40
+                0x00000000003037d0                ___movmemSI40
+                0x00000000003037d4                ___movstrSI36
+                0x00000000003037d4                ___movmemSI36
+                0x00000000003037d8                ___movstrSI32
+                0x00000000003037d8                ___movmemSI32
+                0x00000000003037dc                ___movmemSI28
+                0x00000000003037dc                ___movstrSI28
+                0x00000000003037e0                ___movmemSI24
+                0x00000000003037e0                ___movstrSI24
+                0x00000000003037e4                ___movmemSI20
+                0x00000000003037e4                ___movstrSI20
+                0x00000000003037e8                ___movstrSI16
+                0x00000000003037e8                ___movmemSI16
+                0x00000000003037ec                ___movmemSI12
+                0x00000000003037ec                ___movstrSI12
+                0x00000000003037f0                ___movstrSI8
+                0x00000000003037f0                ___movmemSI8
+                0x00000000003037f4                ___movstrSI4
+                0x00000000003037f4                ___movmemSI4
+ .text          0x00000000003037fc      0x1ec /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivdi3.o)
+                0x00000000003037fc                ___udivdi3
+ .text          0x00000000003039e8       0x98 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_si_to_df.o)
+                0x00000000003039e8                ___floatsidf
+ .text          0x0000000000303a80       0x94 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_df_to_si.o)
+                0x0000000000303a80                ___fixdfsi
+ .text          0x0000000000303b14       0x6c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivsi3.o)
+                0x0000000000303b36                ___udivsi3
+ .text          0x0000000000303b80       0x60 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udiv_qrnnd_16.o)
+                0x0000000000303b80                ___udiv_qrnnd_16
+ .text          0x0000000000303be0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
+ .text          0x0000000000303be0       0x58 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clzsi2.o)
+                0x0000000000303be0                ___clzsi2
+ .text          0x0000000000303c38      0x25c /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_pack_df.o)
+                0x0000000000303c38                ___pack_d
+ .text          0x0000000000303e94       0xcc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_unpack_df.o)
+                0x0000000000303e94                ___unpack_d
  *(C P)
 
-.gint.blocks    0x0000000000303d90      0x140
+.gint.blocks    0x0000000000303f60      0x140
  *(.gint.blocks)
- .gint.blocks   0x0000000000303d90       0x20 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
-                0x0000000000303d90                _exch_entry_7705
-                0x0000000000303d90                _exch_entry_7305
- .gint.blocks   0x0000000000303db0       0x40 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
-                0x0000000000303db0                _inth_entry_7305
-                0x0000000000303dd0                _inth_entry_7705
- .gint.blocks   0x0000000000303df0       0xe0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
-                0x0000000000303df0                _inth_tmu
-                0x0000000000303e70                _inth_etmu2
-                0x0000000000303e90                _inth_etmu_help
-                0x0000000000303eb0                _inth_etmux
+ .gint.blocks   0x0000000000303f60       0x20 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
+                0x0000000000303f60                _exch_entry_7705
+                0x0000000000303f60                _exch_entry_7305
+ .gint.blocks   0x0000000000303f80       0x40 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
+                0x0000000000303f80                _inth_entry_7305
+                0x0000000000303fa0                _inth_entry_7705
+ .gint.blocks   0x0000000000303fc0       0xe0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
+                0x0000000000303fc0                _inth_tmu
+                0x0000000000304040                _inth_etmu2
+                0x0000000000304060                _inth_etmu_help
+                0x0000000000304080                _inth_etmux
 
-.gint.drivers   0x0000000000303ed0       0x90
-                0x0000000000303ed0                _bdrv = .
+.gint.drivers   0x00000000003040a0       0x90
+                0x00000000003040a0                _bdrv = .
  *(.gint.drivers.0)
  *(.gint.drivers.1)
  .gint.drivers.1
-                0x0000000000303ed0       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
-                0x0000000000303ed0                _drv_cpg
+                0x00000000003040a0       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
+                0x00000000003040a0                _drv_cpg
  *(.gint.drivers.2)
  .gint.drivers.2
-                0x0000000000303ef4       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
-                0x0000000000303ef4                _drv_tmu
+                0x00000000003040c4       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
+                0x00000000003040c4                _drv_tmu
  *(.gint.drivers.3)
  *(.gint.drivers.4)
  .gint.drivers.4
-                0x0000000000303f18       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
-                0x0000000000303f18                _drv_keysc
+                0x00000000003040e8       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
+                0x00000000003040e8                _drv_keysc
  *(.gint.drivers.5)
  .gint.drivers.5
-                0x0000000000303f3c       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
-                0x0000000000303f3c                _drv_t6k11
+                0x000000000030410c       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
+                0x000000000030410c                _drv_t6k11
  *(.gint.drivers.6)
-                0x0000000000303f60                _edrv = .
+                0x0000000000304130                _edrv = .
 
-.rodata         0x0000000000303f60     0x291c
+.rodata         0x0000000000304130     0x2918
  *(.rodata .rodata.*)
  .rodata.str1.4
-                0x0000000000303f60       0x11 build-fx/src/main.o
- *fill*         0x0000000000303f71        0x3 
- .rodata        0x0000000000303f74      0x188 build-fx/assets/fonts/plague.png.o
-                0x0000000000303f74                _font_plague
-                0x00000000003040fc                _font_plague_end
- .rodata        0x00000000003040fc       0x6c build-fx/assets/img/avions.png.o
-                0x00000000003040fc                _img_avions
-                0x0000000000304168                _img_avions_end
- .rodata        0x0000000000304168      0x180 build-fx/assets/img/capa.png.o
-                0x0000000000304168                _img_capa
-                0x00000000003042e8                _img_capa_end
- .rodata        0x00000000003042e8     0x1444 build-fx/assets/img/fonds.png.o
-                0x00000000003042e8                _img_fonds
-                0x000000000030572c                _img_fonds_end
- .rodata        0x000000000030572c      0x120 build-fx/assets/img/pieces.png.o
-                0x000000000030572c                _img_pieces
-                0x000000000030584c                _img_pieces_end
- .rodata        0x000000000030584c      0x380 build-fx/assets/img/symp.png.o
-                0x000000000030584c                _img_symp
-                0x0000000000305bcc                _img_symp_end
- .rodata        0x0000000000305bcc      0x404 build-fx/assets/img/titre.png.o
-                0x0000000000305bcc                _img_titre
-                0x0000000000305fd0                _img_titre_end
- .rodata        0x0000000000305fd0      0x340 build-fx/assets/img/trans.png.o
-                0x0000000000305fd0                _img_trans
-                0x0000000000306310                _img_trans_end
- .rodata        0x0000000000306310       0x18 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                0x0000000000304130        0x6 build-fx/src/main.o
+ *fill*         0x0000000000304136        0x2 
+ .rodata        0x0000000000304138      0x188 build-fx/assets/fonts/plague.png.o
+                0x0000000000304138                _font_plague
+                0x00000000003042c0                _font_plague_end
+ .rodata        0x00000000003042c0       0x6c build-fx/assets/img/avions.png.o
+                0x00000000003042c0                _img_avions
+                0x000000000030432c                _img_avions_end
+ .rodata        0x000000000030432c      0x180 build-fx/assets/img/capa.png.o
+                0x000000000030432c                _img_capa
+                0x00000000003044ac                _img_capa_end
+ .rodata        0x00000000003044ac     0x1444 build-fx/assets/img/fonds.png.o
+                0x00000000003044ac                _img_fonds
+                0x00000000003058f0                _img_fonds_end
+ .rodata        0x00000000003058f0      0x120 build-fx/assets/img/pieces.png.o
+                0x00000000003058f0                _img_pieces
+                0x0000000000305a10                _img_pieces_end
+ .rodata        0x0000000000305a10      0x380 build-fx/assets/img/symp.png.o
+                0x0000000000305a10                _img_symp
+                0x0000000000305d90                _img_symp_end
+ .rodata        0x0000000000305d90      0x404 build-fx/assets/img/titre.png.o
+                0x0000000000305d90                _img_titre
+                0x0000000000306194                _img_titre_end
+ .rodata        0x0000000000306194      0x340 build-fx/assets/img/trans.png.o
+                0x0000000000306194                _img_trans
+                0x00000000003064d4                _img_trans_end
+ .rodata        0x00000000003064d4        0x8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
+ .rodata        0x00000000003064dc       0x18 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
  .rodata.str1.4
-                0x0000000000306328       0x31 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
- *fill*         0x0000000000306359        0x3 
+                0x00000000003064f4       0x31 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
+ *fill*         0x0000000000306525        0x3 
  .rodata.str1.4
-                0x000000000030635c        0x6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
- *fill*         0x0000000000306362        0x2 
- .rodata        0x0000000000306364      0x408 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(font5x7.png.o)
-                0x0000000000306364                _gint_font5x7
-                0x000000000030676c                _gint_font5x7_end
+                0x0000000000306528        0x6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
+ *fill*         0x000000000030652e        0x2 
  .rodata.str1.4
-                0x000000000030676c        0x6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
- *fill*         0x0000000000306772        0x2 
+                0x0000000000306530        0x6 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
+ *fill*         0x0000000000306536        0x2 
  .rodata.str1.4
-                0x0000000000306774        0x4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
+                0x0000000000306538        0x4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
+ .rodata        0x000000000030653c      0x408 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(font5x7.png.o)
+                0x000000000030653c                _gint_font5x7
+                0x0000000000306944                _gint_font5x7_end
  .rodata.str1.4
-                0x0000000000306778        0x4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
- .rodata        0x000000000030677c      0x100 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
-                0x000000000030677c                ___clz_tab
+                0x0000000000306944        0x4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
+ .rodata        0x0000000000306948      0x100 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
+                0x0000000000306948                ___clz_tab
 
-.rela.dyn       0x000000000030687c        0x0
- .rela.text     0x000000000030687c        0x0 build-fx/src/main.o
+.rela.dyn       0x0000000000306a48        0x0
+ .rela.text     0x0000000000306a48        0x0 build-fx/src/main.o
  .rela.pretext.entry
-                0x000000000030687c        0x0 build-fx/src/main.o
+                0x0000000000306a48        0x0 build-fx/src/main.o
                 0x0000000008100000                . = ORIGIN (ram)
 
 .bss            0x0000000008100000      0x550
@@ -486,7 +498,7 @@ LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
  .bss           0x0000000008100000        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
  .bss           0x0000000008100000        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(mmu.c.o)
  .bss           0x0000000008100000        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
- .bss           0x0000000008100000        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+ .bss           0x0000000008100000        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
  .bss           0x0000000008100000      0x400 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
  .bss           0x0000000008100400        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
  .bss           0x0000000008100400        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
@@ -494,7 +506,9 @@ LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
  .bss           0x0000000008100400        0xc /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
  .bss           0x000000000810040c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
  .bss           0x000000000810040c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+ .bss           0x000000000810040c        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
  .bss           0x000000000810040c      0x114 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
+ .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(string.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
@@ -503,12 +517,12 @@ LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
+ .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
  .bss           0x0000000008100520        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
  .bss           0x0000000008100520       0x24 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
  .bss           0x0000000008100544        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
- .bss           0x0000000008100544        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
  .bss           0x0000000008100544        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
  .bss           0x0000000008100544        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
  .bss           0x0000000008100544        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
@@ -528,68 +542,69 @@ LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
  *fill*         0x0000000008100544        0xc 
                 0x0000000000000550                _sbss = SIZEOF (.bss)
 
-.data           0x0000000008100550       0x90 load address 0x000000000030687c
-                0x000000000030687c                _ldata = LOADADDR (.data)
+.data           0x0000000008100550       0x80 load address 0x0000000000306a48
+                0x0000000000306a48                _ldata = LOADADDR (.data)
                 0x0000000008100550                _rdata = .
  *(.data .data.*)
  .data          0x0000000008100550        0x0 build-fx/src/main.o
  .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(start.c.o)
  .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(mmu.c.o)
  .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dimage.c.o)
- .data          0x0000000008100550        0x8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
-                0x0000000008100550                _topti_font
-                0x0000000008100554                _gint_default_font
- .data          0x0000000008100558        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
- .data          0x0000000008100558        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
- .data          0x0000000008100558       0x10 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
-                0x0000000008100558                _bopti_asm
- .data          0x0000000008100568        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
- .data          0x0000000008100568        0x8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
- .data          0x0000000008100570        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
- .data          0x0000000008100570        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
- .data          0x0000000008100570       0x68 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
-                0x0000000008100570                _kprint_formatters
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(vbr.s.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_movmem.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivdi3.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_si_to_df.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_df_to_si.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivsi3.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udiv_qrnnd_16.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clzsi2.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_pack_df.o)
- .data          0x00000000081005d8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_unpack_df.o)
+ .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dtext.c.o)
+ .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
+ .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dclear.c.o)
+ .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti.c.o)
+ .data          0x0000000008100550        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti-asm.s.o)
+ .data          0x0000000008100550        0x8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(getkey.c.o)
+ .data          0x0000000008100558        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+ .data          0x0000000008100558        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+ .data          0x0000000008100558        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(memory.c.o)
+ .data          0x0000000008100558       0x68 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(stdio.c.o)
+                0x0000000008100558                _kprint_formatters
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(string.c.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(hardware.c.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(setup.c.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(vbr.s.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(exch.S.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.S.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(syscalls.S.o)
+ .data          0x00000000081005c0        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(bopti-asm.s.o)
+ .data          0x00000000081005c0        0x8 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(topti.c.o)
+                0x00000000081005c0                _topti_font
+                0x00000000081005c4                _gint_default_font
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dline.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dpixel.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(masks.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(keysc.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(iokbd.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(tmu.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(inth.s.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(gint.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(cpg.c.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_movmem.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivdi3.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_si_to_df.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_df_to_si.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udivsi3.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_udiv_qrnnd_16.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clz.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_clzsi2.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_pack_df.o)
+ .data          0x00000000081005c8        0x0 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a(_unpack_df.o)
  *(D)
-                0x00000000081005e0                . = ALIGN (0x10)
- *fill*         0x00000000081005d8        0x8 
+                0x00000000081005d0                . = ALIGN (0x10)
+ *fill*         0x00000000081005c8        0x8 
 
-.data.4         0x00000000081005e0        0x0 load address 0x000000000030690c
+.data.4         0x00000000081005d0        0x0 load address 0x0000000000306ac8
  *(.data.4)
-                0x00000000081005e0                . = ALIGN (0x10)
-                0x0000000000000090                _sdata = (SIZEOF (.data) + SIZEOF (.data.4))
+                0x00000000081005d0                . = ALIGN (0x10)
+                0x0000000000000080                _sdata = (SIZEOF (.data) + SIZEOF (.data.4))
                 0x000000008800df00                _gint_vbr = 0x8800df00
                 0x000000008800f400                . = ORIGIN (rram)
 
-.gint.data      0x000000008800f400      0x130 load address 0x000000000030690c
-                0x000000000030690c                _lgdata = LOADADDR (.gint.data)
+.gint.data      0x000000008800f400      0x130 load address 0x0000000000306ac8
+                0x0000000000306ac8                _lgdata = LOADADDR (.gint.data)
                 0x000000008800f400                _rgdata = .
  *(.gint.data .gint.data.*)
  .gint.data     0x000000008800f400        0x4 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(dupdate.c.o)
@@ -608,7 +623,7 @@ LOAD /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgcc.a
  *fill*         0x000000008800f52c        0x4 
                 0x0000000000000130                _sgdata = SIZEOF (.gint.data)
 
-.gint.bss       0x000000008800f530      0x210 load address 0x0000000000306a3c
+.gint.bss       0x000000008800f530      0x210 load address 0x0000000000306bf8
  *(.gint.bss .gint.bss.*)
  .gint.bss      0x000000008800f530        0x1 /Users/antoine/gcc/sh3eb-elf-2.32-8.3.0/lib/gcc/sh3eb-elf/8.3.0/libgint-fx.a(t6k11.c.o)
  *fill*         0x000000008800f531        0x3 
