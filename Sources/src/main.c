@@ -22,7 +22,7 @@ void display_menu (const int *adn, const int *contagion, const int *severite, co
 void display_info (const char *nom, const int adn, const int conta, const int leta, const int sev);
 
 //menu : gère les tableaux des mutations en fonction de la variable 'variable'
-int menu (int variable, const image_t img_fonds, int nv_symp, int nv_capa, int nv_trans);
+int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans);
 
 //floor : renvoie la partie entière d'une variable
 double floor (double x);
@@ -52,7 +52,7 @@ int main (void)
     while (fin == 0)
     {
         dclear(C_WHITE);
-        dsubimage(0, 0, &img_fonds, 0, 64 * (fond - 1) + (fond - 1), 128, 64, 0);
+        dsubimage(0, 0, &img_fonds, 0, 65 * (fond - 1), 128, 64, 0);
         
         switch (fond)// affichage supplémentaires dépendant des fonds.
         {
@@ -93,7 +93,7 @@ int main (void)
                 else fin = 1;
                 break;
         }
-        if (menu_muta != 0) menu_muta = menu(menu_muta, img_fonds, nv_symp, nv_capa, nv_trans);
+        if (menu_muta != 0) menu_muta = menu(menu_muta, &img_fonds, nv_symp, nv_capa, nv_trans);
     }
 	return 0;
 }
@@ -153,7 +153,7 @@ void display_info (const char *nom, const int adn, const int conta, const int le
 }
 
 
-int menu (int variable, const image_t img_fonds, int nv_symp, int nv_capa, int nv_trans)
+int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans)
 {
     extern image_t img_muta;
     extern image_t img_pieces;
@@ -163,13 +163,13 @@ int menu (int variable, const image_t img_fonds, int nv_symp, int nv_capa, int n
     while (fin == 0)
     {
         dclear(C_WHITE);
-        dsubimage(0, 0, &img_fonds, 0, 260, 128, 64, 0);
+        dsubimage(0, 0, img_fonds, 0, 260, 128, 64, 0);
         
         for (i = 0 ; i <= 7 ; i++)
         {
             for (j = 0 ; j <= 3; j++)
             {
-                if (tableau[j][i] != 0) dsubimage(15 * i + i, 15 * j + j, &img_muta, 15 * (variable - 1) + (variable - 1), 15 * (tableau[j][i] - 1) + (tableau[j][i] - 1), 15, 15, 0);
+                if (tableau[j][i] != 0) dsubimage(16 * i, 16 * j, &img_muta, 16 * (variable - 1), 16 * (tableau[j][i] - 1), 15, 15, 0);
             }
         }
         dupdate();
