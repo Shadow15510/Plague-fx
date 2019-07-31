@@ -16,7 +16,7 @@
 void display_barre (const int *adn, const int *recherche, const int *limite);
 
 //display_menu : affiche les données sur l'écran menu du jeu à partir duquel on peut modifier la maladie
-void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite);
+void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite, const int *sel_symp, const int *sel_capa, const int *sel_trans);
 
 //display_info : affiche les infos sur la maladie selectionnée
 void display_info (const char *nom, const int adn, const int conta, const int leta, const int sev);
@@ -27,8 +27,8 @@ int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int 
 //floor : renvoie la partie entière d'une variable
 double floor (double x);
 
-//copy : copie le contenu de src en écrasant dest. Uniquement pour des chaînes de caractères !!
-char *copy (char *dest, const char *src);
+//init_mat : remplis la matrice dest à partir de src
+void init_mat(int x, int y, int dest[][x], int src[][x]);
 
 
 int main (void)
@@ -41,7 +41,7 @@ int main (void)
     dfont(&font_plague);//On change la police pour la police custom
     
     int fond = 1, fin = 0, key = 0, menu_muta = 0;//variables diverses pour le jeu
-    int recherche = 0, limite = 100, adn = 0, contagion = 0, severite = 0, letalite = 0, nv_symp = 1, nv_capa = 1, nv_trans = 1;//variables pour la maladie
+    int recherche = 0, limite = 100, adn = 0, contagion = 0, severite = 0, letalite = 0, nv_symp = 1, nv_capa = 1, nv_trans = 1, sel_symp = 0, sel_capa = 0, sel_trans = 0;//variables pour la maladie
     
 	dclear(C_WHITE);
     dimage(0, 0, &img_titre);
@@ -60,7 +60,7 @@ int main (void)
                 display_barre(&adn, &recherche, &limite);// monde avec la barre en dessous
                 break;
             case 3:
-                display_menu(&adn, &contagion, &severite, &letalite);//Menu de modification de la maladie
+                display_menu(&adn, &contagion, &severite, &letalite, &sel_symp, &sel_capa, &sel_trans);//Menu de modification de la maladie
                 break;
         }
         
@@ -112,7 +112,7 @@ void display_barre (const int *adn, const int *recherche, const int *limite)
 }
 
 
-void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite)
+void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite, const int *sel_symp, const int *sel_capa, const int *sel_trans)
 {
     // toutes les jauges font 68 pxl de long.
     int variable;
@@ -153,12 +153,29 @@ void display_info (const char *nom, const int adn, const int conta, const int le
 }
 
 
-int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans)
+int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans)
 {
     extern image_t img_muta;
     extern image_t img_pieces;
     int x = 1, y = 1, i, j, fin = 0, key = 0, no;
-    int tableau[4][8] = {{1, 2, 5, 4, 3, 0, 0, 0},{0, 0, 14, 13, 0, 0, 0, 0},{0, 0, 0, 0, 12, 0, 0, 0},{0, 0, 6, 8, 7, 11, 10, 9}};
+    int tableau[4][8];
+    
+    int symp[4][8] = {{1, 2, 5, 4, 3, 0, 0, 0},{0, 0, 14, 13, 0, 0, 0, 0},{0, 0, 0, 0, 12, 0, 0, 0},{0, 0, 6, 8, 7, 11, 10, 9}};
+    int capa[4][8] = {{1, 0, 0, 0, 6, 0, 0, 0},{2, 5, 0, 3, 0, 0, 0, 0},{0, 0, 0, 0, 4, 0, 0, 0},{0, 0, 0, 0, 0, 0, 0, 0}};
+    int trans[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 4, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 8, 0, 0, 13}};
+    
+    switch (menu_muta)
+    {
+        case 1:
+            init_mat(8, 4, tableau, symp);
+            break;
+        case 2:
+            init_mat(8, 4, tableau, capa);
+            break;
+        case 3:
+            init_mat(8, 4, tableau, trans);
+            break;
+    }
     
     while (fin == 0)
     {
@@ -169,7 +186,7 @@ int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int 
         {
             for (j = 0 ; j <= 3; j++)
             {
-                if (tableau[j][i] != 0) dsubimage(16 * i, 16 * j, &img_muta, 16 * (variable - 1), 16 * (tableau[j][i] - 1), 15, 15, 0);
+                if (tableau[j][i] != 0) dsubimage(16 * i, 16 * j, &img_muta, 16 * (menu_muta - 1), 16 * (tableau[j][i] - 1), 15, 15, 0);
             }
         }
         dupdate();
@@ -190,10 +207,13 @@ double floor (double x)
 }
 
 
-char *copy (char *dest, const char *src)
+void init_mat(int x, int y, int dest[][x], int src[][x])
 {
-    unsigned int i;
-    for (i =0 ; i <= strlen(src) ; i++) dest[i] = src[i];
-    dest[strlen(src) + 1] = '\0';
-    return dest;
+    for (int i = 0 ; i < x ; i++)
+    {
+        for (int j = 0 ; j < y ; j++)
+        {
+            dest[j][i] = src[j][i];
+        }
+    }
 }
