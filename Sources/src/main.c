@@ -1,9 +1,14 @@
 /*
  Nom : Plague
  Version : - dev-
- Dernière modification : 31 Juillet 2019
+ Dernière modification : 1 Août 2019
  
  Liste des choses à faire :
+  - Gestion des sélection dans les mutations et menu info
+  - Gestion des avions
+  - Moteurs du jeu (gestion du temps, sauvegarde et modèle infectieux)
+  - Gestion des pays
+  - Ajout d'un menu stats
  */
 
 #include <gint/display.h>
@@ -21,8 +26,14 @@ void display_menu (const int *adn, const int *contagion, const int *severite, co
 //display_info : affiche les infos sur la maladie selectionnée
 void display_info (const char *nom, const int adn, const int conta, const int leta, const int sev);
 
+//display_stats : affiche les statistiques des humains
+void display_stats(const double *sains, const double *infectes, const double *morts, const double *gueris, const double *total);
+
 //menu : gère les tableaux des mutations en fonction de la variable 'variable'
 int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans);
+
+//modele_infectieux : calcule la propagation de la maladie
+void modele_infectieux (double *sains, double *infectes, double *morts, double *gueris, double *s_avant, double *i_avant, double *m_avant, double *g_avant, int *contagion, int *severite, int *letalite, int *changement);
 
 //floor : renvoie la partie entière d'une variable
 double floor (double x);
@@ -41,7 +52,9 @@ int main (void)
     dfont(&font_plague);//On change la police pour la police custom
     
     int fond = 1, fin = 0, key = 0, menu_muta = 0;//variables diverses pour le jeu
-    int recherche = 0, limite = 100, adn = 0, contagion = 0, severite = 0, letalite = 0, nv_symp = 1, nv_capa = 1, nv_trans = 1, sel_symp = 0, sel_capa = 0, sel_trans = 0;//variables pour la maladie
+    int recherche = 0, limite = 100, adn = 0, contagion = 0, severite = 0, letalite = 0, nv_symp = 1, nv_capa = 1, nv_trans = 1, sel_symp = 1, sel_capa = 1, sel_trans = 1;//variables pour la maladie
+    double total = 10000000000, sains = total, infectes = 0, morts = 0, gueris = 0, s_avant, i_avant, m_avant, g_avant;//variables pour les statistiques des humains
+    double changement = 0, priorite = 0;//variables pour le modèle infectieux
     
 	dclear(C_WHITE);
     dimage(0, 0, &img_titre);
@@ -62,6 +75,9 @@ int main (void)
             case 3:
                 display_menu(&adn, &contagion, &severite, &letalite, &sel_symp, &sel_capa, &sel_trans);//Menu de modification de la maladie
                 break;
+            case 6:
+                display_stats(&sains, &infectes, &morts, &gueris, &total);
+                break;
         }
         
         dupdate();
@@ -75,6 +91,9 @@ int main (void)
                 break;
             case KEY_VARS:
                 fond = 3;
+                break;
+            case KEY_SQUARE:
+                fond = 6;
                 break;
             case KEY_F1:
                 if (fond == 3) menu_muta = 1;
@@ -114,23 +133,25 @@ void display_barre (const int *adn, const int *recherche, const int *limite)
 
 void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite, const int *sel_symp, const int *sel_capa, const int *sel_trans)
 {
-    // toutes les jauges font 68 pxl de long.
+    // toutes les jauges font 67 pxl de long.
+    extern image_t img_muta;
     int variable;
     char string[100];
     sprintf(string, "%d", *adn);
     dtext(102, 37, string, C_BLACK, C_NONE);
     
-    variable = 68 * *contagion / 25;
+    variable = 67 * *contagion / 26;
     dline(57, 48, 57 + variable, 48, C_BLACK);
-    dline(57, 49, 57 + variable, 49, C_BLACK);
     
-    variable = 68 * *severite / 20;
+    variable = 67 * *severite / 20;
     dline(57, 54, 57 + variable, 54, C_BLACK);
-    dline(57, 55, 57 + variable, 55, C_BLACK);
     
-    variable = 68 * *letalite / 25;
+    variable = 67 * *letalite / 33;
     dline(57, 60, 57 + variable, 60, C_BLACK);
-    dline(57, 61, 57 + variable, 61, C_BLACK);
+
+    dsubimage(5, 15, &img_muta, 0, 16 * (*sel_symp - 1), 15, 15, 0);
+    dsubimage(35, 15, &img_muta, 16, 16 * (*sel_capa - 1), 15, 15, 0);
+    dsubimage(65, 15, &img_muta, 32, 16 * (*sel_trans - 1), 15, 15, 0);
 }
 
 
@@ -153,27 +174,99 @@ void display_info (const char *nom, const int adn, const int conta, const int le
 }
 
 
+void display_stats (const double *sains, const double *infectes, const double *morts, const double *gueris, const double *total)
+{
+    //toutes les jauges font 63 pxl
+    int variable;
+    
+    variable = 62 * *sains / *total;
+    dline(61, 31, 61 + variable, 31, C_BLACK);
+    
+    variable = 63 * *infectes / *total;
+    dline(61, 39, 61 + variable, 39, C_BLACK);
+    
+    variable = 63 * *morts / *total;
+    dline(61, 47, 61 + variable, 47, C_BLACK);
+    
+    variable = 63 * *gueris / *total;
+    dline(61, 55, 61 + variable, 55, C_BLACK);
+    
+}
+
+
 int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans)
 {
     extern image_t img_muta;
     extern image_t img_pieces;
-    int x = 1, y = 1, i, j, fin = 0, key = 0, no;
+    int x = 0, y = 0, i, j, fin = 0, key = 0, lim = 0;
     int tableau[4][8];
     
-    int symp[4][8] = {{1, 2, 5, 4, 3, 0, 0, 0},{0, 0, 14, 13, 0, 0, 0, 0},{0, 0, 0, 0, 12, 0, 0, 0},{0, 0, 6, 8, 7, 11, 10, 9}};
-    int capa[4][8] = {{1, 0, 0, 0, 6, 0, 0, 0},{2, 5, 0, 3, 0, 0, 0, 0},{0, 0, 0, 0, 4, 0, 0, 0},{0, 0, 0, 0, 0, 0, 0, 0}};
-    int trans[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 4, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 8, 0, 0, 13}};
+    int symp_1[4][8] = {{1, 15, 15, 15, 3, 0, 0, 0},{0, 0, 15, 15, 0, 0, 0, 0},{0, 0, 15, 0, 15, 0, 0, 0},{0, 15, 15, 6, 15, 15, 0, 0}};
+    int symp_2[4][8] = {{1, 2, 15, 4, 3, 0, 0, 0},{0, 0, 15, 15, 0, 0, 0, 0},{0, 0, 15, 0, 12, 0, 0, 0},{0, 15, 7, 6, 9, 15, 0, 0}};
+    int symp_3[4][8] = {{1, 2, 5, 4, 3, 0, 0, 0},{0, 0, 15, 15, 0, 0, 0, 0},{0, 0, 15, 0, 12, 0, 0, 0},{0, 10, 7, 6, 9, 11, 0, 0}};
+    int symp_4[4][8] = {{1, 2, 5, 4, 3, 0, 0, 0},{0, 0, 14, 13, 0, 0, 0, 0},{0, 0, 8, 0, 12, 0, 0, 0},{0, 10, 7, 6, 9, 11, 0, 0}};
     
-    switch (menu_muta)
+    int capa_1[4][8] = {{1, 0, 0, 0, 6, 0, 0, 0},{7, 7, 0, 7, 0, 0, 0, 0},{0, 0, 0, 0, 7, 0, 0, 0},{0, 0, 0, 0, 0, 0, 0, 0}};
+    int capa_2[4][8] = {{1, 0, 0, 0, 6, 0, 0, 0},{2, 7, 0, 3, 0, 0, 0, 0},{0, 0, 0, 0, 7, 0, 0, 0},{0, 0, 0, 0, 0, 0, 0, 0}};
+    int capa_3[4][8] = {{1, 0, 0, 0, 6, 0, 0, 0},{2, 5, 0, 3, 0, 0, 0, 0},{0, 0, 0, 0, 4, 0, 0, 0},{0, 0, 0, 0, 0, 0, 0, 0}};
+    
+    int trans_1[4][8] = {{1, 14, 14, 0, 14, 5, 0, 0},{0, 0, 0, 14, 0, 0, 0, 11},{9, 14, 0, 0, 0, 0, 0, 14},{0, 0, 14, 14, 0, 0, 0, 14}};
+    int trans_2[4][8] = {{1, 2, 14, 0, 6, 5, 0, 0},{0, 0, 0, 14, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 14, 14, 0, 0, 14}};
+    int trans_3[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 14, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 14, 0, 0, 13}};
+    int trans_4[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 4, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 8, 0, 0, 13}};
+    
+    switch (menu_muta)//Remplissage de la matrice pour afficher les mutations
     {
         case 1:
-            init_mat(8, 4, tableau, symp);
+            lim = 15;
+            switch (nv_symp)
+        {
+            case 1:
+                init_mat(8, 4, tableau, symp_1);
+                break;
+            case 2:
+                init_mat(8, 4, tableau, symp_2);
+                break;
+            case 3:
+                init_mat(8, 4, tableau, symp_3);
+                break;
+            case 4:
+                init_mat(8, 4, tableau, symp_4);
+                break;
+        }
             break;
         case 2:
-            init_mat(8, 4, tableau, capa);
+            lim = 7;
+            switch (nv_capa)
+        {
+            case 1:
+                init_mat(8, 4, tableau, capa_1);
+                break;
+            case 2:
+                init_mat(8, 4, tableau, capa_2);
+                break;
+            case 3:
+                init_mat(8, 4, tableau, capa_3);
+                break;
+        }
             break;
         case 3:
-            init_mat(8, 4, tableau, trans);
+            lim = 14;
+            switch (nv_trans)
+        {
+            case 1:
+                init_mat(8, 4, tableau, trans_1);
+                break;
+            case 2:
+                init_mat(8, 4, tableau, trans_2);
+                break;
+            case 3:
+                init_mat(8, 4, tableau, trans_3);
+                break;
+            case 4:
+                init_mat(8, 4, tableau, trans_4);
+                break;
+        }
             break;
     }
     
@@ -189,10 +282,24 @@ int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int
                 if (tableau[j][i] != 0) dsubimage(16 * i, 16 * j, &img_muta, 16 * (menu_muta - 1), 16 * (tableau[j][i] - 1), 15, 15, 0);
             }
         }
+        if (tableau[y][x] == lim) dsubimage(16 * x - 1, 16 * y - 1, &img_pieces, 0, 18, 17, 17, 0);
+        else dsubimage(16 * x - 1, 16 * y - 1, &img_pieces, 0, 0, 17, 17, 0);
         dupdate();
         key = getkey().key;
         switch (key)
         {
+            case KEY_LEFT:
+                if (x > 0) x -= 1;
+                break;
+            case KEY_RIGHT:
+                if (x < 8) x += 1;
+                break;
+            case KEY_UP:
+                if (y > 0) y -= 1;
+                break;
+            case KEY_DOWN:
+                if (y < 4) y += 1;
+                break;
             case KEY_EXIT:
                 fin = 1;
                 break;
@@ -200,6 +307,23 @@ int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int
     }
     return 0;
 }
+
+
+void modele_infectieux (double *sains, double *infectes, double *morts, double *gueris, double *s_avant, double *i_avant, double *m_avant, double *g_avant, int *contagion, int *severite, int *letalite, int *changement)
+{
+    double r = *contagion / 2600, a = *severite / (200 - *changement), b = *letalite / 3300;
+    
+    *sains = floor(*s_avant - r * *s_avant);
+    *infectes = floor (*i_avant + r * *s_avant - *i_avant * b - *i_avant * a);
+    *morts = floor (*m_avant + *infectes * b);
+    *gueris = floor(*g_avant + *infectes * a);
+    
+    *s_avant = *sains;
+    *i_avant = *infectes;
+    *m_avant = *morts;
+    *g_avant = *gueris;
+}
+
 
 double floor (double x)
 {
