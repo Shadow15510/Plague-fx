@@ -29,8 +29,8 @@ Toutes les mutations ont plusieurs spécificités :
  - Contagion qui détermine la proportion de personnes infectées
  - Sévérité touche la recherche, on peut la comprendre de la manière suivante : si la sévérité est élevée, la maladie est grave, elle entraine par conséquent une recherche active de la part des Humains. Néanmoins, votre compteur de points ADN, augmente plus vite…
  - Létalité détermine le taux de mortalité parmi les infectés… Une létalité élevée fera de votre maladie une veritable machine à tuer, mais cela vous dévoile au grand jour et accèlere la recherche !
-  - ADN, du nom de la molècule qui compose le code génétique. Ici, rien à voir, les points ADN vous permettent d'acheter des mutations.
-  - Changement : certaines mutations par leur nature ralentissent la recherche, c'est ce ralentissement qui est symbolysé par changement. Concrétement, plus une maladie a de *changement* plus elle ralentit la recherche…
+ - ADN, du nom de la molècule qui compose le code génétique. Ici, rien à voir, les points ADN vous permettent d'acheter des mutations.
+ - Changement : certaines mutations par leur nature ralentissent la recherche, c'est ce ralentissement qui est symbolysé par changement. Concrétement, plus une maladie a de *changement* plus elle ralentit la recherche…
 
 ### Symptômes
 
