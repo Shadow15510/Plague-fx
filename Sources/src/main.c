@@ -6,9 +6,8 @@
  Liste des choses à faire :
   - Gestion des sélection dans les mutations et menu info
   - Gestion des avions
-  - Moteurs du jeu (gestion du temps, sauvegarde et modèle infectieux)
+  - Moteurs du jeu (gestion du temps et sauvegarde)
   - Gestion des pays
-  - Ajout d'un menu stats
  */
 
 #include <gint/display.h>
