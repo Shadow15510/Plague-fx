@@ -7,7 +7,7 @@
   - Gestion des sélection dans les mutations et menu info
   - Gestion des avions
   - Moteurs du jeu (gestion du temps et sauvegarde)
-  - Gestion des pays
+  - Gestion des pays à inclure dans le modèle infectieux
  */
 
 #include <gint/display.h>
@@ -29,7 +29,7 @@ void display_info (const char *nom, const int adn, const int conta, const int le
 void display_stats(const double *sains, const double *infectes, const double *morts, const double *gueris, const double *total);
 
 //menu : gère les tableaux des mutations en fonction de la variable 'variable'
-int menu (int variable, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans);
+int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, const int nv_capa, const int nv_trans);
 
 //modele_infectieux : calcule la propagation de la maladie
 void modele_infectieux (double *sains, double *infectes, double *morts, double *gueris, double *s_avant, double *i_avant, double *m_avant, double *g_avant, int *contagion, int *severite, int *letalite, int *changement);
@@ -141,12 +141,15 @@ void display_menu (const int *adn, const int *contagion, const int *severite, co
     
     variable = 67 * *contagion / 26;
     dline(57, 48, 57 + variable, 48, C_BLACK);
+    dline(57, 49, 57 + variable, 49, C_BLACK);
     
     variable = 67 * *severite / 20;
     dline(57, 54, 57 + variable, 54, C_BLACK);
+    dline(57, 55, 57 + variable, 55, C_BLACK);
     
     variable = 67 * *letalite / 33;
     dline(57, 60, 57 + variable, 60, C_BLACK);
+    dline(57, 61, 57 + variable, 61, C_BLACK);
 
     dsubimage(5, 15, &img_muta, 0, 16 * (*sel_symp - 1), 15, 15, 0);
     dsubimage(35, 15, &img_muta, 16, 16 * (*sel_capa - 1), 15, 15, 0);
@@ -178,22 +181,26 @@ void display_stats (const double *sains, const double *infectes, const double *m
     //toutes les jauges font 63 pxl
     int variable;
     
-    variable = 62 * *sains / *total;
+    variable = 63 * *sains / *total;
     dline(61, 31, 61 + variable, 31, C_BLACK);
+    dline(61, 32, 61 + variable, 32, C_BLACK);
     
     variable = 63 * *infectes / *total;
     dline(61, 39, 61 + variable, 39, C_BLACK);
+    dline(61, 40, 61 + variable, 40, C_BLACK);
     
     variable = 63 * *morts / *total;
     dline(61, 47, 61 + variable, 47, C_BLACK);
+    dline(61, 48, 61 + variable, 48, C_BLACK);
     
     variable = 63 * *gueris / *total;
     dline(61, 55, 61 + variable, 55, C_BLACK);
+    dline(61, 56, 61 + variable, 56, C_BLACK);
     
 }
 
 
-int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int nv_trans)
+int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, const int nv_capa, const int nv_trans)
 {
     extern image_t img_muta;
     extern image_t img_pieces;
@@ -302,6 +309,8 @@ int menu (int menu_muta, const image_t *img_fonds, int nv_symp, int nv_capa, int
             case KEY_EXIT:
                 fin = 1;
                 break;
+            case KEY_EXE:
+                if (tableau[y][x] != lim) fin = 1;
         }
     }
     return 0;

@@ -52,3 +52,7 @@ Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invis
 |infections|17|6|7|6|0,5
 |immunodéficience|12|2|6|4|1
 |inflammation|5|2|2|2|0,5
+
+### Capacités
+
+En mutant, votre maladie peut acquérir des capacités. Ces capacités lui permettent de mieux apréhender un milieu ou une situation, ainsi la capacité *Résistance au froid* donne un suplément de vigueur à votre virus dans les pays froid. Cela se traduit par une augmentation plus ou moins forte de la contagion dans ces régions du monde…
