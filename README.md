@@ -20,8 +20,8 @@ Dans le menu des mutations, vous pouvez modifier vos caractéristiques via les t
  - [F3] sert à changer les capacités d'adaptation de votre maladie
  - [F5] sert à modifier les moyens de transmission de votre maladie
  - [F6] sert à revenir au menu principal avec la mappemonde
-  
- ## Mutations
+
+## Mutations
 
 Dans ce jeu, vous aurez  le choix entre plusieurs mutations pour faire le plus de dégât possible parmis les humains ! Comme dans le jeu d'origine, celles-ci sont divisées en 3 catégories : Symptômes, Capacités, et Transmissions.
 
