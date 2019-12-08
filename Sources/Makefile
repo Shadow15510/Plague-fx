@@ -91,13 +91,11 @@ build-cg/%.o: %.c
 # Images
 build-fx/assets/img/%.o: assets-fx/img/%
 	@ mkdir -p $(dir $@)
-	fxconv -i $< -o $@ name:img_$(basename $*)
+	fxconv -i $< -o $@ --fx name:img_$(basename $*)
 
 build-cg/assets/img/%.o: assets-cg/img/%
-	@ echo -ne "\e[31;1mWARNING: image conversion for fxcg50 is not "
-	@ echo -ne "supported yet\e[0m"
 	@ mkdir -p $(dir $@)
-	fxconv -i $< -o $@ name:img_$(basename $*)
+	fxconv -i $< -o $@ --cg name:img_$(basename $*)
 
 # Fonts
 build-fx/assets/fonts/%.o: assets-fx/fonts/%
