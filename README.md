@@ -71,7 +71,7 @@ En mutant, votre maladie peut acquérir des capacités. Ces capacités lui perme
 Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractérestiques intéressantes qui lui permettront de coloniser le monde entier ! ;)
 
 |Nom|Pt de contagion|Coût ADN|
-|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|
 |air Nv 1|+2|9
 |air Nv 2|+5|15
 |air Nv 3|+8|20
