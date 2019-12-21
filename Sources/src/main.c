@@ -310,9 +310,17 @@ int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, cons
                 fin = 1;
                 break;
             case KEY_EXE:
-                if (tableau[y][x] != lim) fin = 1;
+                if (tableau[y][x] != lim) && (tableau[x][y] != 0) fin = 2;
         }
     }
+    if fin == 2
+        
+        
+        
+        
+        
+        display_info (*nom, adn, conta, leta, sev);
+        
     return 0;
 }
 

@@ -2,7 +2,7 @@
 
 ## Présentation
 
-De l'Anglais 'Plague' virus et 'inc' diminutif de 'incorporated' peut être traduit par coopérative ou entreprise. Vous voila donc plongé dans 'L'Entreprise des Virus' un nom digne de 1984 : 'Le Ministère des Virus et de la Régulation Démographique' Ça nous fait un superbe acronyme : MVRD. J'aurais pût rajouter 'Et de la Santé Publique' aussi… Les Humains sont tellement fragiles, protégeons-les ! La plus grande menace pour l'Homme étant l'Homme, faites une bonne action : jouez à ce jeu !
+De l'Anglais 'Plague' virus, ou peste et 'inc' diminutif de 'incorporated' peut être traduit par coopérative ou entreprise. Vous voila donc plongé dans 'L'Entreprise du Virus' un nom digne de 1984 : 'Le Ministère des Virus et de la Régulation Démographique' Ça nous fait un superbe acronyme : MVRD. J'aurais pu rajouter 'Et de la Santé Publique' on tape dans du très haut niveau là : MVRDESP aussi… Les Humains sont tellement fragiles, protégeons-les ! La plus grande menace pour l'Homme étant l'Homme, faites une bonne action : jouez à ce jeu !
 
 Plague inc est donc un jeu de stratégie où le but est de réduire l'humanité à néant… Simple ? Non ! Il vous faudra manipuler avec dextérité et prudence un virus pour anéantir des humains qui ne sont pas super collaboratifs… Pire, ces petits rigolos veulent sauver leurs peaux et recherchent activement un remède à ce mystérieux virus inconnu…
 
@@ -34,10 +34,10 @@ Toutes les mutations ont plusieurs spécificités :
 
 ### Symptômes
 
-Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invisible : elle présente certains symptômes qui ont leurs spécificités. Bien entendu, les symptômes présentés dans ce jeu font partie du jeu d'origines et leurs spécificites sont proches.
+Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invisible : elle présente certains symptômes qui ont leurs spécificités. Bien entendu, les symptômes présentés dans ce jeu font partie du jeu d'origines et leurs spécificités sont proches.
 
 |Nom|Coût ADN|Pt de contagion|Pt de sévérité|Pt de létalité|Changement|
-|:-----|:----------:|:----------------:|:--------------:|:---------------:|:------------:|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |nausée|2|1|1|0|0,5
 |vomissement|4|3|2|0|0,5
 |tumeurs|15|4|2|5|1
@@ -56,3 +56,33 @@ Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invis
 ### Capacités
 
 En mutant, votre maladie peut acquérir des capacités. Ces capacités lui permettent de mieux apréhender un milieu ou une situation, ainsi la capacité *Résistance au froid* donne un suplément de vigueur à votre virus dans les pays froid. Cela se traduit par une augmentation plus ou moins forte de la contagion dans ces régions du monde…
+
+|Nom|Pt de contagion|Pt de sévérité|Pt de létalité|Coût ADN|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|résistance au froid|+4|||10
+|résistance au chand|+7|||15
+|résistance à l'environnement|+10|||30
+|résistance aux médicaments||+2|+0,5|15
+|résistance génétique||+5|+1|25
+|mutation accélérée||+8|+2|30
+
+### Moyens de transmissions
+
+Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractérestiques intéressantes qui lui permettront de coloniser le monde entier ! ;)
+
+|Nom|Pt de contagion|Coût ADN|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|air Nv 1|+2|9
+|air Nv 2|+5|15
+|air Nv 3|+8|20
+|air et eau|+10|30
+|eau Nv 1|+2|9
+|eau Nv 2|+3|12
+|eau Nv 3|+9|25
+|oiseau Nv 1|+3|12
+|oiseau Nv 2|+5|18
+|animaux Nv 1|+2|10
+|animaux Nv 2|+6|16
+|sang Nv 1|+1|8
+|sang Nv 2|+4|14
+|sang Nv 3|+9|20
