@@ -58,7 +58,7 @@ Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invis
 En mutant, votre maladie peut acquérir des capacités. Ces capacités lui permettent de mieux apréhender un milieu ou une situation, ainsi la capacité *Résistance au froid* donne un suplément de vigueur à votre virus dans les pays froid. Cela se traduit par une augmentation plus ou moins forte de la contagion dans ces régions du monde…
 
 |Nom|Pt de contagion|Pt de sévérité|Pt de létalité|Coût ADN|
-|:---:|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 |résistance au froid|+4|||10
 |résistance au chand|+7|||15
 |résistance à l'environnement|+10|||30
@@ -71,7 +71,7 @@ En mutant, votre maladie peut acquérir des capacités. Ces capacités lui perme
 Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractérestiques intéressantes qui lui permettront de coloniser le monde entier ! ;)
 
 |Nom|Pt de contagion|Coût ADN|
-|:---:|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|
 |air Nv 1|+2|9
 |air Nv 2|+5|15
 |air Nv 3|+8|20
