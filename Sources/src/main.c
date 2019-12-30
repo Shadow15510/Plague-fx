@@ -1,7 +1,7 @@
 /*
  Nom : Plague
  Version : - dev-
- Dernière modification : 1 Août 2019
+ Dernière modification : 28 Décembre 2019
  
  Liste des choses à faire :
   - Gestion des sélection dans les mutations et menu info
@@ -40,6 +40,14 @@ double floor (double x);
 //init_mat : remplis la matrice dest à partir de src
 void init_mat(int x, int y, int dest[][x], int src[][x]);
 
+//strcpy : copie une chaîne de caractère dans une autre
+char * strcpy(char * dest, const char * src);
+
+//strtok : recherche les champs en fonction du séparateur
+char * strtok(char * src, const char * separateur);
+
+//atof : convertit le texte en double
+double atof(const char *nptr);
 
 int main (void)
 {
@@ -133,7 +141,7 @@ void display_barre (const int *adn, const int *recherche, const int *limite)
 void display_menu (const int *adn, const int *contagion, const int *severite, const int *letalite, const int *sel_symp, const int *sel_capa, const int *sel_trans)
 {
     // toutes les jauges font 67 pxl de long.
-    extern image_t img_muta;
+    extern const image_t img_muta;
     int variable;
     char string[100];
     sprintf(string, "%d", *adn);
@@ -160,7 +168,12 @@ void display_menu (const int *adn, const int *contagion, const int *severite, co
 void display_info (const char *nom, const int adn, const int conta, const int leta, const int sev)
 {
     char string[100];
-
+    extern const image_t img_fonds;
+    extern const image_t img_muta;
+    
+    dclear(C_WHITE);
+    dsubimage(0, 0, &img_fonds, 0, 195, 128, 64, 0);
+    
     dtext(47, 25, nom, C_BLACK, C_NONE);
     sprintf(string, "%d", adn);
     dtext(73, 33, string, C_BLACK, C_NONE);
@@ -173,6 +186,9 @@ void display_info (const char *nom, const int adn, const int conta, const int le
     
     sprintf(string, "%d", sev);
     dtext(75, 57, string, C_BLACK, C_NONE);
+    
+    dupdate();
+    getkey();
 }
 
 
@@ -202,8 +218,11 @@ void display_stats (const double *sains, const double *infectes, const double *m
 
 int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, const int nv_capa, const int nv_trans)
 {
-    extern image_t img_muta;
-    extern image_t img_pieces;
+    extern const image_t img_muta;
+    extern const image_t img_pieces;
+    const char * sous_str;
+    int variable, contagion = 0, letalite = 0, severite = 0, cout_adn = 0;
+    double changement = 0.0;
     int x = 0, y = 0, i, j, fin = 0, key = 0, lim = 0;
     int tableau[4][8];
     
@@ -220,6 +239,9 @@ int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, cons
     int trans_2[4][8] = {{1, 2, 14, 0, 6, 5, 0, 0},{0, 0, 0, 14, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 14, 14, 0, 0, 14}};
     int trans_3[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 14, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 14, 0, 0, 13}};
     int trans_4[4][8] = {{1, 2, 3, 0, 6, 5, 0, 0},{0, 0, 0, 4, 0, 0, 0, 11},{9, 10, 0, 0, 0, 0, 0, 12},{0, 0, 0, 7, 8, 0, 0, 13}};
+    
+    char element_sel[50], nom[50];
+    const char *symptome[] = {"NAUSEE,1,1,0,0.5,2", "VOMISSEMENT,3,2,0,0.5,4", "TOUX,2,1,0,0.5,3", "PNEUMONIE,2,2,0,0.5,4", "TUMEURS,4,2,5,0.5,15", "PLAIE,2,1,0,0.5,3", "LESION,5,4,0,0.5,10", "HEMORAGIE,0,15,15,0.5,20", "INFLAMATION,2,2,2,0.5,5", "INFECTION,6,7,6,0.5,17", "SIDA,2,6,4,0.5,12", "PARANOIA,0,4,1,1,5", "FOLIE,6,15,0,2,20", "CYROSE,0,20,25,0,30"};
     
     switch (menu_muta)//Remplissage de la matrice pour afficher les mutations
     {
@@ -298,28 +320,71 @@ int menu (const int menu_muta, const image_t *img_fonds, const int nv_symp, cons
                 if (x > 0) x -= 1;
                 break;
             case KEY_RIGHT:
-                if (x < 8) x += 1;
+                if (x < 7) x += 1;
                 break;
             case KEY_UP:
                 if (y > 0) y -= 1;
                 break;
             case KEY_DOWN:
-                if (y < 4) y += 1;
+                if (y < 3) y += 1;
                 break;
             case KEY_EXIT:
                 fin = 1;
                 break;
             case KEY_EXE:
-                if (tableau[y][x] != lim) && (tableau[x][y] != 0) fin = 2;
+                if (tableau[y][x] != lim && tableau[y][x] != 0) fin = 2;
+                else fin = 0;
+                break;
         }
     }
-    if fin == 2
+    if (fin == 2)
+    {
+        switch(menu_muta)
+        {
+            case 1:
+                strcpy(element_sel, symptome[tableau[y][x] - 1]);
+                break;
+        }
+        variable = 0;
+        while(1)
+        {
+            if(variable == 0) sous_str = strtok(element_sel, ",");
+            else sous_str = strtok(NULL, ",");
+            variable ++;
+            
+            switch (variable)
+            {
+                case 1:
+                    strcpy(nom, sous_str);
+                    break;
+                case 2:
+                    contagion = floor(atof(sous_str));
+                    break;
+                case 3:
+                    severite = floor(atof(sous_str));
+                    break;
+                case 4:
+                    letalite = floor(atof(sous_str));
+                    break;
+                case 5:
+                    changement = atof(sous_str);
+                    break;
+                case 6:
+                    cout_adn = floor(atof(sous_str));
+                    break;
+                    
+                    
+            }
+            
+            if(sous_str == NULL) break;
+        }
+        display_info (nom, cout_adn, contagion, letalite, severite);
         
         
-        
-        
-        
-        display_info (*nom, adn, conta, leta, sev);
+
+    }
+    
+    
         
     return 0;
 }
@@ -345,7 +410,6 @@ double floor (double x)
 {
     return (int)x;
 }
-
 
 void init_mat(int x, int y, int dest[][x], int src[][x])
 {
