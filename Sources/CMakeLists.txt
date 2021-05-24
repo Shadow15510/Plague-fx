@@ -11,6 +11,8 @@ find_package(Gint 2.1 REQUIRED)
 
 set(SOURCES
   src/main.c
+  src/core.c
+  src/display_engine.c
   # ...
 )
 # Shared assets, fx-9860G-only assets and fx-CG-50-only assets
@@ -18,7 +20,12 @@ set(ASSETS
   # ...
 )
 set(ASSETS_fx
-  assets-fx/example.png
+  assets-fx/plague.png
+  assets-fx/avions.png
+  assets-fx/fonds.png
+  assets-fx/muta.png
+  assets-fx/pieces.png
+  assets-fx/titre.png
   # ...
 )
 set(ASSETS_cg
@@ -33,8 +40,8 @@ target_compile_options(myaddin PRIVATE -Wall -Wextra -Os)
 target_link_libraries(myaddin Gint::Gint)
 
 if("${FXSDK_PLATFORM_LONG}" STREQUAL fx9860G)
-  generate_g1a(TARGET myaddin OUTPUT "MyAddin.g1a"
-    NAME "MyAddin" ICON assets-fx/icon.png)
+  generate_g1a(TARGET myaddin OUTPUT "Plague.g1a"
+    NAME "Plague" ICON assets-fx/icon.png)
 elseif("${FXSDK_PLATFORM_LONG}" STREQUAL fxCG50)
   generate_g3a(TARGET myaddin OUTPUT "MyAddin.g3a"
     NAME "MyAddin" ICONS assets-cg/icon-uns.png assets-cg/icon-sel.png)

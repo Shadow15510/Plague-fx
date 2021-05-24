@@ -1,3 +1,29 @@
-example.png:
+plague.png:
+  type: font
+  name: font_plague
+  charset: print
+  grid.size: 5x5
+  grid.padding: 1
+  proportional: True
+
+avions.png:
   type: bopti-image
-  name: img_example
+  name: img_planes
+
+fonds.png:
+  type: bopti-image
+  name: img_bground
+
+muta.png:
+  type: bopti-image
+  name: img_mutations
+
+pieces.png:
+ type: bopti-image
+ name: img_pieces
+
+titre.png:
+  type: bopti-image
+  name: img_title
+
+
