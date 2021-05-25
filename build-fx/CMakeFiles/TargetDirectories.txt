@@ -1,3 +1,0 @@
-/home/sha-chan/dépôts_git/Plague/Sources/build-fx/CMakeFiles/rebuild_cache.dir
-/home/sha-chan/dépôts_git/Plague/Sources/build-fx/CMakeFiles/edit_cache.dir
-/home/sha-chan/dépôts_git/Plague/Sources/build-fx/CMakeFiles/myaddin.dir
