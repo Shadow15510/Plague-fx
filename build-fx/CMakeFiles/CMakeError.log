@@ -1,0 +1,24 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/sh-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/sh3eb-elf/11.1.0/../../../../sh3eb-elf/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/sh-elf-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/sh3eb-elf/11.1.0/../../../../sh3eb-elf/bin/ld: cannot find -lstdc++
+/usr/lib/gcc/sh3eb-elf/11.1.0/../../../../sh3eb-elf/bin/ld: cannot find -lm
+/usr/lib/gcc/sh3eb-elf/11.1.0/../../../../sh3eb-elf/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+
+
