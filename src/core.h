@@ -1,16 +1,27 @@
 #ifndef _PLAGUE_CORE_H
 #define _PLAGUE_CORE_H
 
+#include <gint/defs/types.h>
 
-// Duration for internal clock
+// Duration for internal clock (ms)
 #define ENGINE_TICK 50
+#define CURSOR_TICK 150
+#define DNA_ANIMATION_TICK 150
+
+// Duration for DNA points and infectious model (ms)
+#define LIMIT_TICK 10000
 
 // Number of planes on screen
 #define NB_PLANES 5
 
-// Number of humans
-#define TOTAL_POP 10000000000
+struct grid
+{    
+    // 64, 128
+    int height, width;
 
+    // Use grid.data[i + j * grid.width] instead of grid.data[i][j]
+    uint8_t *data;
+};
 
 // game : all statistics of the current game
 struct game
@@ -21,23 +32,26 @@ struct game
     // DNA points
     int dna;
 
-    // Mutations counts and sprite selected
-    int abilities, symptoms, transmissions;
-    int abilities_sel, symptoms_sel, transmissions_sel;
+    // Mutations counts, mutations selected, mutations bought (symptoms; abilities; transmissions)
+    int mutations_count[3];
+    int mutations_selected[3];
+    int mutations_bought[3][14];
 
     // Research data
-    int research, limit;
+    int research, limit, priority;
 
-    // Infectious pattern parameters
-    long long int healthy, infected, dead, cured;
+    // Humans stats : healthy, infected, dead, healed
+    int humans[4];
 
     // Time
     int time;
 
     // Planes
     struct plane *planes[NB_PLANES + 1];
-};
 
+    // Grid for epidemologic model
+    struct grid grid;
+};
 
 // plane : information about planes
 struct plane
@@ -51,29 +65,34 @@ struct plane
     // Coordinates of the plane's destination
     int dest_x, dest_y;
 
-    //Coordinates of the plane's departure
+    // Coordinates of the plane's departure
     int depa_x, depa_y;
 
 };
 
-
-// mutation : contain the map of the mutation available
-struct mutation_table
+//cursor : cursor information for mutations selection
+struct cursor
 {
-    // Data of the map
-    int data[4][8];
-};
+    // Cursor's coordinates
+    int x, y;
 
+    // If the cursor should be displayed
+    int display;
+};
 
 // get_inputs : detect and manage inputs
 int get_inputs(const int background, int *mutation_menu);
 
-
 // next_frame : compute the plane's positions
 void next_frame(struct game *current_game);
 
+// rtc_key : get the key with RTC system
+int rtc_key(void);
 
-// manage_mutation : an independant sub-programm which allow to select, buy and see the mutations.
-void manage_mutation(struct game *current_game, const int mutation_menu);
+// callback_timer : basic timer
+int callback_tick(volatile int *tick);
+
+// message : display a message
+void message(const char *msg[5]);
 
 #endif /* _PLAGUE_CORE_H */

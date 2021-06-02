@@ -1,6 +1,10 @@
+#include <gint/timer.h>
+#include <gint/clock.h>
 #include <gint/keyboard.h>
 
 #include "core.h"
+#include "mutation_engine.h"
+#include "epidemic_engine.h"
 #include "display_engine.h"
 
 
@@ -40,18 +44,26 @@ void next_frame(struct game *current_game)
         }
     }
     current_game->time += ENGINE_TICK;
+    if (current_game->time > LIMIT_TICK)
+    {
+        current_game->time = 0;
+        if (current_game->dna <= 100) current_game->dna += 1;
+
+        current_game->research += current_game->priority;
+        if (current_game->research > current_game->limit)
+        {
+            const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
+            message(msg);
+            current_game->research = 0;
+        }
+        epidemic_simulation(current_game);
+    }
 }
 
 
 int get_inputs(const int background, int *mutation_menu)
 {
-    int opt = GETKEY_DEFAULT & ~GETKEY_REP_ARROWS;
-    int timeout = 1;
-
-    key_event_t ev = getkey_opt(opt, &timeout);
-    if(ev.type == KEYEV_NONE) return background;
-
-    int key = ev.key;
+    int key = rtc_key();
 
     if (key == KEY_OPTN && (background == 1 || background == 2)) return (background % 2) + 1;
     if (key == KEY_VARS) return 3;
@@ -61,7 +73,7 @@ int get_inputs(const int background, int *mutation_menu)
     {
         if (background == 5) return 3;
         if (background != 1 && background != 2) return 1;
-        if (background == 1) return -1;
+        if (background == 1 || background == 2) return -1;
     }
 
     if (background == 3)
@@ -98,15 +110,46 @@ int get_inputs(const int background, int *mutation_menu)
 }
 
 
-void manage_mutation(struct game *current_game, const int mutation_menu)
+int rtc_key(void)
 {
-    int key = 0, end = 0;
-    int cursor_x = 1, cursor_y = 1;
-    while (!end)
-    {
-        display_mutation(current_game, mutation_menu, cursor_x, cursor_y);
-        key = getkey().key;
+    int opt = GETKEY_DEFAULT & ~GETKEY_REP_ARROWS;
+    int timeout = 1;
+        
+    key_event_t ev = getkey_opt(opt, &timeout);
+    if(ev.type == KEYEV_NONE) return 0;
+        
+    return ev.key;
+}
 
-        if (key == KEY_EXIT) end = 1;
+
+int callback_tick(volatile int *tick)
+{
+    *tick = 1;
+    return TIMER_CONTINUE;
+}
+
+
+void message(const char *msg[5])
+{
+    display_message(msg);
+
+    int key = 0, frame = 1;
+
+    static volatile int tick = 1;
+    int t = timer_configure(TIMER_ANY, DNA_ANIMATION_TICK*1000, GINT_CALL(callback_tick, &tick));
+    if (t >= 0) timer_start(t);
+
+    while (!key)
+    {
+        while(!tick) sleep();
+        tick = 0;
+
+        key = rtc_key();
+        display_dna_animation(frame);
+
+        frame = (frame + 1) % 24;
+        if (!frame) frame = 24;
     }
+
+    if (t >= 0) timer_stop(t);
 }

@@ -13,6 +13,9 @@ set(SOURCES
   src/main.c
   src/core.c
   src/display_engine.c
+  src/mutation_engine.c
+  src/data.c
+  src/epidemic_engine.c
   # ...
 )
 # Shared assets, fx-9860G-only assets and fx-CG-50-only assets
@@ -24,8 +27,10 @@ set(ASSETS_fx
   assets-fx/planes.png
   assets-fx/bground.png
   assets-fx/mutations.png
-  assets-fx/piece.png
+  assets-fx/cursor.png
   assets-fx/title.png
+  assets-fx/dna.png
+  assets-fx/explosion.png
   assets-fx/mutations_table/abilities_1.txt
   assets-fx/mutations_table/abilities_2.txt
   assets-fx/mutations_table/abilities_3.txt
