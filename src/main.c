@@ -46,7 +46,7 @@ int main(void)
         .severity = 0,
         .lethality = 0,
 
-        .dna = 0,
+        .dna = 100,
 
         .mutations_count = {0, 0, 0},
         .mutations_selected = {0, 0, 0},

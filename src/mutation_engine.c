@@ -12,6 +12,7 @@ void get_mutation(const struct game *current_game, const int mutation_menu, int 
     extern struct mutation_table mt_symptoms_1;
     extern struct mutation_table mt_symptoms_2;
     extern struct mutation_table mt_symptoms_3;
+    extern struct mutation_table mt_symptoms_4;
 
     // Load abilities
     extern struct mutation_table mt_abilities_1;
@@ -27,13 +28,14 @@ void get_mutation(const struct game *current_game, const int mutation_menu, int 
     {   
         if (current_game->mutations_count[0] < 4) init_mat(8, 4, table, mt_symptoms_1.data);
         else if (current_game->mutations_count[0] < 8) init_mat(8, 4, table, mt_symptoms_2.data);
-        else init_mat(8, 4, table, mt_symptoms_3.data);
+        else if (current_game->mutations_count[0] < 11) init_mat(8, 4, table, mt_symptoms_3.data);
+        else init_mat(8, 4, table, mt_symptoms_4.data);
     }
 
     if (mutation_menu == 2)
     {
-        if (current_game->mutations_count[1] < 2) init_mat(8, 4, table, mt_abilities_1.data);
-        else if (current_game->mutations_count[1] < 4) init_mat(8, 4, table, mt_abilities_2.data);
+        if (current_game->mutations_count[1] < 1) init_mat(8, 4, table, mt_abilities_1.data);
+        else if (current_game->mutations_count[1] < 3) init_mat(8, 4, table, mt_abilities_2.data);
         else init_mat(8, 4, table, mt_abilities_3.data);
     }
 

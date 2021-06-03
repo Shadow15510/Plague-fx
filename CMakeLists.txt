@@ -37,6 +37,7 @@ set(ASSETS_fx
   assets-fx/mutations_table/symptoms_1.txt
   assets-fx/mutations_table/symptoms_2.txt
   assets-fx/mutations_table/symptoms_3.txt
+  assets-fx/mutations_table/symptoms_4.txt
   assets-fx/mutations_table/transmissions_1.txt
   assets-fx/mutations_table/transmissions_2.txt
   assets-fx/mutations_table/transmissions_3.txt

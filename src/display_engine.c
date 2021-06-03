@@ -131,7 +131,8 @@ void display_mutation_buy(const struct cursor c, const int mutation_menu, const 
     dsubimage(3, 21, &img_mutations, 16 * (mutation_menu - 1), 16 * (id - 1), 15, 15, DIMAGE_NONE);
 
     dprint(47, 25, C_BLACK, mutation_data->name);
-    dprint(81, 33, C_BLACK, "%d", mutation_data->dna);
+    if (!current_game->mutations_bought[mutation_menu - 1][id - 1]) dprint(81, 33, C_BLACK, "%d", mutation_data->dna);
+    else dprint(81, 33, C_BLACK, "ACHETEE");
     dprint(81, 41, C_BLACK, "%d (%d)", mutation_data->contagion, mutation_data->contagion - mutation_sel->contagion);
     dprint(81, 49, C_BLACK, "%d (%d)", mutation_data->severity, mutation_data->severity - mutation_sel->severity);
     dprint(81, 57, C_BLACK, "%d (%d)", mutation_data->lethality, mutation_data->lethality - mutation_sel->lethality);

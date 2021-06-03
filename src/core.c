@@ -46,7 +46,7 @@ void next_frame(struct game *current_game)
 
     current_game->time += ENGINE_TICK;
     current_game->total_time += ENGINE_TICK;
-    
+
     if (current_game->time > LIMIT_TICK)
     {
         // Reset internal clock
@@ -64,9 +64,9 @@ void next_frame(struct game *current_game)
             message(msg);
             current_game->research = 0;
         }
-        if (!current_game->humans[0])
+        if (!current_game->humans[1])
         {
-            if (!current_game->humans[1])
+            if (current_game->humans[0] != 0)
             {
                 const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
                 message(msg);
