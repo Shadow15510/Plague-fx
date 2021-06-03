@@ -22,6 +22,7 @@
 // title_screen : display the title screen
 static void title_screen(void);
 
+
 // main_loop : display background, foreground and manage inputs
 void main_loop(struct game *current_game);
 
@@ -46,7 +47,7 @@ int main(void)
         .severity = 0,
         .lethality = 0,
 
-        .dna = 100,
+        .dna = 0,
 
         .mutations_count = {0, 0, 0},
         .mutations_selected = {0, 0, 0},
