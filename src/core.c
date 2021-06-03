@@ -43,20 +43,40 @@ void next_frame(struct game *current_game)
             current_game->planes[i]->direction = new_dir;
         }
     }
+
     current_game->time += ENGINE_TICK;
+    current_game->total_time += ENGINE_TICK;
+    
     if (current_game->time > LIMIT_TICK)
     {
+        // Reset internal clock
         current_game->time = 0;
-        if (current_game->dna <= 100) current_game->dna += 1;
 
+        // Update the game
+        if (current_game->dna <= 100) current_game->dna += 1;
         current_game->research += current_game->priority;
+        epidemic_simulation(current_game);
+
+        // Check the end of the game
         if (current_game->research > current_game->limit)
         {
             const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
             message(msg);
             current_game->research = 0;
         }
-        epidemic_simulation(current_game);
+        if (!current_game->humans[0])
+        {
+            if (!current_game->humans[1])
+            {
+                const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
+                message(msg);
+            }
+            else
+            {
+                const char *msg[5] = {"Vous avez", "gagne.", "", "", ""};
+                message(msg);
+            }
+        }
     }
 }
 

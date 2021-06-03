@@ -1,51 +1,52 @@
 #include "mutation_engine.h"
 
 
+// (contation, severity, lethality, DNA cost, change to cure requirement)
 const struct mutation symptoms_data[14] =
 {
-    {1,  1,  0,  2, 0, "NAUSEE"},
-    {3,  2,  0,  4, 0, "VOMISSEMENT"},
-    {2,  1,  0,  3, 0, "TOUX"},
-    {2,  2,  0,  4, 0, "PNEUMONIE"},
-    {4,  2,  5, 15, 25, "TUMEUR"},
-    {2,  1,  0,  3, 0, "PLAIES"},
-    {5,  4,  0, 10, 0, "LESIONS"},
-    {5, 15, 15, 20, 30, "HEMORRAGIE"},
-    {6,  7,  6, 17, 0, "INFECTION"},
-    {2,  2,  2,  5, 0, "INFLAMMATION"},
-    {2,  6,  4, 12, 0, "IMMUNITE"},
-    {0,  4,  0,  5, 120, "PARANOIA"},
-    {6, 15,  0, 20, 100, "FOLIE"},
-    {0, 20, 25, 30, 250, "ARRET TOTAL"},
+    {15, 10,  0,  2,   0, "NAUSEE"},
+    {25, 10,  0,  4,   0, "VOMISSEMENT"},
+    {20, 10,  0,  3,   0, "TOUX"},
+    {15, 20,  0,  4,   0, "PNEUMONIE"},
+    {10, 30, 20, 15,  25, "TUMEUR"},
+    {25, 10,  0,  4,   0, "PLAIES"},
+    {10, 10,  0, 10,   0, "LESIONS"},
+    {30, 20, 20, 20,  30, "HEMORRAGIE"},
+    {25, 15, 10, 17,   0, "INFECTION"},
+    {15, 10,  2,  5,   0, "INFLAMMATION"},
+    {10, 15, 10, 12,   0, "IMMUNITE"},
+    { 0, 20,  0, 15, 120, "PARANOIA"},
+    { 0, 15,  0, 20, 100, "FOLIE"},
+    { 0, 30, 30, 30, 250, "ARRET TOTAL"},
 };
 
 
 const struct mutation abilities_data[6] =
 {
-    {4,  0, 0, 10, 0, "FROID"},
-    {7,  0, 0, 15, 0, "CHAUD"},
-    {0,  5, 4, 25, 20, "GENETIQUE"},
-    {0,  8, 8, 30, 50, "MUTATION+"},
-    {10, 0, 0, 30, 0, "ENVIRON"},
-    {0,  2, 2, 15, 50, "MEDICAMENT"},
+    {15,  0,  0, 10,  0, "FROID"},
+    {15,  0,  0, 15,  0, "CHAUD"},
+    { 0, 20,  4, 25, 20, "GENETIQUE"},
+    {10, 40,  8, 30, 50, "MUTATION+"},
+    {30,  0,  0, 30,  0, "ENVIRON"},
+    { 0, 15, 30, 15, 30, "MEDICAMENT"},
 };
 
 
 const struct mutation transmissions_data[13] =
 {
-    { 2, 0, 0,  9, 0, "AIR 1"},
-    { 5, 0, 0, 15, 0, "AIR 2"},
-    { 8, 0, 0, 20, 0, "AIR 3"},
-    {10, 0, 0, 30, 0, "AEROSOL"},
-    { 2, 0, 0,  9, 0, "EAU 1"},
-    { 4, 0, 0, 12, 0, "EAU 2"},
-    { 2, 0, 0, 10, 0, "ANIMAL 1"},
-    { 6, 0, 0, 16, 0, "ANIMAL 2"},
-    { 3, 0, 0, 12, 0, "OISEAU 1"},
-    { 6, 0, 0, 16, 0, "OISEAU 2"},
-    { 1, 0, 0,  8, 0, "SANG 1"},
-    { 4, 0, 0, 14, 0, "SANG 2"},
-    { 9, 1, 1, 20, 0, "SANG 3"},
+    {5,  0, 0,  9, 0, "AIR 1"},
+    {10, 0, 0, 15, 0, "AIR 2"},
+    {20, 0, 0, 20, 0, "AIR 3"},
+    {40, 0, 0, 30, 0, "AEROSOL"},
+    {10, 0, 0,  9, 0, "EAU 1"},
+    {20, 0, 0, 12, 0, "EAU 2"},
+    {20, 0, 0, 10, 0, "ANIMAL 1"},
+    {40, 0, 0, 16, 0, "ANIMAL 2"},
+    {20, 0, 0, 12, 0, "OISEAU 1"},
+    {40, 0, 0, 16, 0, "OISEAU 2"},
+    {10, 0, 0,  8, 0, "SANG 1"},
+    {20, 0, 0, 14, 0, "SANG 2"},
+    {40, 0, 0, 20, 0, "SANG 3"},
 };
 
 

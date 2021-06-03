@@ -57,7 +57,7 @@ int main(void)
         .priority = 0,
         .humans = {0, 1, 0, 0},
 
-        .time = 0,
+        .time = 0, .total_time = 0,
 
         .planes = {&plane_1, &plane_2, &plane_3, &plane_4, &plane_5, NULL},
 
@@ -90,23 +90,13 @@ static void title_screen(void)
     extern bopti_image_t img_title;
     extern bopti_image_t img_explosion;
 
-    static volatile int tick_5 = 1;
-    static volatile int tick_1 = 1;
-    int t_1 = timer_configure(TIMER_ANY, 500000, GINT_CALL(callback_tick, &tick_5));
-    int t_2 = timer_configure(TIMER_ANY, 100000, GINT_CALL(callback_tick, &tick_1));
-
-    if (t_1 >= 0) timer_start(t_1);
-    if (t_2 >= 0) timer_start(t_2);
-
     dclear(C_BLACK);
     dupdate();
-    while (!tick_5) sleep();
-    tick_5 = 0;
+    sleep_ms(250);
 
     dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);    
     dupdate();
-    while (!tick_5) sleep();
-    tick_5 = 0;
+    sleep_ms(500);
 
     for (int frame = 0; frame < 5; frame ++)
     {
@@ -114,27 +104,20 @@ static void title_screen(void)
         dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);
         dsubimage(76, 9, &img_explosion, 41 * frame, 0, 40, 40, DIMAGE_NONE);
         dupdate();
-        while (!tick_1) sleep();
-        tick_1 = 0;
+        sleep_ms(100);
     }
 
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 65, 128, 64, DIMAGE_NONE);
     dupdate();
-
-    for (int i = 0; i < 2; i ++)
-    {
-        while (!tick_5) sleep();
-        tick_5 = 0;
-    }
+    sleep_ms(500);
 
     for (int i = 0; i < 5; i ++)
     {
         dclear(C_BLACK);
         dsubimage(0, 0, &img_title, 0, ((i % 2) + 1) * 65, 128, 64, DIMAGE_NONE);
         dupdate();
-        while (!tick_5) sleep();
-        tick_5 = 0;
+        sleep_ms(250);
     }
 
     dclear(C_BLACK);
@@ -142,9 +125,6 @@ static void title_screen(void)
     dupdate();
 
     getkey();
-
-    if (t_1 >= 0) timer_stop(t_1);
-    if (t_2 >= 0) timer_stop(t_2);
 }
 
 

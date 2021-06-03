@@ -44,7 +44,7 @@ struct game
     int humans[4];
 
     // Time
-    int time;
+    int time, total_time;
 
     // Planes
     struct plane *planes[NB_PLANES + 1];
