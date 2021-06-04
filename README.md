@@ -12,11 +12,6 @@ Vous commencez la partie en Asie Centrale.
 
 La totalité du projet est soumise à la licence GNU General Public Licence v3.0.
 
-### To do list
-
- - Ajouter *in-game* des information sur chaque mutation
- - Corriger le calcul avec les statistiques des humains
-
 ## Contrôles
 
 Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal. Une fois sur l'écran représentant la Terre, plusieurs choix s'offrent à vous :
@@ -27,6 +22,8 @@ Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal
 Dans les menus déplacez-vous grâce aux touches fléchées, validez avec [SHIFT] et annulez avec [ALPHA].
 
 Pour quitter le jeu, allez sur la mappemonde et pressez [EXIT].
+
+Dans les menus de sélection des mutations, pressez [OPTN] pour avoir une courte description de la mutation sélectionnée. Pressez ensuite n'importe quelle autre touche pour revenir sur les données de bases.
 
 ## Mutations
 
