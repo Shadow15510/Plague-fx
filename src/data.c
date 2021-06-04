@@ -4,20 +4,20 @@
 // (contation, severity, lethality, DNA cost, change to cure requirement)
 const struct mutation symptoms_data[14] =
 {
-    {10, 10,  0,  2,   0, "NAUSEE"},
-    {25, 10,  0, 10,   0, "VOMISSEMENT"},
-    {20, 10,  0,  3,   0, "TOUX"},
-    {15, 20,  0, 10,   0, "PNEUMONIE"},
-    {10, 30, 20, 15,  25, "TUMEUR"},
-    {25, 10,  0,  4,   0, "PLAIES"},
-    {10, 10,  0, 10,   0, "LESIONS"},
-    {30, 20, 20, 20,  30, "HEMORRAGIE"},
-    {25, 15, 10, 17,   0, "INFECTION"},
-    {25, 10, 20, 20,   0, "INFLAMMATION"},
-    {10, 15, 20, 15,   0, "IMMUNITE"},
-    { 0, 20,  0, 15, 120, "PARANOIA"},
-    { 0, 15,  0, 20, 100, "FOLIE"},
-    { 0, 30, 30, 30, 250, "ARRET TOTAL"},
+    {10, 10,  0,  2,  0, "NAUSEE"},
+    {15, 10,  0, 10,  0, "VOMISSEMENT"},
+    {10, 10,  0,  3,  0, "TOUX"},
+    {15, 20,  0, 10,  0, "PNEUMONIE"},
+    {10, 30, 20, 15, 10, "TUMEUR"},
+    {15, 10,  0,  4,  0, "PLAIES"},
+    {10, 10,  0, 10,  0, "LESIONS"},
+    {30, 20, 20, 20,  5, "HEMORRAGIE"},
+    {25, 15, 10, 17,  0, "INFECTION"},
+    {15, 10, 20, 20,  0, "INFLAMMATION"},
+    {10, 15, 20, 15,  0, "IMMUNITE"},
+    { 0, 20,  0, 15,  10, "PARANOIA"},
+    { 0, 15,  0, 20,  10, "FOLIE"},
+    { 0, 30, 30, 30,  20, "ARRET TOTAL"},
 };
 
 
@@ -25,28 +25,28 @@ const struct mutation abilities_data[6] =
 {
     {15,  0,  0, 10,  0, "FROID"},
     {15,  0,  0, 15,  0, "CHAUD"},
-    { 0, 10,  4, 25, 20, "GENETIQUE"},
-    {10, 40, 20, 30, 50, "MUTATION+"},
-    {30,  0,  0, 30,  0, "ENVIRON"},
-    { 0, 15, 30, 15, 30, "MEDICAMENT"},
+    { 0, 10,  4, 25, 10, "GENETIQUE"},
+    {10, 40, 20, 30, 20, "MUTATION+"},
+    {30, 10,  0, 30,  0, "ENVIRON"},
+    { 0, 15, 30, 15, 20, "MEDICAMENT"},
 };
 
 
 const struct mutation transmissions_data[13] =
 {
-    {5,  0, 0,  9, 0, "AIR 1"},
-    {10, 0, 0, 15, 0, "AIR 2"},
-    {20, 0, 0, 20, 0, "AIR 3"},
-    {40, 0, 0, 30, 0, "AEROSOL"},
-    {10, 0, 0,  9, 0, "EAU 1"},
-    {20, 0, 0, 12, 0, "EAU 2"},
-    {20, 0, 0, 10, 0, "ANIMAL 1"},
-    {40, 0, 0, 16, 0, "ANIMAL 2"},
-    {20, 0, 0, 12, 0, "OISEAU 1"},
-    {40, 0, 0, 16, 0, "OISEAU 2"},
-    {10, 0, 0,  8, 0, "SANG 1"},
-    {20, 0, 0, 14, 0, "SANG 2"},
-    {40, 0, 0, 20, 0, "SANG 3"},
+    { 5,  0, 0,  9, 0, "AIR 1"},
+    {10, 10, 0, 15, 0, "AIR 2"},
+    {20, 10, 0, 20, 0, "AIR 3"},
+    {40, 15, 0, 30, 0, "AEROSOL"},
+    {10,  0, 0,  9, 0, "EAU 1"},
+    {20, 10, 0, 12, 0, "EAU 2"},
+    {20,  0, 0, 10, 0, "ANIMAL 1"},
+    {40, 10, 0, 16, 0, "ANIMAL 2"},
+    {20,  0, 0, 12, 0, "OISEAU 1"},
+    {40, 10, 0, 16, 0, "OISEAU 2"},
+    {10,  0, 0,  8, 0, "SANG 1"},
+    {20, 10, 0, 14, 0, "SANG 2"},
+    {40, 15, 0, 20, 0, "SANG 3"},
 };
 
 

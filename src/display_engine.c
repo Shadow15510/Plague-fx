@@ -12,7 +12,7 @@ void display_background(const int background)
 }
 
 
-void display_foreground(const int background, const struct game *current_game)
+void display_foreground(const int background, const struct game *current_game, const int mutation_menu)
 {
     extern const bopti_image_t img_mutations;
     extern const bopti_image_t img_planes;
@@ -29,7 +29,7 @@ void display_foreground(const int background, const struct game *current_game)
             {
                 for (int j = 0; j < current_game->grid.height; j ++)
                 {
-                    if (current_game->grid.data[i + j * current_game->grid.width] == 1 && world[j][i] != 0) dpixel(i, j, C_BLACK);
+                    if ((current_game->grid.data[i + j * current_game->grid.width] == 1 || current_game->grid.data[i + j * current_game->grid.width] == 3) && world[j][i] != 0) dpixel(i, j, C_BLACK);
                 }
             }
 
@@ -47,7 +47,7 @@ void display_foreground(const int background, const struct game *current_game)
             {
                 for (int j = 0; j < 48; j ++)
                 {
-                    if (current_game->grid.data[i + j * current_game->grid.width] == 1 && world[j][i] != 0) dpixel(i, j, C_BLACK);
+                    if ((current_game->grid.data[i + j * current_game->grid.width] == 1 || current_game->grid.data[i + j * current_game->grid.width] == 3) && world[j][i] != 0) dpixel(i, j, C_BLACK);
                 }
             }
 
@@ -66,6 +66,8 @@ void display_foreground(const int background, const struct game *current_game)
             break;
 
         case 3:
+            drect(mutation_menu + 31 * (mutation_menu - 1), 0, mutation_menu + 31 * (mutation_menu), 7, C_INVERT);
+
             dprint(102, 37, C_BLACK, "%d", current_game->dna);
             
             length = 67 * current_game->contagion / 100;
@@ -80,9 +82,9 @@ void display_foreground(const int background, const struct game *current_game)
             dline(57, 60, 57 + length, 60, C_BLACK);
             dline(57, 61, 57 + length, 61, C_BLACK);
 
-            if (current_game->mutations_selected[0]) dsubimage(5, 15, &img_mutations, 0, 16 * (current_game->mutations_selected[0] - 1), 15, 15, 0);
-            if (current_game->mutations_selected[1]) dsubimage(35, 15, &img_mutations, 16, 16 * (current_game->mutations_selected[1] - 1), 15, 15, 0);
-            if (current_game->mutations_selected[2]) dsubimage(65, 15, &img_mutations, 32, 16 * (current_game->mutations_selected[2] - 1), 15, 15, 0);
+            if (current_game->mutations_selected[0]) dsubimage(7, 15, &img_mutations, 0, 16 * (current_game->mutations_selected[0] - 1), 15, 15, 0);
+            if (current_game->mutations_selected[1]) dsubimage(37, 15, &img_mutations, 16, 16 * (current_game->mutations_selected[1] - 1), 15, 15, 0);
+            if (current_game->mutations_selected[2]) dsubimage(67, 15, &img_mutations, 32, 16 * (current_game->mutations_selected[2] - 1), 15, 15, 0);
             break;
 
         case 6:

@@ -146,7 +146,7 @@ void main_loop(struct game *current_game)
         // Update the screen
         dclear(C_WHITE);
         display_background(background);
-        display_foreground(background, current_game);
+        display_foreground(background, current_game, mutation_menu);
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
