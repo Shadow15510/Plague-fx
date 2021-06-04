@@ -134,10 +134,9 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                         // Update
                         update_disease(current_game);
                         current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/8);
-                        const char *msg[5] = {"mutation", "achetee", "", "", ""};
-                        message(msg);
+                        message("MUTATION ACHETEE");
                     }
-                    else {const char *msg[5] = {"achat", "impossible", "", "", ""}; message(msg);}
+                    else message("ACHAT IMPOSSIBLE");
                 }
 
                 // if the player has already bought this mutation
@@ -145,8 +144,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                 {
                     current_game->mutations_selected[mutation_menu - 1] = id;
                     update_disease(current_game);
-                    const char *msg[5] = {"mutation", "selectionnee", "", "", ""};
-                    message(msg);
+                    message("MUTATION SELECTIONNEE");
                 }
                 
             }

@@ -70,16 +70,8 @@ void next_frame(struct game *current_game)
         // Check the end of the game
         if (!current_game->humans[1])
         {
-            if (current_game->humans[0] != 0)
-            {
-                const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
-                message(msg);
-            }
-            else
-            {
-                const char *msg[5] = {"Vous avez", "gagne.", "", "", ""};
-                message(msg);
-            }
+            if (current_game->humans[0]) message("VOUS AVEZ PERDU.");
+            else message("VOUS AVEZ GAGNE !");
         }
     }
 }
@@ -151,7 +143,7 @@ int callback_tick(volatile int *tick)
 }
 
 
-void message(const char *msg[5])
+void message(char *msg)
 {
     display_message(msg);
 

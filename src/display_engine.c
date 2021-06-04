@@ -66,7 +66,7 @@ void display_foreground(const int background, const struct game *current_game, c
             break;
 
         case 3:
-            drect(mutation_menu + 31 * (mutation_menu - 1), 0, mutation_menu + 31 * (mutation_menu), 7, C_INVERT);
+            drect(mutation_menu + 31 * (mutation_menu - 1), 0, mutation_menu + 31 * (mutation_menu) - 1, 7, C_INVERT);
 
             dprint(102, 37, C_BLACK, "%d", current_game->dna);
             
@@ -160,21 +160,39 @@ void display_mutation_description(const char *name, const char *description, con
     
     for (int i = 0; i < 4; i ++)
     {
-        dtext_opt(25, 33 + i * 7, C_BLACK, C_WHITE, 0 ,0, description + decalage, 16 );
-        if (description[decalage+1] == '\0') break;
-        else decalage += 16;
+        dtext_opt(25, 33 + i * 7, C_BLACK, C_WHITE, 0 ,0, description + decalage, 16);
+        
+        int offset = 0;
+        while (description[decalage + offset] != '\0') offset += 1;
+
+        if (!offset) break;
+        else if (offset > 16) decalage += 16;
+        else decalage += offset;
     }
     dupdate();
 }
 
 
-void display_message(const char *msg[5])
+void display_message(char *msg)
 {
+    int decalage = 0;
+
     dclear(C_WHITE);
     display_background(7);
-    for (int i = 0; i < 5; i ++) dprint(54, 6 * i + 4, C_BLACK, msg[i]);
+    for (int i = 0; i < 5; i ++)
+    {
+        dtext_opt(54, 6 * i + 4, C_BLACK, C_WHITE, 0, 0, msg + decalage, 11);
+        
+        int offset = 0;
+        while (msg[decalage + offset] != '\0') offset += 1;
+
+        if (!offset) break;
+        else if (offset > 11) decalage += 11;
+        else decalage += offset;
+    }
     dupdate();
 }
+
 
 void display_dna_animation(const int frame)
 {
