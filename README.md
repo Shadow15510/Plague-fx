@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 # Plague
 
 ## Généralités
 
 ### Présentation
 
-=======
->>>>>>> 495d11fabf82a4924f31a1eaf183f97b3cf4fd02
 Plague inc est un jeu de stratégie où le but est de réduire l'humanité à néant… Simple ? Non ! Il vous faudra manipuler avec dextérité et prudence un virus pour anéantir des humains qui ne sont pas super collaboratifs… Pire, ces petits rigolos veulent sauver leurs peaux et recherchent activement un remède à ce mystérieux virus inconnu !
 
 Vous commencez la partie en Asie Centrale.
@@ -54,9 +51,4 @@ En mutant, votre maladie peut acquérir des capacités. Ces capacités lui perme
 
 ### Moyens de transmissions
 
-<<<<<<< HEAD
 Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractéristiques intéressantes qui lui permettront de coloniser le monde entier !
-=======
-Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractéristiques intéressantes qui lui permettront de coloniser le monde entier !
-
->>>>>>> 495d11fabf82a4924f31a1eaf183f97b3cf4fd02
