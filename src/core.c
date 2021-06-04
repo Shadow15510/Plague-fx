@@ -9,7 +9,7 @@
 #include "display_engine.h"
 
 
-void next_frame(struct game *current_game)
+int next_frame(struct game *current_game)
 {
     for (int i = 0; current_game->planes[i]; i++)
     {
@@ -60,7 +60,7 @@ void next_frame(struct game *current_game)
         current_game->time = 0;
 
         // Update the game
-        current_game->dna = current_game->dna + 1 + floor(current_game->severity / 25);
+        current_game->dna = current_game->dna + 1 + floor(current_game->severity / 10);
         if (current_game->dna > 30) current_game->dna = 30;
         current_game->research += current_game->priority;
         if (current_game->research > current_game->limit) current_game->research = current_game->limit;
@@ -72,8 +72,10 @@ void next_frame(struct game *current_game)
         {
             if (current_game->humans[0]) message("VOUS AVEZ PERDU.");
             else message("VOUS AVEZ GAGNE !");
+            return 0;
         }
     }
+    return 1;
 }
 
 
@@ -87,7 +89,11 @@ int get_inputs(const int background, int *mutation_menu)
         *mutation_menu = 4;
         return 3;
     }
-    if (key == KEY_SQUARE) return 6;
+    if (key == KEY_SQUARE)
+    {
+        if (background == 1 || background == 2) return 6;
+        else if (background == 6) return 1;
+    }
 
     if (key == KEY_ALPHA)
     {

@@ -91,3 +91,9 @@ void write_save(const struct game *current_game)
     // Close file
     BFile_Close(fd);
 }
+
+
+void delete_save(void)
+{
+    BFile_Remove(filename);
+}

@@ -133,7 +133,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
                         // Update
                         update_disease(current_game);
-                        current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/8);
+                        current_game->priority += ceil((mutation_data->severity + mutation_data->lethality) / 10);
                         message("MUTATION ACHETEE");
                     }
                     else message("ACHAT IMPOSSIBLE");
