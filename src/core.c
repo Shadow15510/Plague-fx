@@ -30,6 +30,9 @@ void next_frame(struct game *current_game)
         }
         if (current_game->planes[i]->x == current_game->planes[i]->dest_x && current_game->planes[i]->y == current_game->planes[i]->dest_y)
         {
+            // Infect the airport
+            if (current_game->planes[i]->is_infected) current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] = 1;
+
             // Set the new destination
             current_game->planes[i]->dest_x = current_game->planes[i]->depa_x;
             current_game->planes[i]->dest_y = current_game->planes[i]->depa_y;
@@ -42,6 +45,11 @@ void next_frame(struct game *current_game)
             int new_dir = (current_game->planes[i]->direction + 2) % 4;
             if (!new_dir) new_dir = 4;
             current_game->planes[i]->direction = new_dir;
+
+            // Infect the plane
+            if (current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] == 1  && current_game->mutations_selected[2] == 4) current_game->planes[i]->is_infected = 1;
+
+
         }
     }
 
@@ -54,7 +62,8 @@ void next_frame(struct game *current_game)
         current_game->time = 0;
 
         // Update the game
-        if (current_game->dna <= 100) current_game->dna += 1 + floor(current_game->severity / 25);
+        current_game->dna = current_game->dna + 1 + floor(current_game->severity / 25);
+        if (current_game->dna > 30) current_game->dna = 30;
         if (current_game->research < current_game->limit) current_game->research += current_game->priority;
         epidemic_simulation(current_game);
 
@@ -87,42 +96,40 @@ int get_inputs(const int background, int *mutation_menu)
     int key = rtc_key();
 
     if (key == KEY_OPTN && (background == 1 || background == 2)) return (background % 2) + 1;
-    if (key == KEY_VARS) return 3;
+    if (key == KEY_VARS)
+    {
+        *mutation_menu = 1;
+        return 3;
+    }
     if (key == KEY_SQUARE) return 6;
 
-    if (key == KEY_EXIT)
+    if (key == KEY_ALPHA)
     {
         if (background == 5) return 3;
         if (background != 1 && background != 2) return 1;
-        if (background == 1 || background == 2) return -1;
     }
+    if (key == KEY_EXIT && (background == 1 || background == 2)) return -1;
 
     if (background == 3)
     {
         switch (key)
         {
             // Symptoms
-            case KEY_F1:
-                *mutation_menu = 1;
-                return 5;
+            case KEY_LEFT:
+                *mutation_menu = *mutation_menu - 1;
+                if (*mutation_menu <= 0) *mutation_menu = 4;
                 break;
 
             // Abilities
-            case KEY_F3:
-                *mutation_menu = 2;
-                return 5;
+            case KEY_RIGHT:
+                *mutation_menu = *mutation_menu + 1;
+                if (*mutation_menu >= 5) *mutation_menu = 1;
                 break;
 
-            // Transmission
-            case KEY_F5:
-                *mutation_menu = 3;
-                return 5;
-                break;
-
-            // Return to the main menu
-            case KEY_F6:
-                *mutation_menu = 0;
-                return 1;
+            // Validation
+            case KEY_SHIFT:
+                if (*mutation_menu == 4) return 1;
+                else return 5;
                 break;
         }
     }
@@ -133,7 +140,7 @@ int get_inputs(const int background, int *mutation_menu)
 
 int rtc_key(void)
 {
-    int opt = GETKEY_DEFAULT & ~GETKEY_REP_ARROWS;
+    int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
     int timeout = 1;
         
     key_event_t ev = getkey_opt(opt, &timeout);

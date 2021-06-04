@@ -74,16 +74,16 @@ void mutation_select(struct game *current_game, const int mutation_menu)
         key = rtc_key();
         
         // Manage input
-        if (key == KEY_EXIT) end = 1;
-        if (key == KEY_EXE && table[c.y][c.x] != 15 && table[c.y][c.x] != 0)
+        if (key == KEY_ALPHA) end = 1;
+        if (key == KEY_SHIFT && table[c.y][c.x] != 15 && table[c.y][c.x] != 0)
         {
             end = mutation_buy(current_game, c, mutation_menu, table);
         }
                     
-        if (key == KEY_LEFT && c.x > 0) c.x --;
-        if (key == KEY_RIGHT && c.x < 7) c.x ++;
-        if (key == KEY_UP && c.y > 0) c.y --;
-        if (key == KEY_DOWN && c.y < 3) c.y ++;
+        if (key == KEY_LEFT && c.x > 0) c.x = (c.x - 1) % 8;
+        if (key == KEY_RIGHT && c.x < 7) c.x = (c.x + 1) % 8;
+        if (key == KEY_UP && c.y > 0) c.y = (c.y - 1) % 4;
+        if (key == KEY_DOWN && c.y < 3) c.y = (c.y + 1) % 4;
     }
     if (t >= 0) timer_stop(t);
 }
@@ -99,11 +99,14 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
     while (1)
     {
         display_mutation_buy(c, mutation_menu, table, button_selected, current_game);
-        key = getkey().key;
+
+        int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;        
+        key_event_t ev = getkey_opt(opt, NULL);
+        key = ev.key;
 
         if (key == KEY_DOWN || key == KEY_UP) button_selected = (button_selected + 1) % 2;
-        if (key == KEY_EXIT) return 1;
-        if (key == KEY_EXE)
+        if (key == KEY_ALPHA) return 1;
+        if (key == KEY_SHIFT)
         {
             if (!button_selected) return 0;
             else
@@ -122,6 +125,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
                         // Update
                         update_disease(current_game);
+                        current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/10);
                         const char *msg[5] = {"mutation", "achetee", "", "", ""};
                         message(msg);
                     }
@@ -138,7 +142,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                 }
                 
             }
-            return 1;
+            return 0;
         }
     }
     return 0;
@@ -158,7 +162,6 @@ void update_disease(struct game *current_game)
     
     // research parameters
     current_game->limit = RESEARCH_LIMIT + symptom->changement + ability->changement + transmission->changement;
-    current_game->priority = floor((current_game->severity + current_game->lethality) / 40);
 }
 
 

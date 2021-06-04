@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.1
+  Version ...........: 1.2
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -35,11 +35,11 @@ int main(void)
     title_screen();
 
     // Game statistics
-    struct plane plane_1 = {22, 20, 2, 84, 20, 22, 20};
-    struct plane plane_2 = {34, 20, 3, 34, 44, 34, 20};
-    struct plane plane_3 = {68, 44, 1, 68, 20, 68, 44};
-    struct plane plane_4 = {104, 20, 3, 104, 50, 104, 20};
-    struct plane plane_5 = {68, 44, 4, 34, 44, 68, 44};
+    struct plane plane_1 = {22, 20, 2, 84, 20, 22, 20, 0};
+    struct plane plane_2 = {34, 20, 3, 34, 44, 34, 20, 0};
+    struct plane plane_3 = {68, 44, 1, 68, 20, 68, 44, 0};
+    struct plane plane_4 = {104, 20, 3, 104, 50, 104, 20, 0};
+    struct plane plane_5 = {68, 44, 4, 34, 44, 68, 44, 0};
 
 
     struct game current_game =
@@ -146,7 +146,7 @@ void main_loop(struct game *current_game)
         // Update the screen
         dclear(C_WHITE);
         display_background(background);
-        display_foreground(background, current_game);
+        display_foreground(background, current_game, mutation_menu);
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
