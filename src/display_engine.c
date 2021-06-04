@@ -66,7 +66,7 @@ void display_foreground(const int background, const struct game *current_game, c
             break;
 
         case 3:
-            drect(mutation_menu + 31 * (mutation_menu - 1), 0, mutation_menu + 31 * (mutation_menu), 7, C_INVERT);
+            drect(mutation_menu + 31 * (mutation_menu - 1), 0, mutation_menu + 31 * (mutation_menu) - 1, 7, C_INVERT);
 
             dprint(102, 37, C_BLACK, "%d", current_game->dna);
             
@@ -146,13 +146,53 @@ void display_mutation_buy(const struct cursor c, const int mutation_menu, const 
 }
 
 
-void display_message(const char *msg[5])
+void display_mutation_description(const char *name, const char *description, const int mutation_menu, const int id)
 {
+    extern const bopti_image_t img_mutations;
+
+    int decalage = 0;
+
     dclear(C_WHITE);
-    display_background(7);
-    for (int i = 0; i < 5; i ++) dprint(54, 6 * i + 4, C_BLACK, msg[i]);
+
+    display_background(8);
+    dsubimage(3, 21, &img_mutations, 16 * (mutation_menu - 1), 16 * (id - 1), 15, 15, DIMAGE_NONE);
+    dprint(47, 25, C_BLACK, name);
+    
+    for (int i = 0; i < 4; i ++)
+    {
+        dtext_opt(25, 33 + i * 7, C_BLACK, C_WHITE, 0 ,0, description + decalage, 16);
+        
+        int offset = 0;
+        while (description[decalage + offset] != '\0') offset += 1;
+
+        if (!offset) break;
+        else if (offset > 16) decalage += 16;
+        else decalage += offset;
+    }
     dupdate();
 }
+
+
+void display_message(char *msg)
+{
+    int decalage = 0;
+
+    dclear(C_WHITE);
+    display_background(7);
+    for (int i = 0; i < 5; i ++)
+    {
+        dtext_opt(54, 6 * i + 4, C_BLACK, C_WHITE, 0, 0, msg + decalage, 11);
+        
+        int offset = 0;
+        while (msg[decalage + offset] != '\0') offset += 1;
+
+        if (!offset) break;
+        else if (offset > 11) decalage += 11;
+        else decalage += offset;
+    }
+    dupdate();
+}
+
 
 void display_dna_animation(const int frame)
 {

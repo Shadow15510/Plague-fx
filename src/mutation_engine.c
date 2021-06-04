@@ -116,6 +116,11 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
         if (key == KEY_DOWN || key == KEY_UP) button_selected = (button_selected + 1) % 2;
         if (key == KEY_ALPHA) return 1;
+        if (key == KEY_OPTN)
+        {
+            display_mutation_description(mutation_data->name, mutation_data->description, mutation_menu, id);
+            getkey();
+        }
         if (key == KEY_SHIFT)
         {
             if (!button_selected) return 0;
@@ -137,13 +142,17 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                         update_disease(current_game);
 <<<<<<< HEAD
                         current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/8);
+<<<<<<< HEAD
 =======
                         current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/10);
 >>>>>>> 495d11fabf82a4924f31a1eaf183f97b3cf4fd02
                         const char *msg[5] = {"mutation", "achetee", "", "", ""};
                         message(msg);
+=======
+                        message("MUTATION ACHETEE");
+>>>>>>> dev
                     }
-                    else {const char *msg[5] = {"achat", "impossible", "", "", ""}; message(msg);}
+                    else message("ACHAT IMPOSSIBLE");
                 }
 
                 // if the player has already bought this mutation
@@ -151,8 +160,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                 {
                     current_game->mutations_selected[mutation_menu - 1] = id;
                     update_disease(current_game);
-                    const char *msg[5] = {"mutation", "selectionnee", "", "", ""};
-                    message(msg);
+                    message("MUTATION SELECTIONNEE");
                 }
                 
             }

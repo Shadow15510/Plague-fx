@@ -99,6 +99,6 @@ int rtc_key(void);
 int callback_tick(volatile int *tick);
 
 // message : display a message
-void message(const char *msg[5]);
+void message(char *msg);
 
 #endif /* _PLAGUE_CORE_H */

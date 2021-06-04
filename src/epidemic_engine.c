@@ -41,7 +41,7 @@ void epidemic_simulation(struct game *current_game)
     uint8_t *current_grid = calloc(current_game->grid.width * current_game->grid.height, sizeof(uint8_t));
     init_tab(current_game->grid.width * current_game->grid.height, current_grid, current_game->grid.data);
 
-    int healed_rate =  ceil(100 * (current_game->research / current_game->limit));
+    int healed_rate =  ceil((100 * current_game->research / current_game->limit));
 
     // Make the epidemic grid evolove
     for (int i = 0; i < current_game->grid.width; i ++)

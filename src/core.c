@@ -79,16 +79,8 @@ void next_frame(struct game *current_game)
         // Check the end of the game
         if (!current_game->humans[1])
         {
-            if (current_game->humans[0] != 0)
-            {
-                const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
-                message(msg);
-            }
-            else
-            {
-                const char *msg[5] = {"Vous avez", "gagne.", "", "", ""};
-                message(msg);
-            }
+            if (current_game->humans[0]) message("VOUS AVEZ PERDU.");
+            else message("VOUS AVEZ GAGNE !");
         }
     }
 }
@@ -101,7 +93,7 @@ int get_inputs(const int background, int *mutation_menu)
     if (key == KEY_OPTN && (background == 1 || background == 2)) return (background % 2) + 1;
     if (key == KEY_VARS)
     {
-        *mutation_menu = 1;
+        *mutation_menu = 4;
         return 3;
     }
     if (key == KEY_SQUARE) return 6;
@@ -160,7 +152,7 @@ int callback_tick(volatile int *tick)
 }
 
 
-void message(const char *msg[5])
+void message(char *msg)
 {
     display_message(msg);
 
