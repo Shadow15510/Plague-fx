@@ -15,7 +15,7 @@ bool can_become_infected(const struct grid epidemic_grid, const int mutations_se
     extern const uint8_t world[64][128];
 
     // In case of water, low or high temperature
-    if (world[j][i] == 0 && mutations_selected[2] != 3 && mutations_selected[2] != 2 && mutations_selected[2] != 5) return false;
+    if (world[j][i] == 0 && mutations_selected[2] != 3 && mutations_selected[2] != 4 && mutations_selected[2] != 6) return false;
     if (world[j][i] == 1 && mutations_selected[1] != 1 && mutations_selected[1] != 5) return false;
     if (world[j][i] == 3 && mutations_selected[1] != 2 && mutations_selected[1] != 5) return false;
     

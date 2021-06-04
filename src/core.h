@@ -40,7 +40,8 @@ struct game
     int mutations_bought[3][14];
 
     // Research data
-    int research, limit, priority;
+    int research, limit;
+    float priority;
 
     // Humans stats : healthy, infected, dead, healed
     int humans[4];

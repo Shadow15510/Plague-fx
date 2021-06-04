@@ -80,10 +80,10 @@ void mutation_select(struct game *current_game, const int mutation_menu)
             end = mutation_buy(current_game, c, mutation_menu, table);
         }
                     
-        if (key == KEY_LEFT && c.x > 0) c.x --;
-        if (key == KEY_RIGHT && c.x < 7) c.x ++;
-        if (key == KEY_UP && c.y > 0) c.y --;
-        if (key == KEY_DOWN && c.y < 3) c.y ++;
+        if (key == KEY_LEFT && c.x > 0) c.x = (c.x - 1) % 8;
+        if (key == KEY_RIGHT && c.x < 7) c.x = (c.x + 1) % 8;
+        if (key == KEY_UP && c.y > 0) c.y = (c.y - 1) % 4;
+        if (key == KEY_DOWN && c.y < 3) c.y = (c.y + 1) % 4;
     }
     if (t >= 0) timer_stop(t);
 }
@@ -125,8 +125,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
                         // Update
                         update_disease(current_game);
-                        current_game->priority += floor((mutation_data->severity + mutation_data->lethality) / 20);
-
+                        current_game->priority += ceil((mutation_data->severity + mutation_data->lethality)/10);
                         const char *msg[5] = {"mutation", "achetee", "", "", ""};
                         message(msg);
                     }

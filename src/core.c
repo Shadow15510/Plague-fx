@@ -47,10 +47,7 @@ void next_frame(struct game *current_game)
             current_game->planes[i]->direction = new_dir;
 
             // Infect the plane
-            if (current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] == 1  && 
-                (current_game->mutations_selected[2] == 3 || 
-                 current_game->mutations_selected[2] == 2 ||
-                 current_game->mutations_selected[2] == 5)) current_game->planes[i]->is_infected = 1;
+            if (current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] == 1  && current_game->mutations_selected[2] == 4) current_game->planes[i]->is_infected = 1;
 
 
         }
