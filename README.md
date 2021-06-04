@@ -17,13 +17,9 @@ Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal
   - [VARS] permet de passer au gros du jeu : les mutations. Ce menu vous affiche vos points ADN, mais aussi les mutations sélectionnées ainsi que vos point de contagion, de sévérité, et de létalité. Dans ce menu, vous pouvez modifier tout cela.
   - [x^2] permet d'accéder  au menu statistique qui vous affiche les stats sur les humains. La barre symbolise le pourcentage de la popuation totale : donc la somme de toute les barre doit donné une seule barre entière.
 
-De manière générale, si vous êtes perdu, [EXIT] vous ramènera toujours sur la mappemonde, ou au menu précédent.
+Dans les menus déplacezz-vous grâce aux touches fléchées, validez avec [SHIFT] et annuler avec [ALPHA].
 
-Dans le menu des mutations, vous pouvez modifier vos caractéristiques via les touches F1 à F6 comme suit : 
- - [F1] sert à changer les symptômes de votre maladie
- - [F3] sert à changer les capacités d'adaptation de votre maladie
- - [F5] sert à modifier les moyens de transmission de votre maladie
- - [F6] sert à revenir au menu principal avec la mappemonde
+Pour quitter le jeu, allez sur la mappemonde et pressez [EXIT].
 
 ## Mutations
 
@@ -31,11 +27,12 @@ Dans ce jeu, vous aurez le choix entre plusieurs mutations pour faire le plus de
 
 Toutes les mutations ont plusieurs spécificités :
  - Contagion qui détermine la proportion de personnes infectées
- - Sévérité touche la recherche, on peut la comprendre de la manière suivante : si la sévérité est élevée, la maladie est grave, elle entraine par conséquent une recherche active de la part des Humains.
+ - Sévérité touche la recherche, on peut la comprendre de la manière suivante : si la sévérité est élevée, la maladie est grave, elle entraine par conséquent une recherche active de la part des Humains. La séverité vous permet également de gagner des points ADN plus rapidement.
  - Létalité détermine le taux de mortalité parmi les infectés… Une létalité élevée fera de votre maladie une veritable machine à tuer, mais cela vous dévoile au grand jour et accèlere la recherche !
  - le coût en points ADN.
 
 Dans le menu de mutation vous avez les statistiques de la mutation sélectionnée. Et entre parenthèses vous avez les modifications effectives. Le nombre entre parenthèses vous indique donc le nombre de points de contagion, sévérité, létalité, vous allez gagner (ou perdre si le nombre est négatif) si vous faites muter votre maladie.
+
 
 ### Symptômes de la maladie
 

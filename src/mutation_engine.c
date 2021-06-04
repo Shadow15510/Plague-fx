@@ -100,10 +100,8 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
     {
         display_mutation_buy(c, mutation_menu, table, button_selected, current_game);
 
-        int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
-        int timeout = NULL;
-        
-        key_event_t ev = getkey_opt(opt, &timeout);
+        int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;        
+        key_event_t ev = getkey_opt(opt, NULL);
         key = ev.key;
 
         if (key == KEY_DOWN || key == KEY_UP) button_selected = (button_selected + 1) % 2;
@@ -127,7 +125,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
                         // Update
                         update_disease(current_game);
-                        current_game->priority += floor((mutation_data->severity / 50) + (mutation_data->lethality / 50));
+                        current_game->priority += floor((mutation_data->severity + mutation_data->lethality) / 10);
 
                         const char *msg[5] = {"mutation", "achetee", "", "", ""};
                         message(msg);
