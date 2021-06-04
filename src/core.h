@@ -70,6 +70,8 @@ struct plane
     // Coordinates of the plane's departure
     int depa_x, depa_y;
 
+    int is_infected;
+
 };
 
 //cursor : cursor information for mutations selection

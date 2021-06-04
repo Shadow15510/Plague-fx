@@ -6,7 +6,7 @@ const struct mutation symptoms_data[14] =
 {
     {10, 10,  0,  2,  0, "NAUSEE"},
     {15, 10,  0, 10,  0, "VOMISSEMENT"},
-    {10, 10,  0,  3,  0, "TOUX"},
+    {10,  5,  0,  3,  0, "TOUX"},
     {15, 20,  0, 10,  0, "PNEUMONIE"},
     {10, 30, 20, 15, 10, "TUMEUR"},
     {15, 10,  5,  4,  0, "PLAIES"},

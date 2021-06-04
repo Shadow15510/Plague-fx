@@ -30,6 +30,9 @@ void next_frame(struct game *current_game)
         }
         if (current_game->planes[i]->x == current_game->planes[i]->dest_x && current_game->planes[i]->y == current_game->planes[i]->dest_y)
         {
+            // Infect the airport
+            if (current_game->planes[i]->is_infected) current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] = 1;
+
             // Set the new destination
             current_game->planes[i]->dest_x = current_game->planes[i]->depa_x;
             current_game->planes[i]->dest_y = current_game->planes[i]->depa_y;
@@ -42,6 +45,14 @@ void next_frame(struct game *current_game)
             int new_dir = (current_game->planes[i]->direction + 2) % 4;
             if (!new_dir) new_dir = 4;
             current_game->planes[i]->direction = new_dir;
+
+            // Infect the plane
+            if (current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] == 1  && 
+                (current_game->mutations_selected[2] == 3 || 
+                 current_game->mutations_selected[2] == 2 ||
+                 current_game->mutations_selected[2] == 5)) current_game->planes[i]->is_infected = 1;
+
+
         }
     }
 
@@ -54,7 +65,8 @@ void next_frame(struct game *current_game)
         current_game->time = 0;
 
         // Update the game
-        if (current_game->dna < 30) current_game->dna += 1 + floor(current_game->severity / 25);
+        current_game->dna = current_game->dna + 1 + floor(current_game->severity / 25);
+        if (current_game->dna > 30) current_game->dna = 30;
         if (current_game->research < current_game->limit) current_game->research += current_game->priority;
         epidemic_simulation(current_game);
 
