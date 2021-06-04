@@ -92,7 +92,7 @@ int get_inputs(const int background, int *mutation_menu)
     if (key == KEY_OPTN && (background == 1 || background == 2)) return (background % 2) + 1;
     if (key == KEY_VARS)
     {
-        *mutation_menu = 1;
+        *mutation_menu = 4;
         return 3;
     }
     if (key == KEY_SQUARE) return 6;

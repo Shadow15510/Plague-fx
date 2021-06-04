@@ -21,7 +21,7 @@ struct mutation
     int contagion, severity, lethality, dna, changement;
 
     // Name of the mutation
-    char *name;
+    char *name, *description;
 };
 
 // get_mutation : return the mutation table to display

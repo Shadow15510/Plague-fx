@@ -146,6 +146,28 @@ void display_mutation_buy(const struct cursor c, const int mutation_menu, const 
 }
 
 
+void display_mutation_description(const char *name, const char *description, const int mutation_menu, const int id)
+{
+    extern const bopti_image_t img_mutations;
+
+    int decalage = 0;
+
+    dclear(C_WHITE);
+
+    display_background(8);
+    dsubimage(3, 21, &img_mutations, 16 * (mutation_menu - 1), 16 * (id - 1), 15, 15, DIMAGE_NONE);
+    dprint(47, 25, C_BLACK, name);
+    
+    for (int i = 0; i < 4; i ++)
+    {
+        dtext_opt(25, 33 + i * 7, C_BLACK, C_WHITE, 0 ,0, description + decalage, 16 );
+        if (description[decalage+1] == '\0') break;
+        else decalage += 16;
+    }
+    dupdate();
+}
+
+
 void display_message(const char *msg[5])
 {
     dclear(C_WHITE);

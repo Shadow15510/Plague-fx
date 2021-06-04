@@ -109,6 +109,11 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
 
         if (key == KEY_DOWN || key == KEY_UP) button_selected = (button_selected + 1) % 2;
         if (key == KEY_ALPHA) return 1;
+        if (key == KEY_OPTN)
+        {
+            display_mutation_description(mutation_data->name, mutation_data->description, mutation_menu, id);
+            getkey();
+        }
         if (key == KEY_SHIFT)
         {
             if (!button_selected) return 0;
