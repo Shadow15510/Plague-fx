@@ -158,7 +158,7 @@ void update_disease(struct game *current_game)
     
     // research parameters
     current_game->limit = RESEARCH_LIMIT + symptom->changement + ability->changement + transmission->changement;
-    current_game->priority = floor((current_game->severity + current_game->lethality) / 200);
+    current_game->priority = floor((current_game->severity + current_game->lethality) / 40);
 }
 
 

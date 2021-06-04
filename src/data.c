@@ -4,17 +4,17 @@
 // (contation, severity, lethality, DNA cost, change to cure requirement)
 const struct mutation symptoms_data[14] =
 {
-    {15, 10,  0,  2,   0, "NAUSEE"},
-    {25, 10,  0,  4,   0, "VOMISSEMENT"},
+    {10, 10,  0,  2,   0, "NAUSEE"},
+    {25, 10,  0, 10,   0, "VOMISSEMENT"},
     {20, 10,  0,  3,   0, "TOUX"},
-    {15, 20,  0,  4,   0, "PNEUMONIE"},
+    {15, 20,  0, 10,   0, "PNEUMONIE"},
     {10, 30, 20, 15,  25, "TUMEUR"},
     {25, 10,  0,  4,   0, "PLAIES"},
     {10, 10,  0, 10,   0, "LESIONS"},
     {30, 20, 20, 20,  30, "HEMORRAGIE"},
     {25, 15, 10, 17,   0, "INFECTION"},
-    {15, 10, 10,  5,   0, "INFLAMMATION"},
-    {10, 15, 20, 12,   0, "IMMUNITE"},
+    {25, 10, 20, 20,   0, "INFLAMMATION"},
+    {10, 15, 20, 15,   0, "IMMUNITE"},
     { 0, 20,  0, 15, 120, "PARANOIA"},
     { 0, 15,  0, 20, 100, "FOLIE"},
     { 0, 30, 30, 30, 250, "ARRET TOTAL"},
@@ -25,8 +25,8 @@ const struct mutation abilities_data[6] =
 {
     {15,  0,  0, 10,  0, "FROID"},
     {15,  0,  0, 15,  0, "CHAUD"},
-    { 0, 20,  4, 25, 20, "GENETIQUE"},
-    {10, 40,  8, 30, 50, "MUTATION+"},
+    { 0, 10,  4, 25, 20, "GENETIQUE"},
+    {10, 40, 20, 30, 50, "MUTATION+"},
     {30,  0,  0, 30,  0, "ENVIRON"},
     { 0, 15, 30, 15, 30, "MEDICAMENT"},
 };

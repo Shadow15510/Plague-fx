@@ -17,7 +17,7 @@
 #include "core.h"
 #include "display_engine.h"
 #include "mutation_engine.h"
-
+#include "save.h"
 
 // title_screen : display the title screen
 static void title_screen(void);
@@ -40,6 +40,7 @@ int main(void)
     struct plane plane_3 = {68, 44, 1, 68, 20, 68, 44};
     struct plane plane_4 = {104, 20, 3, 104, 50, 104, 20};
     struct plane plane_5 = {68, 44, 4, 34, 44, 68, 44};
+
 
     struct game current_game =
     {
@@ -65,21 +66,19 @@ int main(void)
         .grid = {64, 128, NULL},
     };
 
-    /* allocate memory */
+    // Allocate memory
     current_game.grid.data = calloc(current_game.grid.width * current_game.grid.height, sizeof(uint8_t));
-
-    if (current_game.grid.data == NULL)
-    {
-        const char *msg[5] = {"CALLOC", "FAILED", "", "", ""};
-        message(msg);
-    }
 
     current_game.grid.data[95 + 20 * current_game.grid.width] = 1;
     current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1;
 
+    read_save(&current_game);
+
     main_loop(&current_game);
 
-    /* free memory */
+    write_save(&current_game);
+
+    // Free memory
     free(current_game.grid.data);
 
     return 1;

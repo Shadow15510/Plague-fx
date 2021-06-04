@@ -16,6 +16,7 @@ set(SOURCES
   src/mutation_engine.c
   src/data.c
   src/epidemic_engine.c
+  src/save.c
   # ...
 )
 # Shared assets, fx-9860G-only assets and fx-CG-50-only assets

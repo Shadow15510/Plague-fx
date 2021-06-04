@@ -1,6 +1,7 @@
 #include <gint/timer.h>
 #include <gint/clock.h>
 #include <gint/keyboard.h>
+#include <math.h>
 
 #include "core.h"
 #include "mutation_engine.h"
@@ -53,12 +54,12 @@ void next_frame(struct game *current_game)
         current_game->time = 0;
 
         // Update the game
-        if (current_game->dna <= 100) current_game->dna += 1;
-        current_game->research += current_game->priority;
+        if (current_game->dna <= 100) current_game->dna += 1 + floor(current_game->severity / 25);
+        if (current_game->research < current_game->limit) current_game->research += current_game->priority;
         epidemic_simulation(current_game);
 
         // Check the end of the game
-        if (current_game->research > current_game->limit)
+        if (current_game->research >= current_game->limit)
         {
             const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
             message(msg);
