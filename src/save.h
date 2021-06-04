@@ -9,4 +9,7 @@ void read_save(struct game *current_game);
 // write_save : write the savefile
 void write_save(const struct game *current_game);
 
+// delete_save : delete the savefile
+void delete_save(void);
+
 #endif /* _SAVE_H */

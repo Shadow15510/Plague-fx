@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3
+  Version ...........: 1.3.1
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -24,7 +24,7 @@ static void title_screen(void);
 
 
 // main_loop : display background, foreground and manage inputs
-void main_loop(struct game *current_game);
+int main_loop(struct game *current_game);
 
 
 int main(void)
@@ -74,9 +74,10 @@ int main(void)
 
     read_save(&current_game);
 
-    main_loop(&current_game);
+    int to_save = main_loop(&current_game);
 
-    write_save(&current_game);
+    if (to_save) write_save(&current_game);
+    else delete_save();
 
     // Free memory
     free(current_game.grid.data);
@@ -128,10 +129,10 @@ static void title_screen(void)
 }
 
 
-void main_loop(struct game *current_game)
+int main_loop(struct game *current_game)
 {
     int background = 1, mutation_menu = 4;
-    int end = 0;
+    int end = 0, to_save = 1;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, ENGINE_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -150,7 +151,7 @@ void main_loop(struct game *current_game)
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
-        next_frame(current_game);
+        to_save = next_frame(current_game);
         
         // Get inputs from the keyboard and manage it
         background = get_inputs(background, &mutation_menu);
@@ -165,5 +166,6 @@ void main_loop(struct game *current_game)
     }
 
     if (t >= 0) timer_stop(t);
+    return to_save;
 }
 
