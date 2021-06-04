@@ -1,8 +1,21 @@
+# Plague
+
+## Généralités
+
+### Présentation
+
 Plague inc est un jeu de stratégie où le but est de réduire l'humanité à néant… Simple ? Non ! Il vous faudra manipuler avec dextérité et prudence un virus pour anéantir des humains qui ne sont pas super collaboratifs… Pire, ces petits rigolos veulent sauver leurs peaux et recherchent activement un remède à ce mystérieux virus inconnu !
+
+Vous commencez la partie en Asie Centrale.
 
 ### Licence
 
 La totalité du projet est soumise à la licence GNU General Public Licence v3.0.
+
+### To do list
+
+ - Ajouter *in-game* des information sur chaque mutation
+ - Corriger le calcul avec les statistiques des humains
 
 ## Contrôles
 
@@ -39,4 +52,3 @@ En mutant, votre maladie peut acquérir des capacités. Ces capacités lui perme
 ### Moyens de transmissions
 
 Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractéristiques intéressantes qui lui permettront de coloniser le monde entier !
-

@@ -14,12 +14,11 @@ def show():
     img = Image.open("world.png")
     data = np.array(img)
 
-    rslt = ""
+    count = 0
     for index, line in enumerate(data):
         for pxl in line:
-            rslt += f"{analyse(index, pxl)}"
-        rslt += "\n"
-    print(rslt)
+            if analyse(index, pxl) == 0: count += 1
+    print(count)
 
 
 def get_tabular():
@@ -35,5 +34,4 @@ def get_tabular():
     rslt += "\n};"
     print(rslt)
 
-
-get_tabular()
+show()

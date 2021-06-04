@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.2
+  Version ...........: 1.2.1
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -70,7 +70,7 @@ int main(void)
     current_game.grid.data = calloc(current_game.grid.width * current_game.grid.height, sizeof(uint8_t));
 
     current_game.grid.data[95 + 20 * current_game.grid.width] = 1;
-    current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1;
+    current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1 - BLANK_CASES;
 
     read_save(&current_game);
 
@@ -130,7 +130,7 @@ static void title_screen(void)
 
 void main_loop(struct game *current_game)
 {
-    int background = 1, mutation_menu = 0;
+    int background = 1, mutation_menu = 4;
     int end = 0;
 
     static volatile int tick = 1;

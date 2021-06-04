@@ -90,7 +90,7 @@ void display_foreground(const int background, const struct game *current_game, c
         case 6:
             for (int i = 0; i < 4; i ++)
             {
-                length = 63 * current_game->humans[i] / (current_game->grid.width * current_game->grid.height);
+                length = 63 * current_game->humans[i] / ((current_game->grid.width * current_game->grid.height) - BLANK_CASES);
                 dline(61, i*8 + 31, 61 + length, i*8 + 31, C_BLACK);
                 dline(61, i*8 + 32, 61 + length, i*8 + 32, C_BLACK);
             }

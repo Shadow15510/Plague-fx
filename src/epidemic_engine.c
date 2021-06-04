@@ -32,6 +32,8 @@ bool bernoulli(const int p)
 
 void epidemic_simulation(struct game *current_game)
 {
+    extern const uint8_t world[64][128];
+
     srand(current_game->total_time);
 
     // Create a copy of the epidemic grid
@@ -54,8 +56,11 @@ void epidemic_simulation(struct game *current_game)
                     if (can_become_infected(current_game->grid, current_game->mutations_selected, i, j) && bernoulli(current_game->contagion))
                     {
                         current_grid[i + j * current_game->grid.width] = 1;
-                        current_game->humans[0] --;
-                        current_game->humans[1] ++;
+                        if (world[j][i])
+                        {
+                            current_game->humans[0] --;
+                            current_game->humans[1] ++;
+                        }
                     }
                     break;
 
@@ -66,16 +71,22 @@ void epidemic_simulation(struct game *current_game)
                     if (bernoulli(healed_rate))
                     {
                         current_grid[i + j * current_game->grid.width] = 2;
-                        current_game->humans[1] --;
-                        current_game->humans[2] ++;
+                        if (world[j][i])
+                        {
+                            current_game->humans[1] --;
+                            current_game->humans[2] ++;
+                        }
                     }
 
                     // Become dead
                     else if (bernoulli(current_game->lethality))
                     {
                         current_grid[i + j * current_game->grid.width] = 3;
-                        current_game->humans[1] --;
-                        current_game->humans[3] ++;
+                        if (world[j][i])
+                        {
+                            current_game->humans[1] --;
+                            current_game->humans[3] ++;
+                        }
                     }
                     break;
             }

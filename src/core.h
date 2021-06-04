@@ -3,8 +3,6 @@
 
 #include <gint/defs/types.h>
 
-
-
 // Duration for internal clock (ms)
 #define ENGINE_TICK 50
 #define CURSOR_TICK 150
@@ -15,6 +13,9 @@
 
 // Number of planes on screen
 #define NB_PLANES 5
+
+// Number of non-infectable cases
+#define BLANK_CASES 5382
 
 struct grid
 {    

@@ -48,8 +48,6 @@ void next_frame(struct game *current_game)
 
             // Infect the plane
             if (current_game->grid.data[current_game->planes[i]->x + current_game->planes[i]->y * current_game->grid.width] == 1  && current_game->mutations_selected[2] == 4) current_game->planes[i]->is_infected = 1;
-
-
         }
     }
 
@@ -64,16 +62,12 @@ void next_frame(struct game *current_game)
         // Update the game
         current_game->dna = current_game->dna + 1 + floor(current_game->severity / 25);
         if (current_game->dna > 30) current_game->dna = 30;
-        if (current_game->research < current_game->limit) current_game->research += current_game->priority;
+        current_game->research += current_game->priority;
+        if (current_game->research > current_game->limit) current_game->research = current_game->limit;
+        
         epidemic_simulation(current_game);
 
         // Check the end of the game
-        if (current_game->research >= current_game->limit)
-        {
-            const char *msg[5] = {"Vous avez", "perdu.", "", "", ""};
-            message(msg);
-            current_game->research = 0;
-        }
         if (!current_game->humans[1])
         {
             if (current_game->humans[0] != 0)
