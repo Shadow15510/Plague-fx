@@ -18,6 +18,7 @@ Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal
   - [OPTN] permet d'afficher / cacher la barre en dessous du monde qui vous affiche vos points ADN et la barre de recherche des humains.
   - [VARS] permet de passer au gros du jeu : les mutations. Ce menu vous affiche vos points ADN, mais aussi les mutations sélectionnées ainsi que vos points de contagion, de sévérité, et de létalité. Dans ce menu, vous pouvez modifier tout cela.
   - [x^2] permet d'accéder au menu statistique qui vous affiche les stats sur les humains. La barre symbolise le pourcentage de la population totale : donc la somme de toutes les barres doit donner une seule barre entière.
+  - [→] active (ou désactive) le mode rapide. Ce mode vous permet d'avancer 10 plus vite dans le jeu.
 
 Dans les menus déplacez-vous grâce aux touches fléchées, validez avec [SHIFT] et annulez avec [ALPHA].
 

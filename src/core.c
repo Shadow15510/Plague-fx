@@ -51,10 +51,13 @@ int next_frame(struct game *current_game)
         }
     }
 
+    int limit_tick = LIMIT_TICK;
+    if (current_game->boost) limit_tick = floor(LIMIT_TICK / 10);
+
     current_game->time += ENGINE_TICK;
     current_game->total_time += ENGINE_TICK;
 
-    if (current_game->time > LIMIT_TICK)
+    if (current_game->time > limit_tick)
     {
         // Reset internal clock
         current_game->time = 0;
@@ -70,7 +73,8 @@ int next_frame(struct game *current_game)
         // Check the end of the game
         if (!current_game->humans[1])
         {
-            if (current_game->humans[0]) message("VOUS AVEZ PERDU.");
+            
+            if (current_game->humans[0] || current_game->humans[3] < current_game->humans[2]) message("VOUS AVEZ PERDU.");
             else message("VOUS AVEZ GAGNE !");
             return 0;
         }
@@ -79,10 +83,11 @@ int next_frame(struct game *current_game)
 }
 
 
-int get_inputs(const int background, int *mutation_menu)
+int get_inputs(const int background, int *mutation_menu, int *boost)
 {
     int key = rtc_key();
 
+    if (key == KEY_ARROW) *boost = (*boost + 1) % 2;
     if (key == KEY_OPTN && (background == 1 || background == 2)) return (background % 2) + 1;
     if (key == KEY_VARS)
     {
@@ -98,7 +103,7 @@ int get_inputs(const int background, int *mutation_menu)
     if (key == KEY_ALPHA)
     {
         if (background == 5) return 3;
-        if (background != 1 && background != 2) return 1;
+        else return 1;
     }
     if (key == KEY_EXIT && (background == 1 || background == 2)) return -1;
 
