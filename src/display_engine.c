@@ -12,10 +12,11 @@ void display_background(const int background)
 }
 
 
-void display_foreground(const int background, const struct game *current_game, const int mutation_menu)
+void display_foreground(const int background, const struct game *current_game, const int mutation_menu, const int dna_animation)
 {
     extern const bopti_image_t img_mutations;
     extern const bopti_image_t img_planes;
+    extern const bopti_image_t img_dna;
     extern const uint8_t world[64][128];
 
     GUNUSED int length;
@@ -57,6 +58,9 @@ void display_foreground(const int background, const struct game *current_game, c
                 if (current_game->planes[i]->y + 8 < 57) dsubimage(current_game->planes[i]->x - 4, current_game->planes[i]->y - 4, &img_planes, 0, 8 * (current_game->planes[i]->direction - 1), 8, 8, DIMAGE_NONE);
             }
 
+            // Animated DNA
+            dsubimage(1, 51, &img_dna, dna_animation * 8, 0, 7, 12, DIMAGE_NONE);
+            
             // Status bottom bar 
             int length = 73 * current_game->research / current_game->limit;
             dprint(9, 58, C_BLACK, "%d", current_game->dna);
@@ -196,9 +200,10 @@ void display_message(char *msg)
 
 void display_dna_animation(const int frame)
 {
-    extern bopti_image_t img_dna;
+    extern const bopti_image_t img_dna;
 
-    dsubimage(114, 29, &img_dna, 11 * (frame - 1), 0, 11, 32, DIMAGE_NONE);
+    dsubimage(2, 3, &img_dna, 8 * frame, 0, 7, 12, DIMAGE_NONE);
+    dsubimage(42, 3, &img_dna, 8 * ((frame + 2) % 16), 0, 7, 12, DIMAGE_NONE);
     dupdate();
 }
 

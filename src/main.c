@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.2
+  Version ...........: 1.3.3
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -13,11 +13,14 @@
 #include <gint/clock.h>
 #include <gint/defs/types.h>
 #include <gint/std/stdlib.h>
+#include <gint/gint.h>
 
 #include "core.h"
 #include "display_engine.h"
 #include "mutation_engine.h"
 #include "save.h"
+
+const char *VERSION = "1.3.3";
 
 // title_screen : display the title screen
 static void title_screen(void);
@@ -72,12 +75,12 @@ int main(void)
     current_game.grid.data[95 + 20 * current_game.grid.width] = 1;
     current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1 - BLANK_CASES;
 
-    read_save(&current_game);
+    gint_world_switch(GINT_CALL(read_save, (void *)&current_game));
 
     int to_save = main_loop(&current_game);
 
-    if (to_save) write_save(&current_game);
-    else delete_save();
+    if (to_save) gint_world_switch(GINT_CALL(write_save, (void *)&current_game));
+    else gint_world_switch(GINT_CALL(delete_save));
 
     // Free memory
     free(current_game.grid.data);
@@ -95,9 +98,11 @@ static void title_screen(void)
     dupdate();
     sleep_ms(250);
 
-    dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);    
+    dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);
+    dprint_opt(32, 29, C_WHITE, C_BLACK, 0, 0, "VERSION %s", VERSION, -1);
     dupdate();
-    sleep_ms(500);
+    sleep_ms(1000);
+    
 
     for (int frame = 0; frame < 5; frame ++)
     {
@@ -111,15 +116,7 @@ static void title_screen(void)
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 65, 128, 64, DIMAGE_NONE);
     dupdate();
-    sleep_ms(500);
-
-    for (int i = 0; i < 5; i ++)
-    {
-        dclear(C_BLACK);
-        dsubimage(0, 0, &img_title, 0, ((i % 2) + 1) * 65, 128, 64, DIMAGE_NONE);
-        dupdate();
-        sleep_ms(250);
-    }
+    sleep_ms(750);
 
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 130, 128, 64, DIMAGE_NONE);
@@ -132,7 +129,7 @@ static void title_screen(void)
 int main_loop(struct game *current_game)
 {
     int background = 1, mutation_menu = 4;
-    int end = 0, to_save = 1;
+    int end = 0, to_save = 1, dna_animation = 0;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, ENGINE_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -147,12 +144,12 @@ int main_loop(struct game *current_game)
         // Update the screen
         dclear(C_WHITE);
         display_background(background);
-        display_foreground(background, current_game, mutation_menu);
+        display_foreground(background, current_game, mutation_menu, dna_animation);
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
-        to_save = next_frame(current_game);
-        if (!to_save) end = 1;
+        to_save = next_frame(current_game, &dna_animation);
+        if (!to_save) return 0;
         
         // Get inputs from the keyboard and manage it
         background = get_inputs(background, &mutation_menu, &current_game->boost);
@@ -167,6 +164,6 @@ int main_loop(struct game *current_game)
     }
 
     if (t >= 0) timer_stop(t);
-    return to_save;
+    return 1;
 }
 
