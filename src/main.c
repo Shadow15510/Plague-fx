@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.2
+  Version ...........: 1.3.3
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -18,6 +18,8 @@
 #include "display_engine.h"
 #include "mutation_engine.h"
 #include "save.h"
+
+const char *VERSION = "1.3.3";
 
 // title_screen : display the title screen
 static void title_screen(void);
@@ -95,9 +97,16 @@ static void title_screen(void)
     dupdate();
     sleep_ms(250);
 
-    dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);    
-    dupdate();
-    sleep_ms(500);
+    for (int i = 64; i > 32; i --)
+    {
+        dclear(C_BLACK);
+        dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);
+        dprint_opt(16, i, C_WHITE, C_BLACK, 0, 0, "VERSION %s", VERSION, -1);
+        dupdate();
+        sleep_ms(75);
+    }
+    sleep_ms(1000);
+    
 
     for (int frame = 0; frame < 5; frame ++)
     {
@@ -111,7 +120,7 @@ static void title_screen(void)
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 65, 128, 64, DIMAGE_NONE);
     dupdate();
-    sleep_ms(500);
+    sleep_ms(1000);
 
     for (int i = 0; i < 5; i ++)
     {
