@@ -157,7 +157,7 @@ int main_loop(struct game *current_game)
 
         // Compute the motion of planes, DNA points and infectious model
         to_save = next_frame(current_game, &dna_animation);
-        if (!to_save) end = 1;
+        if (!to_save) return 0;
         
         // Get inputs from the keyboard and manage it
         background = get_inputs(background, &mutation_menu, &current_game->boost);
@@ -172,6 +172,6 @@ int main_loop(struct game *current_game)
     }
 
     if (t >= 0) timer_stop(t);
-    return to_save;
+    return 1;
 }
 
