@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.1
+  Version ...........: 1.3.2
   Last modification .: 4 June 2021
 
   code and assets provided with licence :
@@ -59,7 +59,7 @@ int main(void)
         .priority = 0,
         .humans = {0, 1, 0, 0},
 
-        .time = 0, .total_time = 0,
+        .time = 0, .total_time = 0, .boost = 0,
 
         .planes = {&plane_1, &plane_2, &plane_3, &plane_4, &plane_5, NULL},
 
@@ -152,9 +152,10 @@ int main_loop(struct game *current_game)
 
         // Compute the motion of planes, DNA points and infectious model
         to_save = next_frame(current_game);
+        if (!to_save) end = 1;
         
         // Get inputs from the keyboard and manage it
-        background = get_inputs(background, &mutation_menu);
+        background = get_inputs(background, &mutation_menu, &current_game->boost);
 
         // Special actions : quit and manage mutations
         if (background == -1) end = 1;

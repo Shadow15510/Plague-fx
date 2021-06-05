@@ -47,8 +47,8 @@ struct game
     // Humans stats : healthy, infected, dead, healed
     int humans[4];
 
-    // Time
-    int time, total_time;
+    // Time and boost (10 times faster)
+    int time, total_time, boost;
 
     // Planes
     struct plane *planes[NB_PLANES + 1];
@@ -87,7 +87,7 @@ struct cursor
 };
 
 // get_inputs : detect and manage inputs
-int get_inputs(const int background, int *mutation_menu);
+int get_inputs(const int background, int *mutation_menu, int *boost);
 
 // next_frame : compute the plane's positions
 int next_frame(struct game *current_game);

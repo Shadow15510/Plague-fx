@@ -58,7 +58,7 @@ void display_foreground(const int background, const struct game *current_game, c
             }
 
             // Status bottom bar 
-            int length = 74 * current_game->research / current_game->limit;
+            int length = 73 * current_game->research / current_game->limit;
             dprint(9, 58, C_BLACK, "%d", current_game->dna);
 
             dline(51, 60, 51 + length, 60, C_BLACK);
