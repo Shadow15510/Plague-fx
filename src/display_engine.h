@@ -21,7 +21,5 @@ void display_mutation_description(const char *name, const char *description, con
 // output_error : display text and message background
 void display_message(char *msg);
 
-// display_dna_animation : display the DNA according to the frame number
-void display_dna_animation(const int frame);
 
 #endif /* _PLAGUE_DISPLAY_ENGINE_H */
