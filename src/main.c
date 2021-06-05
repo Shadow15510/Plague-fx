@@ -13,6 +13,7 @@
 #include <gint/clock.h>
 #include <gint/defs/types.h>
 #include <gint/std/stdlib.h>
+#include <gint/gint.h>
 
 #include "core.h"
 #include "display_engine.h"
@@ -74,12 +75,12 @@ int main(void)
     current_game.grid.data[95 + 20 * current_game.grid.width] = 1;
     current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1 - BLANK_CASES;
 
-    read_save(&current_game);
+    gint_world_switch(GINT_CALL(read_save, (void *)&current_game));
 
     int to_save = main_loop(&current_game);
 
-    if (to_save) write_save(&current_game);
-    else delete_save();
+    if (to_save) gint_world_switch(GINT_CALL(write_save, (void *)&current_game));
+    else gint_world_switch(GINT_CALL(delete_save));
 
     // Free memory
     free(current_game.grid.data);
