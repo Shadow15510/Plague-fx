@@ -4,12 +4,6 @@
 
 #include "save.h"
 
-/* BUG
-  Démarrer le jeu, quitter, revenir sur le jeu, quitter -> la calto plante
-  => Premier démarrage du jeu : ok (valeur par défaut bien initialisée)
-  => Quand on revient sur le jeu, pas de problème : tout est sauvé correctement (sauvé correctement et chargé correctement)
-  => On quitte : bug
-*/
 
 // Name of the savefile
 static const uint16_t *filename = u"\\\\fls0\\Plague.sav";
