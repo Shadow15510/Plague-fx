@@ -9,7 +9,7 @@
 #include "display_engine.h"
 
 
-int next_frame(struct game *current_game)
+int next_frame(struct game *current_game, int *dna_animation)
 {
     for (int i = 0; current_game->planes[i]; i++)
     {
@@ -54,8 +54,11 @@ int next_frame(struct game *current_game)
     int limit_tick = LIMIT_TICK;
     if (current_game->boost) limit_tick = floor(LIMIT_TICK / 10);
 
+
     current_game->time += ENGINE_TICK;
     current_game->total_time += ENGINE_TICK;
+
+    if (!(current_game->time % 150)) *dna_animation = (*dna_animation + 1) % 16;
 
     if (current_game->time > limit_tick)
     {
@@ -158,7 +161,7 @@ void message(char *msg)
 {
     display_message(msg);
 
-    int key = 0, frame = 1;
+    int key = 0, frame = 0;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, DNA_ANIMATION_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -172,8 +175,7 @@ void message(char *msg)
         key = rtc_key();
         display_dna_animation(frame);
 
-        frame = (frame + 1) % 24;
-        if (!frame) frame = 24;
+        frame = (frame + 1) % 16;
     }
 
     if (t >= 0) timer_stop(t);

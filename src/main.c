@@ -97,14 +97,9 @@ static void title_screen(void)
     dupdate();
     sleep_ms(250);
 
-    for (int i = 64; i > 32; i --)
-    {
-        dclear(C_BLACK);
-        dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);
-        dprint_opt(16, i, C_WHITE, C_BLACK, 0, 0, "VERSION %s", VERSION, -1);
-        dupdate();
-        sleep_ms(75);
-    }
+    dsubimage(0, 0, &img_title, 0, 0, 128, 64, DIMAGE_NONE);
+    dprint_opt(32, 29, C_WHITE, C_BLACK, 0, 0, "VERSION %s", VERSION, -1);
+    dupdate();
     sleep_ms(1000);
     
 
@@ -141,7 +136,7 @@ static void title_screen(void)
 int main_loop(struct game *current_game)
 {
     int background = 1, mutation_menu = 4;
-    int end = 0, to_save = 1;
+    int end = 0, to_save = 1, dna_animation = 0;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, ENGINE_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -156,11 +151,11 @@ int main_loop(struct game *current_game)
         // Update the screen
         dclear(C_WHITE);
         display_background(background);
-        display_foreground(background, current_game, mutation_menu);
+        display_foreground(background, current_game, mutation_menu, dna_animation);
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
-        to_save = next_frame(current_game);
+        to_save = next_frame(current_game, &dna_animation);
         if (!to_save) end = 1;
         
         // Get inputs from the keyboard and manage it

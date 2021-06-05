@@ -90,7 +90,7 @@ struct cursor
 int get_inputs(const int background, int *mutation_menu, int *boost);
 
 // next_frame : compute the plane's positions
-int next_frame(struct game *current_game);
+int next_frame(struct game *current_game, int *dna_animation);
 
 // rtc_key : get the key with RTC system
 int rtc_key(void);
