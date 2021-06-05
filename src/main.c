@@ -116,15 +116,7 @@ static void title_screen(void)
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 65, 128, 64, DIMAGE_NONE);
     dupdate();
-    sleep_ms(1000);
-
-    for (int i = 0; i < 5; i ++)
-    {
-        dclear(C_BLACK);
-        dsubimage(0, 0, &img_title, 0, ((i % 2) + 1) * 65, 128, 64, DIMAGE_NONE);
-        dupdate();
-        sleep_ms(250);
-    }
+    sleep_ms(750);
 
     dclear(C_BLACK);
     dsubimage(0, 0, &img_title, 0, 130, 128, 64, DIMAGE_NONE);
