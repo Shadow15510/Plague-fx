@@ -1,7 +1,7 @@
 /*
   Project name ......: Plague
   Version ...........: 1.3.3
-  Last modification .: 4 June 2021
+  Last modification .: 5 June 2021
 
   code and assets provided with licence :
   GNU General Public Licence v3.0
