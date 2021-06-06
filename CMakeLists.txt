@@ -17,40 +17,39 @@ set(SOURCES
   src/data.c
   src/epidemic_engine.c
   src/save.c
-  # ...
 )
+
 # Shared assets, fx-9860G-only assets and fx-CG-50-only assets
 set(ASSETS
-  # ...
+  assets/plague.png
+  assets/planes.png
+  assets/bground.png
+  assets/mutations.png
+  assets/cursor.png
+  assets/title.png
+  assets/dna.png
+  assets/explosion.png
+  assets/mutations_table/abilities_1.txt
+  assets/mutations_table/abilities_2.txt
+  assets/mutations_table/abilities_3.txt
+  assets/mutations_table/symptoms_1.txt
+  assets/mutations_table/symptoms_2.txt
+  assets/mutations_table/symptoms_3.txt
+  assets/mutations_table/symptoms_4.txt
+  assets/mutations_table/transmissions_1.txt
+  assets/mutations_table/transmissions_2.txt
+  assets/mutations_table/transmissions_3.txt
 )
 set(ASSETS_fx
-  assets-fx/plague.png
-  assets-fx/planes.png
-  assets-fx/bground.png
-  assets-fx/mutations.png
-  assets-fx/cursor.png
-  assets-fx/title.png
-  assets-fx/dna.png
-  assets-fx/explosion.png
-  assets-fx/mutations_table/abilities_1.txt
-  assets-fx/mutations_table/abilities_2.txt
-  assets-fx/mutations_table/abilities_3.txt
-  assets-fx/mutations_table/symptoms_1.txt
-  assets-fx/mutations_table/symptoms_2.txt
-  assets-fx/mutations_table/symptoms_3.txt
-  assets-fx/mutations_table/symptoms_4.txt
-  assets-fx/mutations_table/transmissions_1.txt
-  assets-fx/mutations_table/transmissions_2.txt
-  assets-fx/mutations_table/transmissions_3.txt
-  # ...
+
 )
 set(ASSETS_cg
-  assets-cg/example.png
-  # ...
+  
 )
 
 fxconv_declare_assets(${ASSETS} ${ASSETS_fx} ${ASSETS_cg} WITH_METADATA)
-fxconv_declare_converters(assets-fx/converters.py)
+fxconv_declare_converters(assets/converters.py)
+
 
 add_executable(myaddin ${SOURCES} ${ASSETS} ${ASSETS_${FXSDK_PLATFORM}})
 target_compile_options(myaddin PRIVATE -Wall -Wextra -Os)
@@ -60,6 +59,6 @@ if("${FXSDK_PLATFORM_LONG}" STREQUAL fx9860G)
   generate_g1a(TARGET myaddin OUTPUT "Plague.g1a"
     NAME "Plague" ICON assets-fx/icon.png)
 elseif("${FXSDK_PLATFORM_LONG}" STREQUAL fxCG50)
-  generate_g3a(TARGET myaddin OUTPUT "MyAddin.g3a"
-    NAME "MyAddin" ICONS assets-cg/icon-uns.png assets-cg/icon-sel.png)
+  generate_g3a(TARGET myaddin OUTPUT "Plague.g3a"
+    NAME "Plague" ICONS assets-cg/icon-uns.png assets-cg/icon-sel.png)
 endif()
