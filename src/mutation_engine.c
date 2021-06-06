@@ -62,8 +62,9 @@ void mutation_select(struct game *current_game, const int mutation_menu)
     {   
         // Cursor blinking gestion
         while (!tick) sleep();
-        tick = 0;
-        c.display = (c.display + 1) % 2;
+        tick = 1;
+        //c.display = (c.display + 1) % 2;
+        c.display = 0;
 
         // Get and display the mutation menu
         int table[4][8];

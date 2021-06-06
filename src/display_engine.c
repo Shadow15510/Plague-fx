@@ -39,6 +39,9 @@ void display_foreground(const int background, const struct game *current_game, c
             {
                 dsubimage(current_game->planes[i]->x - 4, current_game->planes[i]->y - 4, &img_planes, 0, 8 * (current_game->planes[i]->direction - 1), 8, 8, DIMAGE_NONE);
             }
+
+            // Display if boost is activated
+            if (current_game->boost) dprint(0, 0, C_BLACK, "+");
             break;
 
         case 2:
@@ -67,6 +70,10 @@ void display_foreground(const int background, const struct game *current_game, c
 
             dline(51, 60, 51 + length, 60, C_BLACK);
             dline(51, 59, 51 + length, 59, C_BLACK);
+
+            // Display if boost is activated
+            if (current_game->boost) dprint(0, 0, C_BLACK, "+");
+            
             break;
 
         case 3:

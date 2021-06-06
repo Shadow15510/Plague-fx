@@ -65,6 +65,9 @@ int next_frame(struct game *current_game, int *dna_animation)
         // Reset internal clock
         current_game->time = 0;
 
+        // Display the first step of research
+        if (!current_game->research && current_game->priority) message("LA RECHERHCE CONTRE VOTRE VIRUS COMMENCE !"); 
+
         // Update the game
         current_game->dna = current_game->dna + 1 + floor(current_game->severity / 10);
         if (current_game->dna > 30) current_game->dna = 30;
@@ -159,7 +162,8 @@ int callback_tick(volatile int *tick)
 
 void message(char *msg)
 {
+    int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
+    
     display_message(msg);
-    getkey();
-
+    getkey_opt(opt, NULL);
 }
