@@ -1,11 +1,7 @@
 /*
   Project name ......: Plague
-<<<<<<< HEAD
-  Version ...........: 1.3.3
-=======
-  Version ...........: 1.3.4
->>>>>>> dev
-  Last modification .: 5 June 2021
+  Version ...........: 1.3.5
+  Last modification .: 6 June 2021
 
   code and assets provided with licence :
   GNU General Public Licence v3.0
@@ -24,7 +20,7 @@
 #include "mutation_engine.h"
 #include "save.h"
 
-const char *VERSION = "1.3.4";
+const char *VERSION = "1.3.5";
 
 // title_screen : display the title screen
 static void title_screen(void);
@@ -84,7 +80,20 @@ int main(void)
     int to_save = main_loop(&current_game);
 
     if (to_save) gint_world_switch(GINT_CALL(write_save, (void *)&current_game));
-    else gint_world_switch(GINT_CALL(delete_save));
+    else
+    {
+        // Display stats at the end of the game
+        dclear(C_WHITE);
+        display_background(6);
+        display_foreground(6, &current_game, 0, 0);
+        dupdate();
+        sleep_ms(250);
+
+        int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
+        getkey_opt(opt, NULL);
+
+        gint_world_switch(GINT_CALL(delete_save));
+    }
 
     // Free memory
     free(current_game.grid.data);
@@ -133,7 +142,7 @@ static void title_screen(void)
 int main_loop(struct game *current_game)
 {
     int background = 1, mutation_menu = 4;
-    int end = 0, to_save = 1, dna_animation = 0;
+    int end = 0, to_save = 1, dna_animation = 0, vaccine = 0;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, ENGINE_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -152,7 +161,7 @@ int main_loop(struct game *current_game)
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
-        to_save = next_frame(current_game, &dna_animation);
+        to_save = next_frame(current_game, &dna_animation, &vaccine);
         if (!to_save) return 0;
         
         // Get inputs from the keyboard and manage it

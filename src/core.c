@@ -9,7 +9,7 @@
 #include "display_engine.h"
 
 
-int next_frame(struct game *current_game, int *dna_animation)
+int next_frame(struct game *current_game, int *dna_animation, int *vaccine)
 {
     for (int i = 0; current_game->planes[i]; i++)
     {
@@ -64,6 +64,10 @@ int next_frame(struct game *current_game, int *dna_animation)
     {
         // Reset internal clock
         current_game->time = 0;
+
+        // Display message on research
+        if (!current_game->research && current_game->priority) message("LA RECHERHCE CONTRE VOTRE VIRUS COMMENCE !"); 
+        else if (!*vaccine && (current_game->research == current_game->limit)) {*vaccine = 1; message("LE VACCIN EST TERMINE."); }
 
         // Update the game
         current_game->dna = current_game->dna + 1 + floor(current_game->severity / 10);
@@ -160,7 +164,9 @@ int callback_tick(volatile int *tick)
 
 void message(char *msg)
 {
-    display_message(msg);
-    getkey();
+    int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
+    key_event_t ev = {0};
 
+    display_message(msg);
+    while (ev.key != KEY_ALPHA) ev = getkey_opt(opt, NULL);
 }

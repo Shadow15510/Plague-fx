@@ -72,6 +72,8 @@ void mutation_select(struct game *current_game, const int mutation_menu)
         
         // Get the key
         key = rtc_key();
+
+        if (key) {tick = 1; c.display = 1;}
         
         // Manage input
         if (key == KEY_ALPHA) end = 1;
