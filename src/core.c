@@ -161,23 +161,6 @@ int callback_tick(volatile int *tick)
 void message(char *msg)
 {
     display_message(msg);
+    getkey();
 
-    int key = 0, frame = 0;
-
-    static volatile int tick = 1;
-    int t = timer_configure(TIMER_ANY, DNA_ANIMATION_TICK*1000, GINT_CALL(callback_tick, &tick));
-    if (t >= 0) timer_start(t);
-
-    while (!key)
-    {
-        while(!tick) sleep();
-        tick = 0;
-
-        key = rtc_key();
-        display_dna_animation(frame);
-
-        frame = (frame + 1) % 16;
-    }
-
-    if (t >= 0) timer_stop(t);
 }

@@ -198,13 +198,3 @@ void display_message(char *msg)
 }
 
 
-void display_dna_animation(const int frame)
-{
-    extern const bopti_image_t img_dna;
-
-    dsubimage(2, 3, &img_dna, 8 * frame, 0, 7, 12, DIMAGE_NONE);
-    dsubimage(42, 3, &img_dna, 8 * ((frame + 2) % 16), 0, 7, 12, DIMAGE_NONE);
-    dupdate();
-}
-
-
