@@ -21,5 +21,4 @@ void display_mutation_description(const char *name, const char *description, con
 // output_error : display text and message background
 void display_message(char *msg);
 
-
 #endif /* _PLAGUE_DISPLAY_ENGINE_H */
