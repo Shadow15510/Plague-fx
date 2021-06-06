@@ -63,7 +63,7 @@ void mutation_select(struct game *current_game, const int mutation_menu)
         // Cursor blinking gestion
         while (!tick) sleep();
         tick = 0;
-        c.display = (c.display + 1) % 4;
+        c.display = (c.display + 1) % 2;
 
         // Get and display the mutation menu
         int table[4][8];
@@ -72,6 +72,8 @@ void mutation_select(struct game *current_game, const int mutation_menu)
         
         // Get the key
         key = rtc_key();
+
+        if (key) {tick = 1; c.display = 1;}
         
         // Manage input
         if (key == KEY_ALPHA) end = 1;

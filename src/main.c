@@ -83,8 +83,11 @@ int main(void)
     else
     {
         // Display stats at the end of the game
+        dclear(C_WHITE);
         display_background(6);
         display_foreground(6, &current_game, 0, 0);
+        dupdate();
+        sleep_ms(250);
 
         int opt = GETKEY_DEFAULT & ~GETKEY_MOD_SHIFT & ~GETKEY_MOD_ALPHA & ~GETKEY_REP_ARROWS;
         getkey_opt(opt, NULL);
@@ -139,7 +142,7 @@ static void title_screen(void)
 int main_loop(struct game *current_game)
 {
     int background = 1, mutation_menu = 4;
-    int end = 0, to_save = 1, dna_animation = 0;
+    int end = 0, to_save = 1, dna_animation = 0, vaccine = 0;
 
     static volatile int tick = 1;
     int t = timer_configure(TIMER_ANY, ENGINE_TICK*1000, GINT_CALL(callback_tick, &tick));
@@ -158,7 +161,7 @@ int main_loop(struct game *current_game)
         dupdate();
 
         // Compute the motion of planes, DNA points and infectious model
-        to_save = next_frame(current_game, &dna_animation);
+        to_save = next_frame(current_game, &dna_animation, &vaccine);
         if (!to_save) return 0;
         
         // Get inputs from the keyboard and manage it

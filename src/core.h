@@ -5,7 +5,7 @@
 
 // Duration for internal clock (ms)
 #define ENGINE_TICK 50
-#define CURSOR_TICK 75
+#define CURSOR_TICK 110
 #define DNA_ANIMATION_TICK 150
 
 // Duration for DNA points and infectious model (ms)
@@ -90,7 +90,7 @@ struct cursor
 int get_inputs(const int background, int *mutation_menu, int *boost);
 
 // next_frame : compute the plane's positions
-int next_frame(struct game *current_game, int *dna_animation);
+int next_frame(struct game *current_game, int *dna_animation, int *vaccine);
 
 // rtc_key : get the key with RTC system
 int rtc_key(void);
