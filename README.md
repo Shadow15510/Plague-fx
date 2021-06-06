@@ -20,11 +20,13 @@ Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal
   - [x^2] permet d'accéder au menu statistique qui vous affiche les stats sur les humains. La barre symbolise le pourcentage de la population totale : donc la somme de toutes les barres doit donner une seule barre entière.
   - [→] active (ou désactive) le mode rapide. Ce mode vous permet d'avancer 10 plus vite dans le jeu.
 
-Dans les menus déplacez-vous grâce aux touches fléchées, validez avec [SHIFT] et annulez avec [ALPHA].
+Dans les menus déplacez-vous grâce aux touches fléchées, validez avec [SHIFT] et annulez avec [ALPHA]. Pour quitter les messages pop-up, pressez [ALPHA].
 
 Pour quitter le jeu, allez sur la mappemonde et pressez [EXIT].
 
-Dans les menus de sélection des mutations, pressez [OPTN] pour avoir une courte description de la mutation sélectionnée. Pressez ensuite n'importe quelle autre touche pour revenir sur les données de bases.
+Dans les menus de sélection des mutations, pressez [OPTN] pour avoir une courte description de la mutation sélectionnée. Pressez ensuite [ALPHA] pour revenir sur les données de bases.
+
+Dans l'écran principal du jeu, le petit plus en haut à gauche vous indique que le mode rapide est activé.
 
 ## Mutations
 

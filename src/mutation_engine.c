@@ -114,7 +114,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
         if (key == KEY_OPTN)
         {
             display_mutation_description(mutation_data->name, mutation_data->description, mutation_menu, id);
-            getkey();
+            while (ev.key != KEY_ALPHA) ev = getkey_opt(opt, NULL);
         }
         if (key == KEY_SHIFT)
         {
