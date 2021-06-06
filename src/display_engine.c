@@ -73,7 +73,7 @@ void display_foreground(const int background, const struct game *current_game, c
 
             // Display if boost is activated
             if (current_game->boost) dprint(0, 0, C_BLACK, "+");
-            
+
             break;
 
         case 3:
@@ -124,7 +124,9 @@ void display_mutation(const int table[4][8], const struct cursor c, const int mu
             if (table[i][j]) dsubimage(j*16, i*16, &img_mutations, 16 * (mutation_menu - 1), 16 * (table[i][j] - 1), 15, 15, DIMAGE_NONE);
         }
     }
-    dsubimage((16 * c.x) - 1, (16 * c.y) - 1, &img_cursor, 0, 17 * (c.display), 17, 17, DIMAGE_NONE);
+    int to_display = 0;
+    if (c.display > 1) to_display = 1;
+    dsubimage((16 * c.x) - 1, (16 * c.y) - 1, &img_cursor, 0, 17 * (to_display), 17, 17, DIMAGE_NONE);
     dupdate();
 
 }
