@@ -136,6 +136,7 @@ int mutation_buy(struct game *current_game, const struct cursor c, const int mut
                         // Update
                         update_disease(current_game);
                         current_game->priority += ceil((mutation_data->severity + mutation_data->lethality) / 10);
+                        current_game->limit += mutation_data->changement;
                         message("MUTATION ACHETEE");
                     }
                     else message("ACHAT IMPOSSIBLE");
@@ -168,8 +169,6 @@ void update_disease(struct game *current_game)
     current_game->severity = symptom->severity + ability->severity + transmission->severity;
     current_game->lethality = symptom->lethality + ability->lethality + transmission->lethality;
     
-    // research parameter
-    current_game->limit = RESEARCH_LIMIT + symptom->changement + ability->changement + transmission->changement;
     if (current_game->research > current_game->limit) current_game->research = current_game->limit;
 
 }
