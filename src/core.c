@@ -82,7 +82,7 @@ int next_frame(struct game *current_game, int *dna_animation, int *vaccine)
         if (!current_game->humans[1])
         {
             
-            if (current_game->humans[0] || current_game->humans[3] < current_game->humans[2]) message("VOUS AVEZ PERDU.");
+            if (current_game->humans[3] < 4 * (current_game->humans[0] + current_game->humans[2])) message("VOUS AVEZ PERDU.");
             else message("VOUS AVEZ GAGNE !");
             return 0;
         }

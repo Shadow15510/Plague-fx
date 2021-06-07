@@ -42,7 +42,7 @@ void epidemic_simulation(struct game *current_game)
     init_tab(current_game->grid.width * current_game->grid.height, current_grid, current_game->grid.data);
 
     int healed_rate =  0;
-    if (current_game->research == current_game->limit) healed_rate = rand() % 11;
+    if (current_game->research == current_game->limit) healed_rate = rand() % 6;
 
     // Make the epidemic grid evolove
     for (int i = 0; i < current_game->grid.width; i ++)
