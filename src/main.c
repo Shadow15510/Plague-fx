@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.7
+  Version ...........: 1.3.8
   Last modification .: 8 June 2021
 
   code and assets provided with licence :
