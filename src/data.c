@@ -35,7 +35,7 @@ const struct mutation abilities_data[6] =
 const struct mutation transmissions_data[13] =
 {
     { 5,  0, 0,  5, 0, "AIR 1", "TRANSMISSION PAR L'AIR"},
-    {10, 10, 0, 15, 0, "AIR 2", "TRANSMISSION PAR L'AIR"},
+    {10,  0, 0, 15, 0, "AIR 2", "TRANSMISSION PAR L'AIR"},
     {20, 10, 0, 20, 0, "AIR 3",  "TRANSMISSION PAR L'AIR"},
     {40, 15, 0, 30, 0, "AEROSOL", "TRANSMISSION PAR L'AIR ET PAR L'EAU"},
     {10,  0, 0, 15, 0, "EAU 1", "TRANSMISSION PAR L'EAU"},
@@ -45,7 +45,7 @@ const struct mutation transmissions_data[13] =
     {20,  0, 0, 15, 0, "OISEAU 1", "LES OISEAUX TRANSMETTENT LE VIRUS"},
     {40, 10, 0, 25, 0, "OISEAU 2", "LES OISEAUX TRANSMETTENT LE VIRUS"},
     {10,  0, 0, 10, 0, "SANG 1", "LE VIRUS SE TRANSMET PAR LE SANG"},
-    {20, 10, 0, 15, 0, "SANG 2", "LE VIRUS SE TRANSMET PAR LE SANG"},
+    {20,  5, 0, 15, 0, "SANG 2", "LE VIRUS SE TRANSMET PAR LE SANG"},
     {40, 15, 0, 25, 0, "SANG 3", "LE VIRUS SE TRANSMET PAR LE SANG"},
 };
 

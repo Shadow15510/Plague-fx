@@ -42,7 +42,7 @@ void get_mutation(const struct game *current_game, const int mutation_menu, int 
     if (mutation_menu == 3)
     {
         if (current_game->mutations_count[2] < 5) init_mat(8, 4, table, mt_transmissions_1.data);
-        else if (current_game->mutations_count[2] < 10) init_mat(8, 4, table, mt_transmissions_2.data);
+        else if (current_game->mutations_count[2] < 9 ) init_mat(8, 4, table, mt_transmissions_2.data);
         else init_mat(8, 4, table, mt_transmissions_3.data);   
     }
 }
