@@ -1,6 +1,6 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.7
+  Version ...........: 1.3.8
   Last modification .: 8 June 2021
 
   code and assets provided with licence :
@@ -20,7 +20,7 @@
 #include "mutation_engine.h"
 #include "save.h"
 
-const char *VERSION = "1.3.7";
+const char *VERSION = "1.3.8";
 
 // title_screen : display the title screen
 static void title_screen(void);
