@@ -5,7 +5,7 @@
 #include "display_engine.h"
 
 // Basic limit research
-#define RESEARCH_LIMIT 250
+#define RESEARCH_LIMIT 200
 
 // mutation_table : contain the map of the mutation available
 struct mutation_table
