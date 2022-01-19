@@ -108,12 +108,12 @@ int get_inputs(const int background, int *mutation_menu, int *boost)
         else if (background == 6) return 1;
     }
 
-    if (key == KEY_ALPHA)
+    if (key == KEY_ALPHA || key == KEY_EXIT)
     {
         if (background == 5) return 3;
+        if (background == 1 || background == 2) return -1;
         else return 1;
     }
-    if (key == KEY_EXIT && (background == 1 || background == 2)) return -1;
 
     if (background == 3)
     {
@@ -168,5 +168,5 @@ void message(char *msg)
     key_event_t ev = {0};
 
     display_message(msg);
-    while (ev.key != KEY_ALPHA) ev = getkey_opt(opt, NULL);
+    while (ev.key != KEY_ALPHA && ev.key != KEY_EXIT) ev = getkey_opt(opt, NULL);
 }

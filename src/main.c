@@ -1,7 +1,7 @@
 /*
   Project name ......: Plague
-  Version ...........: 1.3.9
-  Last modification .: 8 June 2021
+  Version ...........: 1.3.10
+  Last modification .: 19 January 2022
 
   code and assets provided with licence :
   GNU General Public Licence v3.0
@@ -20,7 +20,7 @@
 #include "mutation_engine.h"
 #include "save.h"
 
-const char *VERSION = "1.3.9";
+const char *VERSION = "1.3.10";
 
 // title_screen : display the title screen
 static void title_screen(void);
@@ -76,6 +76,23 @@ int main(void)
     current_game.humans[0] = (current_game.grid.width * current_game.grid.height) - 1 - BLANK_CASES;
 
     gint_world_switch(GINT_CALL(read_save, (void *)&current_game));
+
+    if (current_game.total_time == 0)
+    {
+        dclear(C_WHITE);
+
+        dtext(10, 1, C_BLACK, "CONTROLES :");
+        dtext(1, 7, C_BLACK, "[REPLAY]:SELECTIONNER");
+        dtext(1, 14, C_BLACK, "[SHIFT]:VALIDER");
+        dtext(1, 21, C_BLACK, "[ALPHA/EXIT]:REVENIR");
+        dtext(1, 28, C_BLACK, "[VARS]:MUTATIONS");
+        dtext(1, 35, C_BLACK, "[OPTN]:RECHERCHE+ADN");
+        dtext(1, 42, C_BLACK, "[X^2]:STATISTIQUES");
+        dtext(1, 49, C_BLACK, "[->]:MODE RAPIDE");
+        
+        dupdate();
+        getkey();
+    }
 
     int to_save = main_loop(&current_game);
 
