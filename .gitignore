@@ -1,3 +1,4 @@
 build-fx/*
 assets-fx/__pycache__/*
 *.g1a
+.vscode*
