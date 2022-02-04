@@ -1,54 +1,54 @@
 # Plague
 
-## Généralités
+## General
 
-### Présentation
+### Presentation
 
-Plague inc est un jeu de stratégie où le but est de réduire l'humanité à néant… Simple ? Non ! Il vous faudra manipuler avec dextérité et prudence un virus pour anéantir des humains qui ne sont pas super collaboratifs… Pire, ces petits rigolos veulent sauver leurs peaux et recherchent activement un remède à ce mystérieux virus inconnu !
+Plague inc is a strategy game where the goal is to reduce humanity to nothing... Simple? No! You will have to handle a virus with dexterity and caution to annihilate humans who are not super collaborative... Worse, these little jokers want to save their skins and are actively looking for a cure for this mysterious unknown virus!
 
-Vous commencez la partie en Asie Centrale.
+You start the game in Central Asia.
 
 ### Licence
 
-La totalité du projet est soumise à la licence GNU General Public Licence v3.0.
+The entire project is subject to the GNU General Public License v3.0.
 
-## Contrôles
+## Controls
 
-Lancez le jeu, et pressez n'importe quelle touche pour passer l'écran principal. Une fois sur l'écran représentant la Terre, plusieurs choix s'offrent à vous :
-  - [OPTN] permet d'afficher / cacher la barre en dessous du monde qui vous affiche vos points ADN et la barre de recherche des humains.
-  - [VARS] permet de passer au gros du jeu : les mutations. Ce menu vous affiche vos points ADN, mais aussi les mutations sélectionnées ainsi que vos points de contagion, de sévérité, et de létalité. Dans ce menu, vous pouvez modifier tout cela.
-  - [x^2] permet d'accéder au menu statistique qui vous affiche les stats sur les humains. La barre symbolise le pourcentage de la population totale : donc la somme de toutes les barres doit donner une seule barre entière.
-  - [→] active (ou désactive) le mode rapide. Ce mode vous permet d'avancer 10 plus vite dans le jeu.
+Launch the game, and press any key to pass the main screen. Once on the screen representing the Earth, several choices are available to you:
 
-Dans les menus déplacez-vous grâce aux touches fléchées, validez avec [SHIFT] et annulez avec [ALPHA]. Pour quitter les messages pop-up, pressez [ALPHA].
+[OPTN] allows you to show/hide the bar below the world that shows you your DNA points and the human search bar.
+[VARS] allows you to get to the heart of the game: mutations. This menu displays your DNA points, but also the selected mutations as well as your points of contagion, severity, and lethality. In this menu, you can edit all this.
+[x^2] provides access to the statistics menu that shows you the stats on humans. The bar symbolizes the percentage of the total population: so the sum of all the bars must give a single whole bar.
+[→] enables (or disables) Fast Mode. This mode allows you to advance 10 times faster in the game.
+In the menus move with the arrow keys, validate with [SHIFT] and cancel with [ALPHA]. To exit pop-up messages, press [ALPHA].
 
-Pour quitter le jeu, allez sur la mappemonde et pressez [EXIT].
+To exit the game, go to the world map and press [EXIT].
 
-Dans les menus de sélection des mutations, pressez [OPTN] pour avoir une courte description de la mutation sélectionnée. Pressez ensuite [ALPHA] pour revenir sur les données de bases.
+In the mutation selection menus, press [OPTN] for a short description of the selected mutation. Then press [ALPHA] to return to the master data.
 
-Dans l'écran principal du jeu, le petit plus en haut à gauche vous indique que le mode rapide est activé.
+In the main screen of the game, the little extra at the top left tells you that the quick mode is activated.
 
 ## Mutations
 
-Dans ce jeu, vous aurez le choix entre plusieurs mutations pour faire le plus de dégât possible parmi les humains ! Comme dans le jeu d'origine, celles-ci sont divisées en 3 catégories : Symptômes, Capacités, et Transmissions.
+In this game, you will have the choice between several mutations to do as much damage as possible among humans! As in the original game, these are divided into 3 categories: Symptoms, Abilities, and Transmissions.
 
-Toutes les mutations ont plusieurs spécificités :
- - Contagion qui détermine la proportion de personnes infectées
- - Sévérité touche la recherche, on peut la comprendre de la manière suivante : si la sévérité est élevée, la maladie est grave, elle entraine par   conséquent une recherche active de la part des Humains. La sévérité vous permet également de gagner des points ADN plus rapidement.
- - Létalité détermine le taux de mortalité parmi les infectés… Une létalité élevée fera de votre maladie une véritable machine à tuer, mais cela     vous dévoile au grand jour et accélère la recherche !
- - le coût en points ADN.
+All mutations have several specificities:
 
-Dans le menu de mutation vous avez les statistiques de la mutation sélectionnée. Et entre parenthèses vous avez les modifications effectives. Le nombre entre parenthèses vous indique donc le nombre de points de contagion, sévérité, létalité, vous allez gagner (ou perdre si le nombre est négatif) si vous faites muter votre maladie.
+Spread that determines the proportion of people infected
+Severity affects research, it can be understood in the following way: if the severity is high, the disease is serious, it therefore leads to active research on the part of Humans. Severity also allows you to earn DNA points faster.
+Lethality determines the mortality rate among the infected... High lethality will make your disease a real killing machine, but it exposes you and accelerates the search!
+the cost in DNA points.
+In the mutation menu you have the statistics of the selected mutation. And in parentheses you have the actual changes. The number in parentheses therefore tells you the number of contagion points, severity, lethality, you will win (or lose if the number is negative) if you mutate your disease.
 
 
-### Symptômes de la maladie
+### Symptoms of the disease
 
-Comme son nom l'indique, votre maladie aussi puissante soit-elle n'est pas invisible : elle présente certains symptômes qui ont leurs spécificités. Bien entendu, les symptômes présentés dans ce jeu font partie du jeu d'origine et leurs spécificités en sont proches.
+As the name suggests, your disease, as powerful as it is, is not invisible: it has certain symptoms that are identifiable. Of course, the symptoms presented in this game are part of the original game and their symptoms are closely matched to it.
 
-### Capacités spéciales
+### Special abilities
 
-En mutant, votre maladie peut acquérir des capacités. Ces capacités lui permettent de mieux appréhender un milieu ou une situation, ainsi la capacité *Résistance au froid* donne un supplément de vigueur à votre virus dans les pays froids. Cela se traduit par une augmentation plus ou moins   forte de la contagion dans ces régions du monde…
+By mutating, your disease can acquire abilities. These abilities allow your virus to better understand an environment or a situation, so the Cold Resistance ability gives extra resilience to your virus in cold countries. This translates into an increase in infectivity in these regions of the world...
 
-### Moyens de transmissions
+### Means of transmission
 
-Votre maladie aura tout le loisir de changer ses moyens de transmission ! Plus ou moins efficaces ceux-ci permettent à votre maladie d'accéder à des caractéristiques intéressantes qui lui permettront de coloniser le monde entier !
+Your disease will have plenty of time to change its means of transmission! This will allow your disease to futher evolve which will allow it to take over the world!
