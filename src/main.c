@@ -81,14 +81,14 @@ int main(void)
     {
         dclear(C_WHITE);
 
-        dtext(10, 1, C_BLACK, "CONTROLES :");
-        dtext(1, 7, C_BLACK, "[REPLAY]:SELECTIONNER");
-        dtext(1, 14, C_BLACK, "[SHIFT]:VALIDER");
-        dtext(1, 21, C_BLACK, "[ALPHA/EXIT]:REVENIR");
+        dtext(10, 1, C_BLACK, "CONTROLS :");
+        dtext(1, 7, C_BLACK, "[REPLAY]:SELECTION");
+        dtext(1, 14, C_BLACK, "[SHIFT]:sELECT");
+        dtext(1, 21, C_BLACK, "[ALPHA/EXIT]:RETURN");
         dtext(1, 28, C_BLACK, "[VARS]:MUTATIONS");
-        dtext(1, 35, C_BLACK, "[OPTN]:RECHERCHE+ADN");
-        dtext(1, 42, C_BLACK, "[X^2]:STATISTIQUES");
-        dtext(1, 49, C_BLACK, "[->]:MODE RAPIDE");
+        dtext(1, 35, C_BLACK, "[OPTN]:RESEARCH+DNA");
+        dtext(1, 42, C_BLACK, "[X^2]:STATISTICS");
+        dtext(1, 49, C_BLACK, "[->]:FAST MODE");
         
         dupdate();
         getkey();

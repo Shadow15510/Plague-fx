@@ -17,7 +17,7 @@ The entire project is subject to the GNU General Public License v3.0.
 Launch the game, and press any key to pass the main screen. Once on the screen representing the Earth, several choices are available to you:
 
 [OPTN] allows you to show/hide the bar below the world that shows you your DNA points and the human search bar.
-[VARS] allows you to get to the heart of the game: mutations. This menu displays your DNA points, but also the selected mutations as well as your points of contagion, severity, and lethality. In this menu, you can edit all this.
+[VARS] allows you to get to the heart of the game: mutations. This menu displays your DNA points, but also the selected mutations as well as your points of infectivity, severity, and lethality. In this menu, you can edit all this.
 [x^2] provides access to the statistics menu that shows you the stats on humans. The bar symbolizes the percentage of the total population: so the sum of all the bars must give a single whole bar.
 [→] enables (or disables) Fast Mode. This mode allows you to advance 10 times faster in the game.
 In the menus move with the arrow keys, validate with [SHIFT] and cancel with [ALPHA]. To exit pop-up messages, press [ALPHA].
@@ -36,9 +36,8 @@ All mutations have several specificities:
 
 Spread that determines the proportion of people infected
 Severity affects research, it can be understood in the following way: if the severity is high, the disease is serious, it therefore leads to active research on the part of Humans. Severity also allows you to earn DNA points faster.
-Lethality determines the mortality rate among the infected... High lethality will make your disease a real killing machine, but it exposes you and accelerates the search!
+Lethality determines the mortality rate among the infected... High lethality will make your disease a real killing machine, but it exposes you and accelerates research into finding a cure!
 the cost in DNA points.
-In the mutation menu you have the statistics of the selected mutation. And in parentheses you have the actual changes. The number in parentheses therefore tells you the number of contagion points, severity, lethality, you will win (or lose if the number is negative) if you mutate your disease.
 
 
 ### Symptoms of the disease
